@@ -1,0 +1,27 @@
+{include file="header.html"}
+
+<!--主体-->
+<div id="about_main"> 
+<div id="about">
+  <ul class="about_left">
+    <!--<li  {if $_G.site_presult.nid=="hysm"  || $_G.site_result.nid=="hysm"} class="li2"  {else}   {/if}><a href="/hysm/main.html">会员说明</a></li>-->
+    <!--<li  {if $_G.site_presult.nid=="djsm"  || $_G.site_result.nid=="djsm"} class="li2"  {else}   {/if}><a href="/djsm/main.html">信用等级说明</a></li>-->
+    <!--<li  {if $_G.site_presult.nid=="fxbz"  || $_G.site_result.nid=="fxbz"} class="li2"  {else}   {/if}><a href="/fxbz/main.html">风险保障 </a></li>-->
+    <li  {if $_G.site_presult.nid=="aqbz"  || $_G.site_result.nid=="aqbz"} class="li2"  {else}   {/if}><a href="/aqbz/main.html">安全保障</a></li>
+    <!--<li  {if $_G.site_presult.nid=="bxbaozhang"  || $_G.site_result.nid=="bxbaozhang"} class="li2"  {else}   {/if}><a href="/bxbaozhang/main.html">本息保障</a></li>-->
+    <li  {if $_G.site_presult.nid=="lawrole"  || $_G.site_result.nid=="lawrole"} class="li2"  {else}   {/if}><a href="/lawrole/main.html">政策法规</a></li>
+    <!--<li  {if $_G.site_presult.nid=="zhsafe"  || $_G.site_result.nid=="zhsafe"} class="li2"  {else}   {/if}><a href="/zhsafe/main.html">账户安全</a></li>-->
+    <!--<li  {if $_G.site_presult.nid=="ysbaohu"  || $_G.site_result.nid=="ysbaohu"} class="li2"  {else}   {/if}><a href="/ysbaohu/main.html">隐私保护</a></li>-->
+  </ul>
+  <div class="about_right">
+    <div class="about_right_tit">{$_G.site_result.name}<span class="sp1"><span class="sp2"></span>当前位置：<a href="/aqbz/main.html">安全保障</a> >> {$_G.site_result.name}</span></div>
+    <div class="about_right_sum">
+      {$_G.site_result.content}
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+</div>
+<!--主体 end--> 
+
+{include file="footer.html"}

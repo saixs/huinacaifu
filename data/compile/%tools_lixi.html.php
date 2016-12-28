@@ -1,0 +1,103 @@
+<? $this->magic_include(array('file' => "header.html", 'vars' => array()));?>
+<link type="text/css" rel="stylesheet" href="/images/css.css" />
+
+<!--主体-->
+<div style="float:left; height:120px;"></div>
+<div id="about_main">
+    <div id="about">
+        <ul class="about_left">
+            <!--<li <? if (!isset($this->magic_vars['_G']['site_presult']['nid'])) $this->magic_vars['_G']['site_presult']['nid']='';if (!isset($this->magic_vars['_G']['site_result']['nid'])) $this->magic_vars['_G']['site_result']['nid']=''; ;if (  $this->magic_vars['_G']['site_presult']['nid']=="bzzx"  ||  $this->magic_vars['_G']['site_result']['nid']=="bzzx"): ?> class="li2"  <? else: ?>   <? endif; ?>><a href="/bzzx/main.html">帮助中心</a></li>-->
+            <li <? if (!isset($this->magic_vars['_G']['site_presult']['nid'])) $this->magic_vars['_G']['site_presult']['nid']='';if (!isset($this->magic_vars['_G']['site_result']['nid'])) $this->magic_vars['_G']['site_result']['nid']=''; ;if (  $this->magic_vars['_G']['site_presult']['nid']=="cjwt"  ||  $this->magic_vars['_G']['site_result']['nid']=="cjwt"): ?> class="li2"  <? else: ?>   <? endif; ?>><a href="/cjwt/main.html">常见问题</a></li>
+            <li <? if (!isset($this->magic_vars['_G']['site_presult']['nid'])) $this->magic_vars['_G']['site_presult']['nid']='';if (!isset($this->magic_vars['_G']['site_result']['nid'])) $this->magic_vars['_G']['site_result']['nid']=''; ;if (  $this->magic_vars['_G']['site_presult']['nid']=="ptyl"  ||  $this->magic_vars['_G']['site_result']['nid']=="ptyl"): ?> class="li2"  <? else: ?>   <? endif; ?>><a href="/ptyl/main.html">平台原理</a></li>
+            <!--<li <? if (!isset($this->magic_vars['_G']['site_presult']['nid'])) $this->magic_vars['_G']['site_presult']['nid']='';if (!isset($this->magic_vars['_G']['site_result']['nid'])) $this->magic_vars['_G']['site_result']['nid']=''; ;if (  $this->magic_vars['_G']['site_presult']['nid']=="lendhelp"  ||  $this->magic_vars['_G']['site_result']['nid']=="lendhelp"): ?> class="li2"  <? else: ?>   <? endif; ?>><a href="/lendhelp/main.html">如何借款</a></li>
+            <li <? if (!isset($this->magic_vars['_G']['site_presult']['nid'])) $this->magic_vars['_G']['site_presult']['nid']='';if (!isset($this->magic_vars['_G']['site_result']['nid'])) $this->magic_vars['_G']['site_result']['nid']=''; ;if (  $this->magic_vars['_G']['site_presult']['nid']=="bowrrowhelp"  ||  $this->magic_vars['_G']['site_result']['nid']=="bowrrowhelp"): ?> class="li2"  <? else: ?>   <? endif; ?>><a href="/bowrrowhelp/main.html">如何理财</a></li>-->
+            <!--<li <? if (!isset($this->magic_vars['_G']['site_presult']['nid'])) $this->magic_vars['_G']['site_presult']['nid']='';if (!isset($this->magic_vars['_G']['site_result']['nid'])) $this->magic_vars['_G']['site_result']['nid']=''; ;if (  $this->magic_vars['_G']['site_presult']['nid']=="ljgengduo"  ||  $this->magic_vars['_G']['site_result']['nid']=="ljgengduo"): ?> class="li2"  <? else: ?>   <? endif; ?>><a href="/ljgengduo/main.html">了解更多</a></li>-->
+            <!--<li <? if (!isset($this->magic_vars['_G']['site_presult']['nid'])) $this->magic_vars['_G']['site_presult']['nid']='';if (!isset($this->magic_vars['_G']['site_result']['nid'])) $this->magic_vars['_G']['site_result']['nid']=''; ;if (  $this->magic_vars['_G']['site_presult']['nid']=="fwgz"  ||  $this->magic_vars['_G']['site_result']['nid']=="fwgz"): ?> class="li2"  <? else: ?>   <? endif; ?>><a href="/fwgz/main.html">服务规则</a></li>-->
+            <li <? if (!isset($this->magic_vars['_G']['site_presult']['nid'])) $this->magic_vars['_G']['site_presult']['nid']='';if (!isset($this->magic_vars['_G']['site_result']['nid'])) $this->magic_vars['_G']['site_result']['nid']=''; ;if (  $this->magic_vars['_G']['site_presult']['nid']=="lixi"  ||  $this->magic_vars['_G']['site_result']['nid']=="lixi"): ?> class="li2"  <? else: ?>   <? endif; ?>><a href="/lixi/main.html">利息计算器 </a></li>
+        </ul>
+
+        <div class="about_right">
+            <div class="about_right_tit"><? if (!isset($this->magic_vars['_G']['site_result']['name'])) $this->magic_vars['_G']['site_result']['name'] = ''; echo $this->magic_vars['_G']['site_result']['name']; ?><span class="sp1"><span class="sp2"></span>当前位置： >> <? if (!isset($this->magic_vars['_G']['site_result']['name'])) $this->magic_vars['_G']['site_result']['name'] = ''; echo $this->magic_vars['_G']['site_result']['name']; ?></span></div>
+            <div class="about_right_sum">
+
+<style type="text/css">
+.title{text-indent:30px; line-height:15px}
+
+</style>
+
+
+
+<div class="list_li_3">
+	
+	<?
+		$account = isset($_REQUEST['account'])?$_REQUEST['account']:"";
+		$lilv = isset($_REQUEST['lilv'])?$_REQUEST['lilv']:"";
+		$times = isset($_REQUEST['times'])?$_REQUEST['times']:"";
+		$type = isset($_REQUEST['type'])?$_REQUEST['type']:"";
+	?>
+	<div class="content">
+		<br />
+		<font color="#FF0000">利息计算器,采用银行房贷等通用的"等额本息还款法",即借款者每月以相等的金额偿还贷款本息。</font>
+		<br /><br />
+		<div>
+			<form action="" method="get">借款金额：<input type="text" name="account" size="10"  value="<? echo isset($_REQUEST['account'])?$_REQUEST['account']:""; ?>" value="<? echo $_REQUEST['account'];?>" /> 年利率：<input type="text" name="lilv"  size="10"  value="<? echo isset($_REQUEST['lilv'])?$_REQUEST['lilv']:""; ?>"/>%  借款期限：<input type="text" name="times"  size="10"  value="<? echo isset($_REQUEST['times'])?$_REQUEST['times']:""; ?>" />个月 还款方式：<select name="type"><option value="0" >按月还款</option><option value="3" >月付息到期还本</option></select>  <input type="submit" value="开始计算" /></form>
+		</div>
+	</div>
+</div>
+<?
+require_once(ROOT_PATH."modules/borrow/borrow.class.php");
+$data['account'] = $account;
+$data['year_apr'] = $lilv;
+$data['month_times'] = $times;
+$data['borrow_time'] = time();
+
+$data['borrow_style']=$_REQUEST['type'];
+$list = borrowClass::EqualInterest($data);
+$data['borrow_style']=$_REQUEST['type'];
+$data['type']="all";
+$result = borrowClass::EqualInterest($data);
+if ($result!=""){
+?>
+
+<div>贷款概述</div>
+
+<div style="border: 1px #ccc solid;padding: 10px 20px;">
+	<div>
+		每个月将偿还：<? echo $result['monthly_repayment'];?>元 &nbsp; &nbsp; 月利率：<? echo $result['month_apr'];?>% &nbsp; &nbsp; 还款本息总额：<? echo $result['repayment_account'];?>元
+	</div>
+</div>
+
+<br />
+<div>还款计划时间表</div>
+<div class="list_tool">
+	<div class="content ltable">
+	
+	<table style="width: 770px;">
+		<tr>
+			<td><strong>期数</strong></td>
+			<td><strong>月还款本息</strong></td>
+			<td><strong>月还款本金</strong></td>
+			<td><strong>利息</strong></td>
+			<td><strong>余额</strong></td>
+		</tr>
+		<? foreach ($list as $key => $value){?>
+		<tr style="height: 40px;line-height: 40px;">
+			<td><? echo $key+1;?></td>
+			<td><? echo $value['repayment_account'];?></td>
+			<td><? echo $value['capital'];?></td>
+			<td><? echo $value['interest'];?></td>
+			<td><? if($_REQUEST['type']==3)  echo $data['account']; else  echo $result['repayment_account']-($key+1)*$value['repayment_account']<0.01?0:$result['repayment_account']-($key+1)*$value['repayment_account'] ?></td>
+		</tr>
+		<? }?>
+	</table>
+	</div>
+	<div class="foot"></div>
+</div>
+<? }?>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<? $this->magic_include(array('file' => "new_footer.html", 'vars' => array()));?>

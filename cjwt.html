@@ -1,0 +1,239 @@
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript">
+    var idPrevious = new Array('common','tender','borrow');
+    var length = idPrevious.length;
+    function showFatherBox(id) {
+        for (var i=0; i<length; i++) {
+            var node  = $('#'+idPrevious[i]+'_q');
+            var pNode = $('#'+idPrevious[i]);
+            if (idPrevious[i] == id) {
+                node.fadeIn();
+                pNode.css('backgroundColor','#E6E6F0');
+            } else {
+                node.hide();
+                pNode.css('backgroundColor','#ffffff');
+            }
+        }
+    }
+
+    function showChildBox(id) {
+        var idArr = id.split('_');
+        for (var i=0; i < 15; i++) {
+            if (i == idArr[1]) {
+                $('#'+idArr[0]+'_a_'+idArr[1]).fadeIn();
+                $('#'+idArr[0]+'_'+idArr[1]).css({'backgroundColor':'#E6E6F0','border':'1px #ccc solid','borderBottom':'1px #eee solid'});
+            } else {
+                $('#'+idArr[0]+'_a_'+i).hide();
+                $('#'+idArr[0]+'_'+i).css({'backgroundColor':'#ffffff','border':'1px #eee solid','borderBottom':'0px'});
+            }
+        }
+    }
+</script>
+
+<div>
+<table>
+    <tr>
+        <td id="common" style="cursor: pointer;" onclick="showFatherBox(this.id)">常见问题</td>
+        <td id="tender" style="cursor: pointer;" onclick="showFatherBox(this.id)">投资常见问题</td>
+        <td id="borrow" style="cursor: pointer;" onclick="showFatherBox(this.id)">借款常见问题</td>
+    </tr>
+</table>
+
+<div id="common_q">
+    <div id="common_7" class="q_title" onclick="showChildBox(this.id)">如何注册</div>
+    <div id="common_a_7" class="q_content">
+        1、进入网站首页,点击右上角免费注册.<br />
+        2、按照提示认真填写所需资料后,请认真阅读《服务协议》后,点击"同意"或"不同意".
+        &nbsp;&nbsp;&nbsp;&nbsp;若点击"不同意"将无法注册帐号.<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;若点击"同意",则可以点击免费注册,提交注册信息<br />
+        3、根据跳转新窗口的提示判断您的账户是否注册成功
+    </div>
+
+    <div id="common_1" class="q_title" onclick="showChildBox(this.id)">登录密码忘了怎么办</div>
+    <div id="common_a_1" class="q_content">
+        如果您遗忘了密码，可以在网站用户登录页面，点击“忘记密码”按钮，填写自己的Email地址信息找回密码。<br />
+        1. 点击首页的会员登录区域点击“忘记密码”。<br />
+        2. 填写您当时注册的邮箱，点击“找回密码”。<br />
+        3. 提示邮件发送成功。<br />
+        4. 根据提示到您的邮箱中将会收到一封标题为“重置密码”的信件,点击信中的链接。<br />
+        5. 根据提示密码重置成功。<br />
+
+        账户密码安全常识<br />
+        请仔细阅读以下常见的安全措施：<br />
+
+        1. 密码要保密，且定期更改。<br />
+        2. 请使用较长、复杂的字母数字组合以提高密码强度，不要用生日等容易被别人猜中的密码。<br />
+    </div>
+
+    <div id="common_2" class="q_title" onclick="showChildBox(this.id)">关于邮箱认证与电话认证</div>
+    <div id="common_a_2" class="q_content">
+        <strong>邮箱认证</strong><br />
+        1、会员在填写完毕注册信息，提交注册申请后。汇纳财富网站会向您的注册邮箱发送确认邮件，会员需要登录自己的注册邮箱，点击确认邮件中的注册确认链接，即可继续完成整个注册流程。<br />
+        2、一般来说，国内大部分邮箱都能较快速的收到我们发出的确认邮件，如果您长时间没有收到邮件，请将我们的认证邮件发送邮箱system@bljinrong.com添加到您的联系人当中.若仍然无法接收,请拨打电话400 805 8900，联系我们客服人员为您认证。<br />
+        <strong>手机认证</strong><br />
+        1、进入手机认证页面,填写需要绑定的手机号码后,点击"发送消息",系统将会向您的手机发送一条包含验证码的验证短信.<br />
+        2、在"手机验证码"输入框中填入您所接收到的验证码后,点击"确认提交即可".<br />
+        3、若您的手机/电话无法接收短信,请在完成操作"1"后,主动联系客服为您进行认证.
+    </div>
+
+    <div id="common_3" class="q_title" onclick="showChildBox(this.id)">如何充值</div>
+    <div id="common_a_3" class="q_content">
+        登录帐号后进入<a href="http://www.bljinrong.com/index.php?user&q=code/account/recharge_new">充值页面</a>按提示操作.
+    </div>
+
+    <div id="common_4" class="q_title" onclick="showChildBox(this.id)">网站资费</div>
+    <div id="common_a_4" class="q_content">请参阅:<a href="/feerole/main.html">资费标准</a></div>
+
+    <div id="common_5" class="q_title" onclick="showChildBox(this.id)">如何保证资金安全？</div>
+    <div id="common_a_5" class="q_content">
+        汇纳财富拥有专业高素质的管理团队，更加严格的风险控制体系，引入行业内成熟的人才和风控机制，更加安全、诚信、专业、透明、规范。<br />
+        请参阅:<a href="/aqbz/main.html">安全保障</a>
+    </div>
+
+    <div id="common_6" class="q_title" onclick="showChildBox(this.id)">是否合法</div>
+    <div id="common_a_6" class="q_content">
+        在汇纳财富上的借贷合法吗？<br />
+        汇纳财富用IT技术将民间借贷升级到互联网，为有资金需求和理财需求的个人搭建了一个安全、高效、诚信的网络借贷平台。<br />
+        我们是经工商部门注册,准许从事金融服务的新金融公司，我们提供投融资服务和金融类咨询服务。<br />
+        在我国，民间借贷是受到《中华人民共和国民法通则》、《关于贯彻执行〈中华人民共和国民法通则〉若干问题的意见》、《最高人民法院关于人民法院审理借贷案件的若干意见》等法律法规、司法解释保护的一种借贷关系
+    </div>
+</div>
+
+<div id="tender_q" style="display: none">
+    <div id="tender_1" class="q_title" onclick="showChildBox(this.id)">如何进行投资？</div>
+    <div id="tender_a_1" class="q_content">
+        　　　<strong style="color: blue">投标前需注意的事项：</strong><br />
+        　　　1、认真阅读该借款列表的详细信息（包括贷款金额，利率，贷款期限、贷款者信用等级等），以确定您所要投的标符合您的投资周期要求、风险承受能力和所要求的投资回报率。<br />
+        　　　2、若您尚未成为汇纳财富的VIP会员，请联系我们的客服人员尽快加入VIP理财本息保障计划。作为我们的VIP会员，您投资的抵押标一旦发生逾期，我们会在到期当日晚22-24时对当期应还本息进行垫付。<br />
+        　　　3、非VIP会员投资的抵押标如果发生逾期，24小时内垫付本息。<br />
+        　　　4、投标前请您核实自己将要理财的金额，确认无误后再进行操作。?<br />
+        　　　<strong style="color: blue">如何分散投资风险：</strong><br />
+        　　　1.请尽量分散您的投资，这样可以降低单一借款人违约对您的投资收益的影响。例如您可以把5000元借给10个借款人。<br />
+        　　　2.请申请成为我们网站的vip会员，可以享受100%的本息保障。<br />
+        　　　<strong style="color: blue">投标后是否可以取消：</strong><br />
+        　　　您在投标后不允许取消，若此标满标并放款后，您账户上的冻结金额将自动转入该标借款人账户。若此标流标，则您账户上的冻结金额自动转为用户可用资金。
+    </div>
+
+    <div id="tender_2" class="q_title" onclick="showChildBox(this.id)">充值在汇纳财富的钱安全吗？</div>
+    <div id="tender_a_2" class="q_content">投资人充值资金在“网银在线”或“宝付”全托管，和银行一样，只能本人运作，汇纳财富公司无任何权限动用该账户资金。</div>
+
+    <div id="tender_3" class="q_title" onclick="showChildBox(this.id)">投标前需要注意哪些事项？</div>
+    <div id="tender_a_3" class="q_content">
+        1、认真阅读该借款列表的详细信息（包括贷款金额，利息率，贷款期限、贷款者信用等级等），确定您所要投的标符合您的风险承受能力和所要求的回报率.<br />
+        2、投标前请您核实自己将要理财的金额，确认无误后再进行操作.<br />
+    </div>
+
+
+    <div id="tender_5" class="q_title" onclick="showChildBox(this.id)">投资人的钱借给谁？</div>
+    <div id="tender_a_5" class="q_content">
+        汇纳财富主要针对信誉良好，工作、生活稳定，经营支出稳定的个人和企业为其解决资金需求。<br />
+        平台所发布的每一个借款信息都经过了严格审批和实地考察并且以车辆作为抵押物。投资人可根据平台所展示的借款人相关资料进行选择，寻找合适的借款对象。
+    </div>
+
+    <div id="tender_6" class="q_title" onclick="showChildBox(this.id)">
+        汇纳财富的风控体制是怎样的？
+    </div>
+    <div id="tender_a_6" class="q_content">
+        一、制定严格的借款客户审批流程<br />
+
+        汇纳财富采用五级审批制度：接单-->资料初审-->审核员实地考察-->风控专员一审-->风控经理二审-->审贷会终批。<br />
+
+        二、审贷分离制度：将贷款的推销调查信用分析、贷款的评估审查发放、贷款的监督检查风险监测收回三个阶段分别由三个不同的岗位来完成。实现贷款管理的各个环节和岗位相互制约，明确责任义务，避免系统风险。<br />
+
+        <!--三、风险准备金制度：从发放的每笔借款中、公司以自有资金及利润中提取足额资金预备坏账赔付，确保及时垫付投资者的本息损失。<br />-->
+
+        三、与逾期、坏账指标挂钩的薪酬制度：实现公司审核人员的考核指标科学化设置，保障在业务发展的同时，通过薪酬激励政策，将逾期率和坏账控制在行业最低水平。
+    </div>
+
+    <div id="tender_8" class="q_title" onclick="showChildBox(this.id)">
+        如何确保投资者在网站的投资真实到达借款者手中？
+    </div>
+    <div id="tender_a_8" class="q_content">
+        汇纳财富网站的每一个借款项目都是有据可查的，且有纸质合同、借据、电子协议等具有法律效应的材料存档，能够对应每个真实的借款人。<br />
+
+        我们欢迎广大会员及相关机构对汇纳财富进行监督，也希望通过我们的努力建立更高的公信力。
+    </div>
+
+    <div id="tender_9" class="q_title" onclick="showChildBox(this.id)">
+        能提前收回借出去的钱吗？
+    </div>
+    <div id="tender_a_9" class="q_content">
+        不可以。一旦您的借款成功后，不可提前收回已借出资金，除非借入者自愿提前还款。
+    </div>
+
+    <div id="tender_10" class="q_title" onclick="showChildBox(this.id)">
+        我的利益如何保证 客户逾期怎么办
+    </div>
+    <div id="tender_a_10" class="q_content">
+        当借款人（债务人）当期逾期未还款时，汇纳财富将按照“风险备用金账户”资金使用规则从该账户中提取相应资金用于垫付投资人（债权人）应收取的本息金额。
+    </div>
+
+    <div id="tender_11" class="q_title" onclick="showChildBox(this.id)">
+        电子合同有效吗 ？
+    </div>
+    <div id="tender_a_11" class="q_content">
+        我国新合同法第十一条规定: <br />
+        书面形式合同是指合同书、信件和数据电文(包括电报、电传、传真、电子数据交换和电子邮件)等可以有形地表现所载内容的形式。因此电子合同属于书面形式的合同一种，是受到法律保护的。<br />
+        另外你我贷平台中的合同文本都由经济法律师起草的，保证了经过这个平台的交易是具备法律效力的.
+    </div>
+
+    <div id="tender_12" class="q_title" onclick="showChildBox(this.id)">
+        成功投标后是否可以看到借款人信息？
+    </div>
+    <div id="tender_a_12" class="q_content">
+        汇纳财富收集了借款客户的详细信息，但为了保护客户隐私，网站只公布了部分信息供投资者考察，投资者查看后如有疑问，可拨打客服电话进行详细了解。
+    </div>
+</div>
+
+<div id="borrow_q" style="display: none">
+    <div id="borrow_1" class="q_title" onclick="showChildBox(this.id)">
+        如何申请借款？
+    </div>
+    <div id="borrow_a_1" class="q_content">
+        汇纳财富所有借款,均必须通过线下审核方可发布,详情前咨询客服.
+    </div>
+
+    <div id="borrow_2" class="q_title" onclick="showChildBox(this.id)">
+        如何确定借款利率？
+    </div>
+    <div id="borrow_a_2" class="q_content">
+        借款人可以跟据自身情况，同时参考自己的评级，拟借款期限和网站近期的成交借款利率自行设定利率。<br />
+        在同等情况下，利率越高的借款，成功借款（满标）的概率越大。
+    </div>
+
+    <div id="borrow_3" class="q_title" onclick="showChildBox(this.id)">
+        借款需要什么材料？
+    </div>
+    <div id="borrow_a_3" class="q_content">
+        汇纳财富的用户可通过联系我们的客服，用自己的车辆作抵押物向汇纳财富申请贷款，通过线下审核。<br />
+        审核所需资料包括：<br />
+        ?必须提供：1，机动车登记证、购置税本、购车发票  2，身份证、居住证(非沪籍) 3，行驶证  4，保单  5，上海本地银行卡  6，备用车钥匙<br />
+        ?提供可加分：1. 房产证复印件 2.营业执照 3.银行流水  （非抵押，只做财产能力证明）
+    </div>
+
+    <div id="borrow_4" class="q_title" onclick="showChildBox(this.id)">
+        借款需要流程？
+    </div>
+    <div id="borrow_a_4" class="q_content">
+        车辆评估-->审核-->确认额度签订合同-->抵押-->放款
+    </div>
+
+    <div id="borrow_5" class="q_title" onclick="showChildBox(this.id)">
+        借后如何还款？
+    </div>
+    <div id="borrow_a_5" class="q_content">
+        根据借款期限和还款计划，在借款到期日及分期还款日借款者需要手动进行还款。<br />
+        若借款人账户余额不足以支付当期还款，需先向账户进行充值。<br />
+        当借款人账户中余额大于当期还款额， 请访问“我的账户”-->“借款管理”-->“我的借款”-->“还款中的借款”，然后选择到期的还款，点击“还款”即可。
+    </div>
+
+    <div id="borrow_6" class="q_title" onclick="showChildBox(this.id)">
+        借款成功后如何提取现金？
+    </div>
+    <div id="borrow_a_6" class="q_content">
+        当一个借款满标且通过复审后，汇纳财富将会把借款人筹集到的资金划入其在汇纳财富开设的账户。<br />
+        借款人可在点击“我的账号”页面点击“提现”，填写提现信息，提交提现申请。申请提现的款项将划入您绑定的银行账号中。<br />
+        注意：借款人应当事先填写自己的关联银行账号信息，银行账户的户名需与实名认证一致。<br />
+    </div>
+</div>
+</div>

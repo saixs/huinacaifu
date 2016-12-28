@@ -1,0 +1,420 @@
+@charset "utf-8";
+/* CSS Document */
+#content {
+	width:1001px;
+	margin:0 auto;
+}
+#content .content_pic {
+	width:1001px;
+}
+#content h2 {
+	width:1001px;
+	height:35px;
+	line-height:35px;
+	text-indent:35px;
+	background:url(tit3.jpg) no-repeat;
+	margin-top:10px;
+	font-size:16px;
+}
+#content h2 a {
+	font-size:16px;
+}
+#content .sum1 {
+	width:990px;
+	height:54px;
+	background:url(bg4.jpg) repeat-x;
+	padding:20px 0 0 10px;
+}
+#content .sum1 li {
+	width:108px;
+	height:37px;
+	line-height:37px;
+	background:url(li_bg3.jpg) no-repeat;
+	float:left;
+	text-indent:28px;
+}
+#content .sum1 li.li2 {
+	width:138px;
+	background:url(li_bg4.jpg) no-repeat;
+}
+#content .sum1 li.li3 {
+	width:122px;
+	background:url(li_bg4.jpg) no-repeat;
+}
+#content .sum2 {
+	width:821px;
+	height:57px;
+	background:url(bg5.jpg) repeat-x;
+	padding:28px 0 0 180px;
+}
+#content .sum2 li {
+	width:237px;
+	height:37px;
+	line-height:37px;
+	background:url(ico7.jpg) no-repeat;
+	text-align:center;
+	padding-right:169px;
+	float:left;
+}
+#content .sum2 li a {
+	font-size:16px;
+	color:#fff;
+}
+#content .sum3 {
+	width:961px;
+	padding:0 20px 15px 20px;
+	background:url(bg3.jpg) repeat-x;
+}
+#content .sum3 dl {
+	width:961px;
+	height:66px;
+	border-bottom:1px solid #ccc;
+	padding-top:26px;
+}
+#content .sum3 dt {
+	width:237px;
+	height:37px;
+	line-height:37px;
+	text-align:center;
+	float:left;
+	background:url(ico7.jpg) no-repeat;
+}
+#content .sum3 dt a {
+	font-size:16px;
+	color:#fff;
+}
+#content .sum3 dd {
+	width:581px;
+	height:37px;
+	line-height:37px;
+	float:left;
+	position:relative;
+	padding-left:143px;
+	font-size:14px;
+}
+#content .sum3 dd span {
+	position:absolute;
+	top:0;
+	left:596px;
+	width:100px;
+}
+#content .sum3 dd span a {
+	font-size:14px;
+}
+/*03*/
+#content .search_form {
+	width:953px;
+	border:1px solid #ccc;
+	padding:10px 0 10px 46px;
+	position:relative;
+}
+#content .search_form .search_ico{
+	position:absolute;
+	top:68px;
+	left:800px;
+	width:95px;
+	height:26px;
+	background:url(d_ico.gif) no-repeat;
+	border:none;
+}
+#content .search_form p {
+	height:30px;
+	line-height:22px;
+}
+#content .search_form p .p_span {
+	width:70px;
+	text-align:right;
+	display:inline-block;
+}
+#content .search_form .input1 {
+	width:136px;
+	margin-right:90px;
+}
+#content .search_form .input2 {
+	width:138px;
+	margin-right:90px;
+}
+#content .search_form .input3 {
+	width:138px;
+}
+#content .sum4 {
+	width:961px;
+	padding:10px 20px 15px 20px;
+	background:url(bg3.jpg) repeat-x;
+}
+#content .sum4 .ul1 {
+	height:18px;
+	line-height:18px;
+}
+#content .sum4 .ul1 li {
+	width:188px;
+	float:left;
+	font-size:14px;
+	font-weight:bold;
+}
+#content .sum4 .ul1 li.li2 {
+	width:95px;
+	text-align:center;
+}
+#content .sum4 .ul1 li.li3 {
+	width:205px;
+}
+#content .sum4 dl {
+	width:961px;
+	padding-top:10px;
+	height:95px;
+	position:relative;
+	border-bottom:1px solid #ccc;
+}
+#content .sum4 dl .dl_bg {
+	position:absolute;
+	top:48px;
+	left:488px;
+	width:86px;
+	height:12px;
+	line-height:12px;
+	text-align:right;
+	background:url(ico4.jpg) no-repeat;
+}
+#content .sum4 dl .dl_bg em {
+	position:absolute;
+	top:0;
+	left:0;
+	height:10px;
+	background:url(ico3.jpg) repeat-x;
+}
+#content .sum4 dl .dl_ico {
+	position:absolute;
+	top:52px;
+	right:0;
+	width:146px;
+	height:38px;
+	line-height:38px;
+	text-align:center;
+	background:url(ico8.jpg) no-repeat;
+}
+#content .sum4 dl .dl_ico a {
+	font-size:18px;
+	color:#fff;
+}
+#content .sum4 dt {
+	width:76px;
+	height:67px;
+	padding:2px;
+	border:1px solid #ccc;
+	float:left;
+	margin-top:10px;
+}
+#content .sum4 dd {
+	width:860px;
+	height:30px;
+	line-height:30px;
+	padding-left:14px;
+	position:relative;
+	float:left;
+}
+#content .sum4 dd .dd_ico {
+	position:absolute;
+	top:8px;
+	left:595px;
+	width:55px;
+	height:11px;
+	background:url(ico5.jpg) no-repeat;
+}
+#content .sum4 dd .dd_text1 {
+	position:absolute;
+	top:0;
+	left:218px;
+	width:120px;
+}
+#content .sum4 dd .dd_text2 {
+	position:absolute;
+	top:0;
+	left:405px;
+	width:120px;
+}
+#content .sum4 dd .dd_text3 {
+	position:absolute;
+	top:0;
+	left:595px;
+	width:120px;
+}
+/*04*/
+#content .sum5{
+	width:984px;
+	padding:20px 0 30px 17px;
+	background:url(bg3.jpg) repeat-x;
+}
+#content .sum5 .login{
+	width:466px;
+	height:390px;
+	position:relative;
+	float:left;
+	background:url(d_bg.jpg) no-repeat;
+	padding:38px 0 0 26px;
+}
+#content .sum5 .login p{
+	height:48px;
+	line-height:31px;
+	position:relative;
+	background:url(ico9.jpg) no-repeat 80px top;
+}
+#content .sum5 .login p.p2{
+	background:url(ico10.jpg) no-repeat 80px top;
+	position:relative;
+}
+#content .sum5 .login p.p2 .p_ico{
+	position:absolute;
+	top:2px;
+	left:212px;
+}
+#content .sum5 .login p.p3{
+	background:none;
+}
+#content .sum5 .login p .p_span{
+	width:80px;
+	display:inline-block;
+	text-align:right;
+	font-size:16px;
+}
+#content .sum5 .login p .input{
+	position:absolute;
+	top:3px;
+	left:80px;
+	width:290px;
+	height:20px;
+	line-height:20px;
+	background:none;
+	border:none;
+}
+#content .sum5 .login .select{
+	width:200px;
+	height:30px;
+	border:1px solid #cbcbcb;
+	background:#ebebeb;
+}
+#content .sum5 .login .ico1{
+	position:absolute;
+	top:252px;
+	left:70px;
+	width:145px;
+	height:36px;
+	line-height:36px;
+	text-align:center;
+	background:url(d_ico2.jpg) no-repeat;
+}
+#content .sum5 .login .ico2{
+	position:absolute;
+	top:252px;
+	left:252px;
+	width:145px;
+	height:36px;
+	text-align:center;
+	line-height:36px;
+	background:url(d_ico2.jpg) no-repeat; 
+}
+#content .sum5 .login .login_text{
+	position:absolute;
+	top:350px;
+	left:27px;
+	width:425px;
+	font-size:16px;
+	line-height:30px;
+}
+#content .sum5 .login .ico1 a,#content .sum5 .login .ico2 a{
+	font-size:16px;
+	color:#0b3685;
+}
+#content .sum5 .login_text2{
+	width:340px;
+	padding-left:30px;
+	color:#d84841;
+	font-size:28px;
+}
+#content .sum5 .login dl{
+	width:286px;
+	padding-left:30px;
+	margin-top:5px;
+}
+#content .sum5 .login dt{
+	height:45px;
+	line-height:45px;
+	font-size:22px;
+}
+#content .sum5 .login dd{
+	height:28px;
+	line-height:28px;
+	font-size:16px;
+}
+#content .sum5 .login_r_ico{
+	position:absolute;
+	top:362px;
+	left:125px;
+	width:237px;
+	height:37px;
+	line-height:37px;
+	text-align:center;
+	background:url(ico7.jpg) no-repeat;
+}
+#content .sum5 .login_r_ico a{
+	color:#fff;
+	font-size:16px;
+}
+#content .sum5 .login_ul{
+	width:423px;
+	height:34px;
+	margin-top:18px;
+}
+#content .sum5 .login_ul li{
+	width:141px;
+	height:34px;
+	float:left;
+}
+#content .sum5 .login_ul li img{
+	width:122px;
+	height:34px;
+	overflow:hidden;
+}
+/*07*/
+#content .content_pic2{
+	width:1001px;
+	text-align:center;
+}
+#content .sum7{
+	width:1001px;
+	height:170px;
+	position:relative;
+	background:url(bg3.jpg) repeat-x;
+}
+#content .sum7 p{
+	width:650px;
+	padding:10px 0 0 5px;
+	line-height:24px;
+}
+#content .sum7 .sum7_pic{
+	position:absolute;
+	top:0;
+	right:0;
+	height:170px;
+	width:297px;
+	background:url(pic9.jpg) no-repeat;
+}
+#content .sum8{
+	width:1001px;
+	height:286px;
+	background:url(bg9.jpg) repeat-x;
+}
+#content .sum8 li{
+	width:333px;
+	float:left;
+	text-align:center;
+}
+#content .sum9{
+	width:1001px;
+	padding:10px 0;
+	border-bottom:1px solid #ccc;
+}
+#content .sum9 p{
+	line-height:20px;
+	padding-left:5px;
+}

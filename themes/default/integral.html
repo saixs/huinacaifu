@@ -1,0 +1,74 @@
+{include file="header.html"}
+<link href="/images/integral.css" rel="stylesheet" type="text/css" />
+<link href="/images/integral1.css" rel="stylesheet" type="text/css" />
+<link href="/images/integral2.css" rel="stylesheet" type="text/css" />
+<!--头部 end-->
+<!--主体-->
+<div id="about" style="width:988px;background:#f9f9eb;margin:0 auto;">
+	<div class="about_rightit" style="padding:10px 20px;">当前位置：首页 >> <a href="/integral/main.html">积分商城</a></div>
+	<!--左侧 start--> 
+	{include file="mall_left.html"}
+    <!--左侧 end--> 
+    <!--右侧-->
+    <div id="about_right integral_right">
+	    <div class="nrrt1">
+	        <div class="zdzb2">
+	            <div class="zbdh1">
+	                <h3 class="zbdh2" style="width: 95px;">积分商城</h3>
+	                 </div>
+	                 <dl class="jfsx">
+	                     <dt>所有类别</dt>
+	                     <dd>
+	                     	<a href="/integral/main.html?k={$_A.product_k}&type=&price={$_A.product_price}" {if empty($_A.product_type)} class='action'{/if}>全部</a>
+	                            {foreach from="$_A.integral_type" item="var"}
+	                            <a href="/integral/main.html?k={$_A.product_k}&type={$var.id}&price={$_A.product_price}" {if $_A.product_type==$var.id} class='action'{/if}>{$var.name}</a>
+	                            {/foreach}	
+	                     </dd>
+	                     <dt>积分范围</dt>
+	                     <dd><a href="/integral/main.html?k={$_A.product_k}&type={$_A.product_type}&price=" {if empty($_A.product_price)} class='action'{/if}>全部</a>
+	                         <a href="/integral/main.html?k={$_A.product_k}&type={$_A.product_type}&price=0,1000" {if $_A.product_price=='0,1000'} class='action'{/if}>1000以下</a>
+	                         <a href="/integral/main.html?k={$_A.product_k}&ype={$_A.product_type}&price=1000,5000&order=default,1" {if $_A.product_price=='1000,5000'} class='action'{/if}>1000-5000</a>
+	                         <a href="/integral/main.html?k={$_A.product_k}&ype={$_A.product_type}&price=5000,10000&order=default,1" {if $_A.product_price=='5000,10000'} class='action'{/if}>5000-10000</a>
+	                         <a href="/integral/main.html?k={$_A.product_k}&ype={$_A.product_type}&price=10000,50000&order=default,1" {if $_A.product_price=='10000,50000'} class='action'{/if}>10000-50000</a>
+	                         <a href="/integral/main.html?k={$_A.product_k}&ype={$_A.product_type}&price=50000,100000&order=default,1" {if $_A.product_price=='50000,100000'} class='action'{/if}>50000-100000</a>
+	                         <a href="/integral/main.html?k={$_A.product_k}&ype={$_A.product_type}&price=100000,99999999&order=default,1" {if $_A.product_price=='100000,99999999'} class='action'{/if}>100000以上</a></dd>
+	                 </dl>
+	                 <div class="search">
+	                     <span><a href="/integral/main.html?k={$_A.product_k}&type={$_A.product_type}&price={$_A.product_price}&order=default,{$_A.default_order}" {if $_A.order_type=='default'}{if $_A.default_order==1} class="down"{elseif $_A.default_order==0} class="up"{/if}{/if}>默认</a></span>
+	                     <span><a href="/integral/main.html?k={$_A.product_k}&type={$_A.product_type}&price={$_A.product_price}&order=time,{$_A.time_order}" {if $_A.order_type=='time'}{if $_A.time_order==1} class="down"{elseif $_A.inte_order==0} class="up"{/if}{/if}>最新</a></span>
+	                     <span><a href="/integral/main.html?k={$_A.product_k}&type={$_A.product_type}&price={$_A.product_price}&order=inte,{$_A.inte_order}" {if $_A.order_type=='inte'}{if $_A.inte_order==0} class="down"{elseif $_A.inte_order==1} class="up"{/if}{/if}>积分</a></span>
+	                     <form method="get" action="/integral/main.html">
+	                         <label>
+	                             <strong>请输入商品名称</strong>
+	                             <input id="k" type="text" value="{$_A.product_k}" name="k">
+	                         </label>
+	                         <input id="submit" type="submit" name="" value="搜索">
+	                     </form>
+	                     </div>
+	                 <div class="prolist">
+	                     <ul>
+	                         { foreach  from=$_A.integral_list key=key item=item}
+	                         <li>
+	                             <a href="/integral/product/main.html?id={$item.id}" target="_blank" class="picImg">
+	                                 <img src="/{$item.litpic}" alt="" width="160" height="160" border="0"></a>
+	                             <a href="/integral/product/main.html?id=1" target="_blank">{$item.name} </a>
+	                             <span>所需积分:<strong>{$item.need}</strong></span></li>
+	                     	{ /foreach}
+	                         <li>
+	                             
+	                     </ul>
+	                     <div class="pager">
+	                    		<td colspan="9" class="page">
+									{$_A.showpage}
+								</td>
+						</div>
+	                 </div>
+	             </div>
+		</div>
+  	</div>
+    <!--右侧 end-->
+    <div class="clear"></div>
+</div>
+<!--主体 end--> 
+<!--底部-->
+{include file="footer.html"}

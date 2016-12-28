@@ -1,0 +1,98 @@
+<link href="/image/page2.css" rel="stylesheet" type="text/css"/>
+{literal}
+<script type="text/javascript">
+    function showMenu(id) {
+        var id = id;
+        for(var i=1; i < 7; i++) {
+            if (i != id) {
+                $('#id'+i).fadeOut(0);
+            }
+        }
+
+        $('#id'+id).fadeIn(300);
+    }
+</script>{/literal}
+
+
+<div class="sidebar">
+    <h2 id="1" style="background-image:url(/image/zz.jpg); background-repeat:repeat-x; height:29px;cursor: pointer" onclick="showMenu(this.id)">我是投资者</h2>
+    <ul id="id1" class="sum1" {if $_U.query_class == 'borrow' || $_U.query_class == 'debt' || $_U.query_class == 'remind'} style="display:show" {else} style="display:none" {/if}>
+        <li><a href="/invest/main.html" target="_blank">我要投资</a></li>
+        <li><a href="/index.php?user&q=code/borrow/succes">已成功投资的借款</a></li>
+        <li><a href="/index.php?user&q=code/borrow/bid">正在投标的借款</a></li>
+        <!--<li><a href="/index.php?user&q=code/borrow/tender_vouch">我担保的借款</a></li>-->
+        <li><a href="/index.php?user&q=code/borrow/auto">自动投标设置</a></li>
+        <!--<li><a href="/?user&q=code/debt/debting" {if $_U.query_class=="borrow" && $_U.query_type=="debt_move" ||
+            $_U.query_type=="move_success" || $_U.query_type=="buy_success" ||
+            $_U.query_type=="debting"}style="font-weight:bold"{/if}>债权转让与购买</a></li>-->
+        <li><a href="/index.php?user&q=code/remind">提醒设置</a></li>
+
+    </ul>
+    <h2 id="2" style="background-image:url(/image/zz.jpg); background-repeat:repeat-x; height:29px;cursor: pointer" onclick="showMenu(this.id)">资金管理</h2>
+    <ul id="id2" class="sum1" {if $_U.query_class == 'account'}style="display:show"{else}style="display:none"{/if}>
+        <li><a href="/index.php?user&q=code/account">帐户详情</a></li>
+        <li><a href="/index.php?user&q=code/account/bank">银行帐户</a></li>
+        <li><a href="/index.php?user&q=code/account/cash_new">帐户提现</a></li>
+        <li><a href="/index.php?user&q=code/account/recharge_new">帐户充值</a></li>
+
+        <li><a href="/index.php?user&q=code/account/cash">提现记录</a></li>
+        <li><a href="/index.php?user&q=code/account/recharge">充值记录</a></li>
+        <li><a href="/index.php?user&q=code/account/log">资金记录</a></li>
+        <!--<li><a href="/index.php?user&q=code/account/fund">余额宝</a></li>
+        <li><a href="/index.php?user&q=code/account/backfund">余额宝赎回</a></li>-->
+
+    </ul>
+    <h2 id="3" style="background-image:url(/image/zz.jpg); background-repeat:repeat-x; height:29px;cursor: pointer" onclick="showMenu(this.id)" >认证中心</h2>
+    <ul id="id3" class="sum1"
+        {if
+            $_U.query_class == 'attestation'
+            ||
+            (
+                $_U.query_class == 'user'
+                &&
+                ( $_U.query_type == 'realname' || $_U.query_type == 'email_status' || $_U.query_type == 'phone_status' || $_U.query_type == 'video_status' || $_U.query_type == 'scene_status' || $_U.query_type == 'avatar')
+            )
+        } style="display:show" {else} style="display:none" {/if}
+    >
+        <li><a href="/index.php?user&q=code/user/realname">实名认证</a></li>
+        <li><a href="/index.php?user&q=code/user/email_status">邮箱认证</a></li>
+        <li><a href="/index.php?user&q=code/user/phone_status">手机认证</a></li>
+        <li><a href="/index.php?user&q=code/user/video_status">视频认证</a></li>
+        <li><a href="/vip/main.html">VIP申请</a></li>
+        <li><a href="/index.php?user&q=code/user/avatar">更换头像</a></li>
+        <li><a href="/index.php?user&q=code/attestation">资料证明</a></li>
+    </ul>
+    <!--<h2 id="5" style="background-image:url(/image/zz.jpg); background-repeat:repeat-x; height:29px;cursor: pointer" onclick="showMenu(this.id)" >基本设置</h2>
+    <ul id="id5" class="sum1">
+        <li><a href="/index.php?user&q=code/userinfo">填写个人资料</a></li>
+        <li><a href="/index.php?user&q=code/user/privacy">设置隐私</a></li>
+    </ul>-->
+    <h2 id="4" style="background-image:url(/image/zz.jpg); background-repeat:repeat-x; height:29px;cursor: pointer" onclick="showMenu(this.id)" >好友管理</h2>
+    <ul id="id4" class="sum1"
+    {if $_U.query_class == 'message' || ($_U.query_class == 'user' && $_U.query_type == 'reginvite')} style="display:show" {else} style="display:none" {/if}
+    >
+        <li><a href="/index.php?user&q=code/message">站内信</a></li>
+        <li><a href="/index.php?user&q=code/user/reginvite">邀请好友</a></li>
+        <!--<li><a href="/index.php?user&q=code/user/request">好友请求</a></li>
+        <li><a href="/index.php?user&q=code/user/myfriend">我的好友</a></li>
+        <li><a href="/index.php?user&q=code/user/black">我的黑名单</a></li>-->
+    </ul>
+    <h2 id="5" style="background-image:url(/image/zz.jpg); background-repeat:repeat-x; height:29px;cursor: pointer" onclick="showMenu(this.id)" >安全中心</h2>
+    <ul id="id5" class="sum1"
+    {if $_U.query_class == 'user' && ($_U.query_type == 'userpwd' || $_U.query_type == 'paypwd' || $_U.query_type == 'protection')} style="display:show" {else} style="display:none" {/if}
+    >
+        <li><a href="/index.php?user&q=code/user/userpwd">修改登录密码</a></li>
+        <li><a href="/index.php?user&q=code/user/paypwd">修改交易密码</a></li>
+    </ul>
+    <h2 id="6" style="background-image:url(/image/zz.jpg); background-repeat:repeat-x; height:29px;cursor: pointer" onclick="showMenu(this.id)" >我是借款者</h2>
+    <ul id="id6" class="sum1"
+    {if $_U.query_class == 'borrow' && $_G.user_result.scene_status == 1} style="display:show" {else} style="display:none" {/if}
+    >
+        <li><a href="borrow/main.html" target="_blank">我要借款</a></li>
+        <li><a href="/index.php?user&q=code/borrow/publish">发布的借款</a></li>
+        <li><a href="/index.php?user&q=code/borrow/unpublish">尚未发布的借款</a></li>
+        <li><a href="/index.php?user&q=code/borrow/repayment">正在还款的借款</a></li>
+        <li><a href="/index.php?user&q=code/borrow/loanermsg">投资者回复</a></li>
+        <li><a href="/index.php?user&q=code/borrow/limitapp">额度申请</a></li>
+    </ul>
+</div>

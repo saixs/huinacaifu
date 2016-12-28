@@ -1,0 +1,75 @@
+#footer2 {
+	MARGIN: 0px auto; WIDTH: 950px; CLEAR: both
+}
+.footerLine {
+	BACKGROUND: url(header_skin.gif) repeat-x 0px -218px; HEIGHT: 8px; FONT-SIZE: 1px
+}
+.footerLine .left {
+	WIDTH: 10px; BACKGROUND: url(header_skin.gif) no-repeat 0px -210px; FLOAT: left
+}
+.footerLine .right {
+	WIDTH: 10px; BACKGROUND: url(header_skin.gif) no-repeat 0px -210px; FLOAT: left
+}
+.footerLine .right {
+	BACKGROUND: url(header_skin.gif) no-repeat -10px -210px; FLOAT: right
+}
+.footerBox .left {
+	WIDTH: 10px; BACKGROUND: url(header_skin.gif) no-repeat 0px -226px; FLOAT: left; HEIGHT: 56px; _margin: 0 -3px 0 0
+}
+.footerBox .right {
+	WIDTH: 10px; BACKGROUND: url(header_skin.gif) no-repeat 0px -226px; FLOAT: left; HEIGHT: 56px; _margin: 0 -3px 0 0
+}
+.footerBox .right {
+	BACKGROUND: url(header_skin.gif) no-repeat -10px -226px; FLOAT: right; _margin: 0 0 0 -3px
+}
+.footerBox .center {
+	PADDING-BOTTOM: 8px; MARGIN: 0px 10px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; DISPLAY: block; BACKGROUND: url(../../../../content.12530.com/web/newweb/images/v5_header/bg_footer.gif) repeat-x; HEIGHT: 40px; PADDING-TOP: 8px; _margin: 0 0 0 -3px
+}
+.footerBox .center H1 {
+	DISPLAY: inline; FLOAT: left; MARGIN-LEFT: 15px
+}
+.footerBox .center H2 {
+	FLOAT: left; MARGIN-LEFT: 10px
+}
+.footerBox .center P {
+	MARGIN-TOP: 7px; FLOAT: left; MARGIN-LEFT: 20px
+}
+.footerBox .center P IMG {
+	VERTICAL-ALIGN: middle
+}
+.footerBox .center UL {
+	MARGIN-TOP: 12px; FLOAT: left; MARGIN-LEFT: 30px; OVERFLOW: hidden
+}
+.footerBox .center LI {
+	BORDER-LEFT: #666 1px solid; PADDING-BOTTOM: 0px; LINE-HEIGHT: 13px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; FLOAT: left; HEIGHT: 13px; MARGIN-LEFT: -1px; PADDING-TOP: 0px; _padding-top: 2px
+}
+.footerBox .center .first {
+	PADDING-LEFT: 0px
+}
+.links {
+	POSITION: relative; MARGIN: 0px auto; WIDTH: 950px; CLEAR: both
+}
+.links .left {
+	WIDTH: 10px; BACKGROUND: url(header_skin.gif) no-repeat -330px -31px; FLOAT: left; HEIGHT: 70px; FONT-SIZE: 1px; _margin: 0 -3px 0 0
+}
+.links .right {
+	WIDTH: 10px; BACKGROUND: url(header_skin.gif) no-repeat -330px -31px; FLOAT: left; HEIGHT: 70px; FONT-SIZE: 1px; _margin: 0 -3px 0 0
+}
+.links .right {
+	BACKGROUND: url(header_skin.gif) no-repeat -340px -31px; FLOAT: right; _margin: 0 0 0 -3px
+}
+.links .center {
+	MARGIN: 0px 10px; DISPLAY: block; BACKGROUND: url(../images/link_bg.gif) repeat-x; HEIGHT: 70px; _margin: 0 0 0 -3px
+}
+.links .center .list {
+	MARGIN: 0px auto; WIDTH: 925px; PADDING-TOP: 15px
+}
+.links .center .seach {
+	POSITION: absolute; WIDTH: 640px; BACKGROUND: url(../images/seach_footer.gif) no-repeat; HEIGHT: 32px; TOP: 30px; LEFT: 130px
+}
+.links .center .inpBox {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; LINE-HEIGHT: 20px; MARGIN: 5px 0px 0px 45px; WIDTH: 510px; FLOAT: left; HEIGHT: 20px; BORDER-TOP: medium none; BORDER-RIGHT: medium none
+}
+.links .center .btn {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; MARGIN: 7px 0px 0px 25px; BACKGROUND: none transparent scroll repeat 0% 0%; FLOAT: left; BORDER-TOP: medium none; CURSOR: pointer; BORDER-RIGHT: medium none
+}

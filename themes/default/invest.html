@@ -1,0 +1,391 @@
+{if !isset($magic.request.ajax) || $magic.request.ajax != 'true'}
+	{if !isset($magic.request.ajaxInvest) || $magic.request.ajaxInvest != 'true'}
+		{include file="header.html"}
+		{literal}
+		<?
+		$this->magic_vars['_G']['uurl'] = url_format($this->magic_vars['_G']['nowurl'],"order");
+		$this->magic_vars['_G']['epurl'] = url_format($this->magic_vars['_G']['nowurl'],"epage");
+		?>
+		{/literal}
+
+		<script type="text/javascript">
+			{literal}
+			var min_month = 0; var max_month = 30;
+			var min_interest = 0; var max_interest = 22;
+			var min_money = 0;var max_money = 999999999;
+
+			function AJAXChange(value,type) {
+				if (type == 1) {
+					if (value == 0) {
+						min_month = 0;
+						max_month = 12;
+					} else if (value == 1) {
+						min_month = 'day';
+						max_month = 'day';
+					} else if (value == 3) {
+						min_month = 1;
+						max_month = 3;
+					} else if (value == 6) {
+						min_month = 3;
+						max_month = 6;
+					} else if (value == 12) {
+						min_month = 6;
+						max_month = 12;
+					} else if (value == 13) {
+						min_month = 12;
+						max_month = 24;
+					} else {
+						min_month = 0;max_month = 12;
+					}
+				} else if (type == 2) {
+					if (value == 0)	{
+						min_interest = 0;
+						max_interest = 22;
+					} else if (value == 1) {
+						min_interest = 0;
+						max_interest = 10;
+					} else if (value == 10) {
+						min_interest = 10;
+						max_interest = 15;
+					} else if (value == 15) {
+						min_interest = 15;
+						max_interest = 22;
+					} else {
+						min_interest = 0;
+						max_interest = 22;
+					}
+				} else {
+					if (value == 0) {
+						min_money = 0;
+						max_money = 999999999;
+					} else if (value == 50) {
+						min_money = 0;
+						max_money = 500000;
+					} else if (value == 100) {
+						min_money = 500000;
+						max_money = 1000000;
+					} else if (value == 200) {
+						min_money = 1000000;
+						max_money = 2000000;
+					} else if (value == 201) {
+						min_money = 2000000;
+						max_money = 999999999;
+					} else {
+						min_money = 2000000;max_money = 999999999;
+					}
+
+				}
+				callAJAX();
+			}
+			{/literal}
+		</script>
+		<div class="touzi_main">
+			<div class="touzi_m_contain">
+				<div class="touzi_m_center clearfix">
+					<div class="touzi_m_center_l">
+						<div class="touzi_m_center_l_t">
+							<h1>筛选投资项目</h1>
+							<table>
+								<tr>
+									<td width="82px">借款状态：</td>
+									<td width="88px"><a href="/invest/main.html?type=wait">{if $magic.request.type == 'wait'}<span>进行中</span>{else}进行中{/if}</a></td>
+									<td width="88px"><a href="/invest/main.html?type=success">{if $magic.request.type == 'success'}<span>已完成</span>{else}已完成{/if}</a></td>
+								</tr>
+								<tr>
+									<td width="82px">项目期限：</td>
+									<td width="88px" style="cursor: pointer" onclick="AJAXChange(0,1)"><span>不限</span></td>
+									<td width="96px" style="cursor: pointer" onclick="AJAXChange(1,1)">天标</td>
+									<td width="96px" style="cursor: pointer" onclick="AJAXChange(3,1)">3个月以下</td>
+									<td width="96px" style="cursor: pointer" onclick="AJAXChange(6,1)">3-6个月</td>
+									<td width="100px" style="cursor: pointer" onclick="AJAXChange(12,1)">6-12个月</td>
+									<td style="cursor: pointer" onclick="AJAXChange(13,1)">12个月以上</td>
+								</tr>
+								<tr>
+									<td width="82px">项目收益：</td>
+									<td width="88px" style="cursor: pointer" onclick="AJAXChange(0,2)"><span>不限</span></td>
+									<td width="96px" style="cursor: pointer" onclick="AJAXChange(1,2)">10%以下</td>
+									<td width="96px" style="cursor: pointer" onclick="AJAXChange(10,2)">10%-15%</td>
+									<td width="100px" style="cursor: pointer" onclick="AJAXChange(15,2)">15%以上</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td width="82px">项目规模：</td>
+									<td width="88px" style="cursor: pointer" onclick="AJAXChange(0,3)"><span>不限</span></td>
+									<td width="96px" style="cursor: pointer" onclick="AJAXChange(50,3)">50万以下</td>
+									<td width="96px" style="cursor: pointer" onclick="AJAXChange(100,3)">50万-100万</td>
+									<td width="100px" style="cursor: pointer" onclick="AJAXChange(200,3)">100万-200万</td>
+									<td style="cursor: pointer" onclick="AJAXChange(201,3)">200万以上</td>
+								</tr>
+							</table>
+						</div>
+						<ul class="touzi_m_center_l_c" id="borrow_list">
+							{list module="borrow" function="GetList" var="loop" site_id="0" keywords="request" type="request" use="request" is_day="request" account1="request" account2 = "request" limittime="request" limittime1="request" limittime2="request"
+							award="request" province="request" city="request" epage="10" order="request" gostatus="request" style="request"}
+							{foreach from="$loop.list" item="var" key=key}
+							<li>
+								<h1><a href="/invest/a{$var.id}.html">{$var.name}</a></h1>
+								<h2>
+									<dl class="touzi_l_c_1">
+										<dt>
+										<p><strong>{$var.apr}%</strong></p>
+										<p>年化利率</p>
+										</dt>
+										<dd>
+											<p>
+												{if $var.isday==1 }
+													<strong>{$var.time_limit_day}</strong>天
+												{else}
+													<strong>{$var.time_limit}</strong>个月
+												{/if}
+											</p>
+											<p>项目期限</p>
+										</dd>
+									</dl>
+									<div class="touzi_l_c_2">
+										<p>项目类型:{$var.use|borrowUse}</p>
+										<p>截止时间:{$var.verify_time+$var.valid_time*24*60*60|date_format:"Y-m-d H:i:s"}</p>
+									</div>
+									<div class="touzi_l_c_3">
+										<p>借款金额：<span>￥{$var.account}</span></p>
+									</div>
+								</h2>
+								<h3>
+									<div class="touzi_l_c_h3_l">
+										<p class="clearfix">
+											<span>按月付息　到期还本</span>
+											<em><i>当前进度/</i>{$var.scale}%</em>
+										</p>
+										<div>
+											<i percent="{$var.scale}%"></i>
+										</div>
+									</div>
+									<a href="/invest/a{$var.id}.html?detail=true" class="touzi_l_c_h3_r">
+											{if $var.status == 0 || $var.status == 1}
+											查看
+											{elseif $var.status==3}
+											{if $var.repayment_account == $var.repayment_yesaccount }
+											已还完
+											{else}
+											还款中
+											{/if}
+											{elseif $var.status==5}
+											已撤销
+											{elseif $var.account>$var.account_yes}
+											{if $var.is_vouch==1}<!--如果是担保标-->
+											{if $var.vouch_scale >=100}
+											立即投标
+											{elseif $var.vouch_scale < 100}
+											立即担保
+											{else}
+											<!--<img src="{$tempdir}/images/tender.gif" />-->
+											{/if}
+											{else}
+											立即投标
+											{/if}
+											{else}
+											等待复审
+											{/if}
+									</a>
+								</h3>
+							</li>
+							{/foreach}
+							{/list}
+							<div style="line-height:50px; text-align:center; border-bottom:#e7eaec 1px solid;">{$loop.showpage}</div>
+						</ul>
+						<script type="text/javascript">
+							{literal}
+							var inputId = 'borrow_list';
+							function callAJAX(min_value,max_value,type) {
+								ajaxObj = new AJAXClass();
+								buildRequest = '&ajaxInvest=true&apr1='+min_interest+'&apr2='+max_interest+'&account1='+min_money+'&account2='+max_money;
+								if (min_month == 'day') {
+									buildRequest += '&is_day=1'
+								} else {
+									buildRequest += '&limittime1='+min_month+'&limittime2='+max_month;
+								}
+								buildRequest += buildRequest;
+
+								{/literal}
+
+								{if $magic.request.type == 'wait'}
+									ajaxObj.path = '/invest/main.html?type=wait'+buildRequest;
+								{else}
+									ajaxObj.path = '/invest/main.html?type=success'+buildRequest;
+								{/if}
+								{literal}
+								//document.write(ajaxObj.path);
+								ajaxObj.AJAXRequest();
+							}
+
+							function ajaxUrl(url) {
+
+								var inputId = 'borrow_list';
+								ajaxObj = new AJAXClass();
+								ajaxObj.path = '/invest/'+url;
+
+								ajaxObj.AJAXRequest();
+							}
+							{/literal}
+
+						</script>
+		            </div>
+		        </div>
+			</div>
+		</div>
+		<script>
+			{literal}
+			$.each($('.touzi_l_c_h3_l i'), function(){
+				$(this).animate({width:$(this).attr('percent')});
+			});
+			{/literal}
+		</script>
+		{include file="new_footer.html"}
+	{else}
+		{list module="borrow" function="GetList" var="loop" site_id="0" keywords="request" type="request" use="request" is_day="request" account1="request" account2 = "request" limittime="request"
+		limittime1="request" limittime2="request" apr1="request" apr2="request" award="request" province="request" city="request" epage="10" order="request" gostatus="request" style="request"}
+		{foreach from="$loop.list" item="var" key=key}
+		<li>
+			<h1><a href="/invest/a{$var.id}.html">{$var.name}</a></h1>
+			<h2>
+				<dl class="touzi_l_c_1">
+					<dt>
+					<p><strong>{$var.apr}%</strong></p>
+					<p>年化利率</p>
+					</dt>
+					<dd>
+						<p>
+							{if $var.isday==1 }
+							<strong>{$var.time_limit_day}</strong>天
+							{else}
+							<strong>{$var.time_limit}</strong>个月
+							{/if}
+						</p>
+						<p>项目期限</p>
+					</dd>
+				</dl>
+				<div class="touzi_l_c_2">
+					<p>项目类型:{$var.use|borrowUse}</p>
+					<p>截止时间:{$var.verify_time+$var.valid_time*24*60*60|date_format:"Y-m-d H:i:s"}</p>
+				</div>
+				<div class="touzi_l_c_3">
+					<p>借款金额：<span>￥{$var.account}</span></p>
+				</div>
+			</h2>
+			<h3>
+				<div class="touzi_l_c_h3_l">
+					<p class="clearfix">
+						<span>按月付息　到期还本</span>
+						<em><i>当前进度/</i>{$var.scale}%</em>
+					</p>
+					<div>
+						<i style="width:{$var.scale}%; "></i>
+					</div>
+				</div>
+				<a href="/invest/a{$var.id}.html?detail=true" class="touzi_l_c_h3_r">
+					{if $var.status == 0 || $var.status == 1}
+					查看
+					{elseif $var.status==3}
+					{if $var.repayment_account == $var.repayment_yesaccount }
+					已还完
+					{else}
+					还款中
+					{/if}
+					{elseif $var.status==5}
+					已撤销
+					{elseif $var.account>$var.account_yes}
+					{if $var.is_vouch==1}<!--如果是担保标-->
+					{if $var.vouch_scale >=100}
+					立即投标
+					{elseif $var.vouch_scale < 100}
+					立即担保
+					{else}
+					<!--<img src="{$tempdir}/images/tender.gif" />-->
+					{/if}
+					{else}
+					立即投标
+					{/if}
+					{else}
+					等待复审
+					{/if}
+				</a>
+			</h3>
+		</li>
+		{/foreach}
+		{/list}
+		<div style="line-height:50px; text-align:center; border-bottom:#e7eaec 1px solid;">{$loop.showpage}</div>
+	{/if}
+{else}
+
+	{if isset($magic.request.home) && $magic.request.home == 'true'}
+		{list module="borrow" function="GetList" var="loop" site_id="0" keywords="request" type="index" use="request"
+		account1="request" account2 = "request" limittime="request" award="request" province="request" city="request" epage="9"
+		order="request" gostatus="request" style="request" project_type="request"}
+
+		{foreach from="$loop.list" item="var" key=key}
+		<li {if $key == 0 || $key == 3 || $key == 6}style="margin-left:0px;"{/if}>
+			<h1><a href="/invest/a{$var.id}.html">{$var.name|truncate:10}</a></h1>
+
+			<h2>
+				<p>募集金额：<span>￥{$var.account}</span>　　 <span style="float:right;color: #000000">{$var.use|borrowUse}</span></p>
+				<p>截止时间:{$var.verify_time+$var.valid_time*24*60*60|date_format:"Y-m-d H:i:s"}</p>
+			</h2>
+			<dl class="clearfix">
+				<dt>
+				<p><strong>{$var.apr}%</strong></p>
+				<p>年化利率</p>
+				</dt>
+				<dd>
+					<p>
+						{if $var.isday==1 }
+						<strong>{$var.time_limit_day}</strong>天
+						{else}
+						<strong>{$var.time_limit}</strong>个月
+						{/if}
+					</p>
+					<p>项目期限</p>
+				</dd>
+			</dl>
+			<h3>
+				<p>按月付息　到期还本</p>
+				<div>
+					<i style="width:{$var.scale}%;"></i>
+				</div>
+				<p><span>{$var.account_yes} /</span> {$var.account}</p>
+			</h3>
+
+			<h4>
+				<a href="/invest/a{$var.id}.html?detail=true">
+					{if $var.status == 0 || $var.status == 1}
+					查看
+					{elseif $var.status==3}
+					{if $var.repayment_account == $var.repayment_yesaccount }
+					已还完
+					{else}
+					还款中
+					{/if}
+					{elseif $var.status==5}
+					已撤销
+					{elseif $var.account>$var.account_yes}
+					{if $var.is_vouch==1}<!--如果是担保标-->
+					{if $var.vouch_scale >=100}
+					立即投标
+					{elseif $var.vouch_scale < 100}
+					立即担保
+					{else}
+					<!--<img src="{$tempdir}/images/tender.gif" />-->
+					{/if}
+					{else}
+					立即投标
+					{/if}
+					{else}
+					等待复审
+					{/if}
+				</a>
+			</h4>
+		</li>
+		{/foreach}
+		{/list}
+	{else}
+
+	{/if}
+{/if}

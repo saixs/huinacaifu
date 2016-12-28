@@ -1,0 +1,57 @@
+{include file="header.html"}
+<link href="/images/login.css" rel="stylesheet" type="text/css" />
+<!--头部 end-->
+<!--主体-->
+<div class="baneeerr"><img src="/image/bb4.jpg"></div>
+<div id="about_content">
+  <div id="about_left">
+    <h1>网站栏目</h1>
+    <dl class="leftsum">
+       <dd {if $_G.site_presult.nid=="gonggao"  || $_G.site_result.nid=="gonggao"} class="li2"  {else}   {/if}><a href="/gonggao/main.html">网站公告</a></dd>
+          <dd {if $_G.site_presult.nid=="feiyong"  || $_G.site_result.nid=="feiyong"} class="li2"  {else}   {/if}><a href="/feiyong/main.html">服务规则</a></dd>
+          <dd  {if $_G.site_presult.nid=="howjie"  || $_G.site_result.nid=="howjie"} class="li2"  {else}   {/if}><a href="/howjie/main.html">如何借款</a></dd>
+          <dd  {if $_G.site_presult.nid=="howtou"  || $_G.site_result.nid=="howtou"} class="li2"  {else}   {/if}><a href="/howtou/main.html">如何投资</a></dd>
+          <dd  {if $_G.site_presult.nid=="safemoney"  || $_G.site_result.nid=="safemoney"} class="li2"  {else}   {/if}><a href="/safemoney/main.html">安全保障</a></dd>
+          <dd {if $_G.site_presult.nid=="zcfg"  || $_G.site_result.nid=="zcfg"} class="li2"  {else}   {/if}><a href="/lawrole/main.html">法律政策</a></dd>
+          <dd {if $_G.site_presult.nid=="question"  || $_G.site_result.nid=="question"} class="li2"  {else}   {/if}><a href="/question/main.html">常见问题</a></dd>
+          <dd {if $_G.site_presult.nid=="linekefu"  || $_G.site_result.nid=="linekefu"} class="li2"  {else}   {/if}><a href="/linekefu/main.html">在线客服</a></dd>
+          
+          <dd><a href="/tools/main.html">工具箱</a></dd>
+    </dl>
+    <div class="leftel"></div>
+  </div>
+  <div id="about_right">
+    <h2>{$_G.site_result.name}</h2>
+    <div class="about_sum">
+      <div class="about_pic"><a href="#"></a></div>
+     <DIV class=info>
+ 
+			
+		{list module="article" function="GetList" var="loop" epage="20"  site_id="0"  keywords="request" status=1 }
+			<!--列表开始-->
+			<div class="content_list">
+				<ul class="list_li_1">
+					{foreach from="$loop.list" item="var"}
+				<li><img src="{$tpldir}/images/lt.gif">&nbsp;[{$var.addtime|date_format:"Y-m-d"}]<a style="color:#000000; text-decoration:none; margin-bottom:1px;" href="a{$var.id}.html">{$var.name}</a></li>
+				{/foreach}
+				</ul>
+			</div>
+			<!--兼职列表结束-->
+			<!--分页开始-->
+				<div>
+					<table align="center" class="list_table_page">
+						<tr align="center">
+							<td height="25" ><Div align="center">{$loop.showpage}</Div></td>
+						</tr>
+					</table>
+				</div>
+				<!--分页结束-->
+		{/list}
+</DIV>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+<!--主体 end-->
+<!--底部-->
+{include file="footer.html"}

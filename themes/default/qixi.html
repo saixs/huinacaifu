@@ -1,0 +1,60 @@
+{include file="header.html"}
+<div>
+<div style="width: 960px; margin: 0px auto; margin-bottom: 20px;">
+<img width="960px" src="/public/images/img1.png" />
+<ul>
+{list  module="user" function="getQixiList" var="loop"}
+
+{foreach from="$loop.list" item="item"}
+	<li style="margin-right:30px; float: left; margin-top: 30px;">
+		<div style="border: 1px #ccc solid;width: 202px;  height: 202px; padding: 1px 1px;">
+			<a target="_blank" href="/{$item.litpic}">
+				<img width="202px" height="202px" src="/{$item.litpic}" />
+			</a>
+		</div>
+		<div>
+			<table>
+				<tr>
+					<td width="100px;"><input style="border: 0px; width: 30px;background-color:white" disabled id="id_{$item.id}" value="{if $item.times > 0}{$item.times}{else}0{/if}"/>票</td>
+					<td style="width:100px;text-align: right"><span onclick="callAJAX({$item.id})" style="cursor: pointer; color: blue">给他投票</span></td>
+				</tr>
+			</table>
+		
+		</div>
+	</li>
+{/foreach}
+
+{/list}
+{$loop.count}
+</ul>
+<div style='clear:both'></div>
+</div>
+</div>
+
+{literal}
+<script>
+function callAJAX(id) {
+	htmlobj=$.ajax({url:"/qixi.php?id="+id,async:false});
+	
+	if (htmlobj.responseText == 1) {
+		var id = $('#id_'+id);
+		var ov = id.val();
+		var num = parseInt(ov)+1;
+		id.val(num);
+		alert('投票成功');
+	} else if (htmlobj.responseText == -1){
+		alert('请先登录账号');
+	} else if (htmlobj.responseText == -2){
+		alert('投票失败,您已经参与过投票.');
+	} else if (htmlobj.responseText == -3){
+		alert('投票失败,不存在该照片.');
+	} else {
+		alert('投票失败,更新票数失败.');
+	}
+	
+}
+
+
+</script>
+{/literal}
+{include file="new_footer.html"}

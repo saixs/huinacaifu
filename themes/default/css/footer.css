@@ -1,0 +1,27 @@
+BODY {
+	LINE-HEIGHT: 20px; MARGIN: 0px;  COLOR: #333; FONT-SIZE: 12px
+}
+UL {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px
+}
+LI {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px
+}
+#FooterNav {
+	TEXT-ALIGN: center; LINE-HEIGHT: 30px; WIDTH: 950px; BACKGROUND: url(../imagesnew/bottom_bg.gif) #626262; HEIGHT: 30px; COLOR: #ffffff
+}
+#FooterNav UL {
+	LIST-STYLE-TYPE: none; MARGIN: 0px; LIST-STYLE-IMAGE: none
+}
+#FooterNav LI {
+	LINE-HEIGHT: 30px; FLOAT: left; COLOR: #ffffff; MARGIN-LEFT: 4px; MARGIN-RIGHT: 4px
+}
+#FooterNav LI A:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+#FooterNav LI A:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+#FooterNav LI A:hover {
+	COLOR: red; TEXT-DECORATION: none
+}

@@ -1,0 +1,9 @@
+<?
+		$code = "referrals";
+		$name = "下线信息";
+		$description = "下线信息";
+		$version = "2.81";
+		$author = "DWcms";
+		$date = "2010-08-16";
+		$type = "referrals";
+		?>

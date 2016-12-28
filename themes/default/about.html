@@ -1,0 +1,36 @@
+{include file="header.html"}
+
+<!--头部 end-->  
+<!--主体-->
+<div id="about_main">
+
+  <div class="about_place"><span class="text1">首页</span><span class="text2">{$_G.site_result.name}</span>您现在的位置：{$_G.site_result.name}</div>
+  <div id="about_content"> 
+    <!--左侧-->
+    <div id="about_left">
+      <div class="about_left_tit">关于我们</div>
+      <ul class="about_left_sum">
+          <li {if $_G.site_presult.nid=="lianxi"  || $_G.site_result.nid=="lianxi"} class="li2"  {else}   {/if}><a href="/lianxi/main.html">联系我们</a></li>
+          <li  {if $_G.site_presult.nid=="zjzz"  || $_G.site_result.nid=="zjzz"} class="li2"  {else}   {/if}><a href="/zjzz/main.html">证照资质</a></li>
+          <li  {if $_G.site_presult.nid=="ttcy"  || $_G.site_result.nid=="ttcy"} class="li2"  {else}   {/if}><a href="/ttcy/main.html">团队成员</a></li>
+          <li  {if $_G.site_presult.nid=="gszs"  || $_G.site_result.nid=="gszs"} class="li2"  {else}   {/if}><a href="/gszs/main.html">公司展示</a></li>
+          <li {if $_G.site_presult.nid=="qywh"  || $_G.site_result.nid=="qywh"} class="li2"  {else}   {/if}><a href="/qywh/main.html">企业文化</a></li>
+          <li {if $_G.site_presult.nid=="law"  || $_G.site_result.nid=="law"} class="li2"  {else}   {/if}><a href="/law/main.html">法律顾问</a></li>
+      </ul>
+    </div>
+    <!--左侧 end--> 
+    <!--右侧-->
+    <div id="about_right">
+      <div class="about_rightit">{$_G.site_result.name}</div>
+      <div class="about_rightsum">
+        {$_G.site_result.content}
+      </div>
+      <div class="rightbot"></div>
+    </div>
+    <!--右侧 end-->
+    <div class="clear"></div>
+  </div>
+</div>
+<!--主体 end--> 
+<!--底部-->
+{include file="new_footer.html"}

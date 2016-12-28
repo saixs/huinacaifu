@@ -1,0 +1,31 @@
+{include file="../default/header.html"}
+<link href="{$tpldir}/main1.css" rel="stylesheet" type="text/css" />
+<div style="margin-top:130px; margin-bottom:30px;">
+<div class="wrap950 mar10" style=" border:1px solid #CCCCCC; width:1003px; margin: 0 auto;">
+	<div style=" background-color:#E8E8E8; margin:1px; line-height:25px; padding-left:10px; font-size:13px;"><strong>系统信息</strong></div>
+	<div style="text-align:center"><br />
+{ $_U.showmsg.msg }<br /><br  /> <div id="msg_content"><a href="{ $_U.showmsg.url }">{$_U.showmsg.content}</a></div><br />
+	</div>
+</div></div>
+<script> 
+
+var url = '{ $_U.showmsg.url|$ }';
+var content = '{ $_U.showmsg.content }';
+{literal}
+if (url == ""){
+	document.getElementById('msg_content').innerHTML = "<a href='javascript:history.go(-1)'>"+content+"</a>";
+}else{
+	document.getElementById('msg_content').innerHTML = "<a href='"+url+"'>"+content+"</a>";
+}
+setInterval("testTime()",5000); 
+function testTime() { 
+	if (url == ""){
+		history.go(-1);
+	}else{
+		location.href = url; //#设定跳转的链接地址
+	}
+}
+</script>{/literal}
+
+
+{include file="../default/new_footer.html"}

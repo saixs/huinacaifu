@@ -1,0 +1,119 @@
+{include file="header.html"}
+<link href="/images/integral.css" rel="stylesheet" type="text/css" />
+<link href="/images/integral1.css" rel="stylesheet" type="text/css" />
+<link href="/images/integral2.css" rel="stylesheet" type="text/css" />
+<!--头部 end-->
+<!--主体-->
+<div id="about" style="width:988px;background:#f9f9eb;margin:0 auto;">
+	<div class="about_rightit" style="padding:10px 20px;">当前位置：首页 >> <a href="/integral/main.html">积分商城</a></div>
+	<!--左侧 start--> 
+	{include file="mall_left.html"}
+    <!--左侧 end-->
+    <!--右侧-->
+    {if $_A.convert_log_type=='list'}
+    <div id="about_right integral_right">
+	    <div class="nrrt1">
+                    <div class="zdzb4" style="height:400px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bqx">
+                            <tr>
+                                <td width="100" height="30" align="center" bgcolor="#FE8F02" class="bai"><b>我的兑换记录</b></td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </table>
+                        <form name="aspnetForm" method="post" action="" id="aspnetForm">
+							<div>
+							<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTIwNDk2MDUwNDdkZB5wHw1MZIByz1JzXyXcGVpg9DfC" />
+							</div>
+
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 20px">
+                                <tbody>
+                                    <tr>
+                                        <td height="35" style="padding-left: 8px;">&nbsp;
+                                            <select name="sendStatus" id="ctl00_c1_ddlfStatus">
+											<option value="">状态</option>
+											<option value="1">已发货</option>
+											<option value="0">未发货</option>
+										
+										</select>
+                                        </td>
+                                        <td height="35" style="" class="auto-style1">商品名称：&nbsp;
+                                            <input name="goods_name" type="text" id="goods_name" />
+                                        </td>
+                                        <td height="35" style="">
+                                            <input type="submit" name="button1" value="搜索" id="button1" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+                            <tbody>
+                                <tr>
+                                    <td height="25" align="center" background="/images/b12.jpg"><b>商品名称</b></td>
+                                    <td width="8%" align="center" background="/images/b12.jpg"><b>所需积分</b></td>
+                                    <td width="16%" align="center" background="/images/b12.jpg"><b>兑换时间</b></td>
+                                    <td width="10%" align="center" background="/images/b12.jpg"><b>状态</b></td>
+                                    <td width="16%" align="center" background="/images/b12.jpg"><b>发货时间</b></td>
+                                    <td width="15%" align="center" background="/images/b12.jpg"><b>快递单号</b></td>
+                                    <td width="10%" align="center" background="/images/b12.jpg"><b>操作</b></td>
+                                </tr>
+                            {if empty($_A.convert_log)}
+                            	<tr><td height='22' colspan='7' bgcolor='#FFFFFF'>&nbsp;·暂无记录!</td></tr>
+                            {else}
+                                {foreach  from=$_A.convert_log key=key item=item}
+                                <tr bgcolor='#FFFFFF'>
+                                    <td height="25" align="center"><a href="/integral/product/main.html?id={$item.integral_id}">{$item.goods_name}</a></td>
+                                    <td width="8%" align="center">{$item.need}</td>
+                                    <td width="16%" align="center">{$item.addtime|date_format:"Y-m-d H:i:s"}</td>
+                                    <td width="10%" align="center">{if $item.status==0}<font style="color:blue">未发货</font>{elseif $item.status==2}<font style="color:#999">已关闭</font>{else}<font style="color:red">已发货</font>{/if}</td>
+                                    <td width="16%" align="center">{if $item.status==2}已取消兑换{else}{$item.send_time|date_format:"Y-m-d H:i:s"}{/if}</td>
+                                    <td width="15%" align="center">{$item.send_num}</td>
+                                    <td width="10%" align="center"><a href="/integral/convert_log/main.html?log_id={$item.id}">查看</a>{if $item.status==0} / <a href="/integral/convert_log/main.html?log_id={$item.id}&act=cancel" onclick="return confirm('确定取消?')">取消</a>{/if}</td>
+                                </tr>
+                            	{/foreach}
+                            {/if}
+                            </tbody>
+                        </table>
+                        <div class="pager" style="text-align:center;">
+                          	<td colspan="9" class="page">
+								{$_A.showpage}
+							</td>
+						</div>
+                    </div>
+                </div>
+	</div>
+	{else}
+	<div id="about_right">
+	    <div class="nrrt1">
+                    <div class="zdzb4">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bqx">
+                            <tr>
+                                <td width="100" height="30" align="center" bgcolor="#FE8F02" class="bai"><b>我的兑换详情</b></td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </table>
+                       	<div class="convert_detail">
+                       		<p>商品名称：{$_A.convert_detail.goods_name}</p>
+                       		<p>所需积分：{$_A.convert_detail.need}</p>
+                       		<p>兑换人：{$_A.convert_detail.username}</p>
+                       		<p>兑换时间：{$_A.convert_detail.addtime|date_format:"Y-m-d H:i:s"}</p>
+                       		<p>收货地址：{$_A.convert_detail.address}</p>
+                       		<p>收货人：{$_A.convert_detail.receiver}</p>
+                       		<p>联系号码：{$_A.convert_detail.phone}</p>
+                       		{if $_A.convert_detail.status==1}
+                       		<p>发货时间：{$_A.convert_detail.send_time|date_format:"Y-m-d H:i:s"}</p>
+                       		<p>快递单号：{$_A.convert_detail.send_num}</p>
+                       		{/if}
+                       		<p>状态：{if $_A.convert_detail.status==0}<font style="color:blue">未发货</font>{elseif $_A.convert_detail.status==2}<font style="color:#999">已关闭</font>{else}<font style="color:red">已发货</font>{/if}</p>
+                       		<p class="act"><a href="/integral/convert_log/main.html">返回</a>{if $_A.convert_detail.status==0}  <a href="/integral/convert_log/main.html?log_id={$_A.convert_detail.id}&act=cancel" onclick="return confirm('确定取消?')">取消</a>{/if}</p>
+                       	</div> 
+                    </div>
+                </div>
+	</div>
+	{/if}
+    <!--右侧 end-->
+    <div class="clear"></div>
+</div>
+<!--主体 end--> 
+<!--底部-->
+{include file="footer.html"}

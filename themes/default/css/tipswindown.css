@@ -1,0 +1,42 @@
+#windownbg {
+	POSITION: absolute; WIDTH: 100%; DISPLAY: none; BACKGROUND: #000; HEIGHT: 100%; OVERFLOW: hidden; TOP: 0px; LEFT: 0px
+}
+#windown-box {
+	POSITION: fixed; TEXT-ALIGN: left; BACKGROUND: #fff; _position: absolute
+}
+#windown-title {
+	BORDER-BOTTOM: #a6c9e1 1px solid; POSITION: relative; BORDER-LEFT: #a6c9e1 1px solid; BACKGROUND: url(../images/tipswindown_bg.png) repeat-x 0px -150px; HEIGHT: 30px; OVERFLOW: hidden; BORDER-TOP: #a6c9e1 1px solid; BORDER-RIGHT: #a6c9e1 1px solid
+}
+#windown-title H2 {
+	POSITION: relative; COLOR: #000000; FONT-SIZE: 14px; TOP: 5px; FONT-WEIGHT: bold; LEFT: 10px
+}
+#windown-close {
+	POSITION: absolute; TEXT-INDENT: -10em; WIDTH: 10px; BACKGROUND: url(../images/icon.png) no-repeat -820px -720px; HEIGHT: 16px; OVERFLOW: hidden; TOP: 8px; CURSOR: pointer; RIGHT: 10px
+}
+#windown-content-border {
+	BORDER-BOTTOM: #a6c9e1 1px solid; POSITION: relative; BORDER-LEFT: #a6c9e1 1px solid; PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 0px; BACKGROUND: url(../images/tipswindown_bg.png) repeat-x 0px -380px; BORDER-TOP: #a6c9e1 1px solid; TOP: -1px; BORDER-RIGHT: #a6c9e1 1px solid; PADDING-TOP: 5px
+}
+#windown-content {
+	POSITION: relative; TEXT-ALIGN: center; OVERFLOW: auto
+}
+#windown-content IMG {
+	DISPLAY: block
+}
+#windown-content IFRAME {
+	DISPLAY: block
+}
+#windown-content .loading {
+	POSITION: absolute; MARGIN-TOP: -8px; MARGIN-LEFT: -8px; TOP: 50%; LEFT: 50%
+}
+.tip_box {
+	TEXT-ALIGN: left; LINE-HEIGHT: 23px; HEIGHT: auto; OVERFLOW: hidden
+}
+.tip_box .title {
+	BORDER-BOTTOM: #cccccc 1px dashed; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.operate_button {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 5px; BACKGROUND-COLOR: #f5fbfe; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; PADDING-TOP: 5px
+}
+.ajax_login {
+	LINE-HEIGHT: 25px; MARGIN-TOP: 5px; MARGIN-BOTTOM: 10px; HEIGHT: 30px
+}

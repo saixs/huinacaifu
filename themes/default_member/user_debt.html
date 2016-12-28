@@ -1,0 +1,162 @@
+{include file="../default/header.html"}
+<!--用户中心的主栏目 开始-->
+<div class="wrap950 ">
+    <!--左边的导航 开始-->
+    <div class="user_left">
+        {include file="user_menu.html"}
+    </div>
+    <!--左边的导航 结束-->
+
+    <!--右边的内容 开始-->
+    <div class="user_right">
+        <div class="user_right_menu">
+            {if  $_U.query_type=="debt_move" || $_U.query_type=="move_success" || $_U.query_type=="wait" || $_U.query_type=="buy_success" || $_U.query_type=="debting"}
+            <ul>
+                <li  class="title"><a href="{$_U.query_url}/debting"  >可以转让的债权</a></li>
+                <li {if $_U.query_type=="debt_move"} class="current"{/if}><a href="{$_U.query_url}/debt_move"  >正在转让的债权</a></li>
+                <li {if $_U.query_type=="move_success"} class="current"{/if}><a href="{$_U.query_url}/move_success" >成功转让的债权</a></li>
+                <li {if $_U.query_type=="buy_success"} class="current"{/if}><a href="{$_U.query_url}/buy_success" >成功购买的债权</a></li>
+            </ul>
+            {/if}
+        </div>
+        <div class="user_right_main">
+            {if $_U.query_type=="debting"}
+            <div style="float:left">说明：（1）债权不允许多次转让；(2)发生债权转让时，全部利息收入归购买者</div>
+            <table  border="0"  cellspacing="1" class="user_list_table" style="width:98%">
+                <tr class="head">
+                    <td width="15%">转让折扣</td>
+                    <td>借款标题</td>
+                    <td>债权金额</td>
+                    <td>预期收益</td>
+                    <td>投标时间</td>
+                    <td>操作</td>
+                </tr>
+                {foreach from=$_U.dlist key=key item=item}
+
+                <tr {if $key%2==1} class="tr1"{/if}>
+                <form action="/index.php?user&q=code/debt/debtalter" method="post" enctype="application/x-www-form-urlencoded">
+                    <td width="15%"><input style="width:50px;ime-mode:disabled;" type="number" name="discount"  value="95" id="db{$item.id}">%</td>
+                    <td><a href="/{if $item.is_liuzhuan==1}liuzhuan{else}invest{/if}/a{$item.borrow_id}.html" target="_blank">{$item.borrow_name|truncate:10}</a></td>
+                    <td>{$item.money}</td>
+                    <td>{$item.interest}</td>
+                    <td>{$item.addtime||date_format:"Y-m-d H:i"}</td>
+                    <td>
+                        <input type="hidden" name="tender_id" value="{$item.id}" />
+                        <!--<input type="submit" name="sub" value="转让" />-->
+                        <a  href="" kid="{$item.id}" class="buydebt">转让</a>
+                    </td>
+                </form>
+                </tr>
+
+                {/foreach}
+                <td colspan="14" class="page">
+                    {$_U.showpage} 
+                </td>
+            </table>
+
+            {elseif $_U.query_type=="debt_move"}
+            <table  border="0"  cellspacing="1" class="user_list_table" style="width:98%">
+                <tr class="head">
+                    <td width="15%">转让折扣</td>
+                    <td>转让人</td>
+                    <td>借款标题</td>
+                    <td>债权原价/现价</td>
+                    <td>原利息收益</td>
+                    <td>投标时间</td>
+                    <td>操作</td>
+                </tr>
+                {list module="debt" var="loop" function ="getDebtList"  status="1"}
+                {foreach from="$loop.list" item="item"}
+                <tr {if $key%2==1} class="tr1"{/if}>
+                    <td width="15%">{$item.discount}%</td>
+                    <td>{$item.username}</td>
+                    <td><a href="/{if $item.is_liuzhuan==1}liuzhuan{else}invest{/if}/a{$item.borrow_id}.html" target="_blank">{$item.borrow_name|truncate:10}</a></td>
+                    <td>{$item.money}/{$item.tomoney}</td>
+                    <td>{$item.interest}</td>
+                    <td>{$item.addtime|date_format:"Y-m-d H:i"}</td>
+                    <td>
+                        {if $item.user_id==$_G.user_id}
+                            <span title="不能购买自己的债权">不能购买自己的债权</span>
+                        {else}
+                            <a onclick="javascript:if(confirm('确定购买债权')) location.href='/index.php?user&q=code/debt/debt_buy&did={$item.id}'" href="" kid="{$item.id}" class="buydebt">购买</a>
+                        {/if}
+                    </td>
+                </tr>
+                {/foreach}
+                <tr >
+                    <td colspan="8" class="page">
+                        {$loop.showpage}
+                    </td>
+                </tr>
+                {/list}
+            </table>
+            
+            {elseif $_U.query_type=="move_success"}
+            <table  border="0"  cellspacing="1" class="user_list_table" style="width:98%">
+                <tr class="head">
+                    <td width="15%">转让折扣</td>
+                    <td>转让人</td>
+                    <td>借款标题</td>
+                    <td>债权原价/现价</td>
+                    <td>原利息收益</td>
+                    <td>投标时间</td>
+                </tr>
+                {list module="debt" var="loop" function ="getDebtList" status="2" user_id="$_G.user_id"}
+                {foreach from="$loop.list" item="item"}
+                <tr {if $key%2==1} class="tr1"{/if}>
+                    <td width="15%">{$item.discount}%</td>
+                    <td>{$item.username}</td>
+                    <td><a href="/{if $item.is_liuzhuan==1}liuzhuan{else}invest{/if}/a{$item.borrow_id}.html" target="_blank">{$item.borrow_name|truncate:10}</a></td>
+                    <td>{$item.money}/{$item.tomoney}</td>
+                    <td>{$item.interest}</td>
+                    <td>{$item.addtime|date_format:"Y-m-d H:i"}</td>
+                </tr>
+                {/foreach}
+                <tr >
+                    <td colspan="8" class="page">
+                        {$loop.showpage}
+                    </td>
+                </tr>
+                {/list}
+            </table>
+            
+            {elseif $_U.query_type=="buy_success"}
+            <table  border="0"  cellspacing="1" class="user_list_table" style="width:98%">
+                <tr class="head">
+                    <td width="15%">转让折扣</td>
+                    <td>转让人</td>
+                    <td>借款标题</td>
+                    <td>债权原价/现价</td>
+                    <td>原利息收益</td>
+                    <td>投标时间</td>
+                </tr>
+                {list module="debt" var="loop" function ="getDebtList" status="2" touser="$_G.user_id"}
+                {foreach from="$loop.list" item="item"}
+                <tr {if $key%2==1} class="tr1"{/if}>
+                    <td width="15%">{$item.discount}%</td>
+                    <td>{$item.username}</td>
+                    <td><a href="/{if $item.is_liuzhuan==1}liuzhuan{else}invest{/if}/a{$item.borrow_id}.html" target="_blank">{$item.borrow_name|truncate:10}</a></td>
+                    <td>{$item.money}/{$item.tomoney}</td>
+                    <td>{$item.interest}</td>
+                    <td>{$item.addtime|date_format:"Y-m-d H:i"}</td>
+                </tr>
+                {/foreach}
+                <tr >
+                    <td colspan="8" class="page">
+                        {$loop.showpage}
+                    </td>
+                </tr>
+                {/list}
+            </table>
+            
+            {/if}
+            <div id="s"></div>
+            
+        </div>
+    </div>
+</div>
+</div>
+<!--用户中心的主栏目 结束-->
+{include file="user_footer.html"}
+</div>
+

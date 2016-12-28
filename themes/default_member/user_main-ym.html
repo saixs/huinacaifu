@@ -1,0 +1,110 @@
+{include file="user_header.html"}
+<link href="/css/zhanghu.css" rel="stylesheet" type="text/css" />
+<!--主体-->
+<div id="zh_mainbox">
+    <div id="zh_main">
+        <!--左栏-->
+        <div id="zh_leftside">
+            {include file="user_menu.html"}
+        </div>
+        <!--左栏 end-->
+        <!--右栏-->
+        <div id="zh_rightside">
+            <div class="zh_rightsum4" style="float: left;">
+                <div class="zh_rightsum4_pic"><a href="/index.php?user&q=code/user/avatar"><img src="{$_G.user_id|avatar}"  /></a></div>
+                <div class="zh_rightsum4_r">
+                    <p><a href="/index.php?user">{$_G.user_result.username}</a> <span class="fc5" onclick="$('#zh_rightside').load('/index.php?user')">欢迎您！</span> 上次登录IP：{$_G.user_result.upip} 上次登录时间：{$_G.user_result.uptime|date_format:"Y-m-d H:i"}</p>
+                    {article module="borrow" function="GetUserLog" user_id=0 var="acc"}
+                    <div class="text1">
+                        {$_G.user_result.type_id|user_type}&emsp;
+                        账户总额：<span class="fc">￥{$acc.total|default:0}</span>元&emsp;
+                        可用积分：<span class="fc">{if empty($_G.user_result.integral)}0{else}{$_G.user_result.integral}{/if}</span>分&emsp;
+                        {if empty($_U.qiandao)}
+                        <input type="button" onclick="window.location.href='/index.php?user&q=code/user/qiandao'" value="每日签到" />
+                        {else}
+                        <input type="button" style="width:120px;" value="已连续签到{$_U.qiandao.day}天" />
+                        {/if}
+                    </div>
+                    {/article}
+                    <div class="text2">
+                        账户安全预览：
+                        <span class="sp{if $_G.user_result.phone_status==1}1{else}2{/if}"><a href="/index.php?user&q=code/user">手机认证</a></span>|
+                        <span class="sp{$_G.user_result.email_status|default:2}"><a href="/index.php?user&q=code/user">邮箱认证</a></span>|
+                        <span class="sp{$_G.user_result.real_status|default:2}"><a href="/index.php?user&q=code/user">实名认证</a></span>|
+                        <span class="sp{if $_G.user_result.paypassword!=''}1{else}2{/if}"><a href="/index.php?user&q=code/user">交易密码</a></span>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="zh_rightsum5" style="float: left;">
+                <div class="zh_rightsum5_tit">账户详情</div>
+                {article module="borrow" function="GetUserLog" user_id=0 var="acc"}
+                <div class="zh_rightsum5_text">可用余额：<span class="fc">{$acc.use_money|default:0}</span>元 <span class="ico1"><input type="button" onclick="window.location.href='/index.php?user&q=code/account/recharge_new'" value="充值" /></span><span class="ico2"><input type="button" onclick="window.location.href='/index.php?user&q=code/account/cash_new'" value="提现" /></span>待收总额：<span class="fc">{$acc.collection|default:0}</span>元<span class="ico3"><input type="button" onclick="window.location.href='/index.php?user&q=code/borrow/gathering&status=0'" value="明细" /></span></div>
+                {/article}
+                <dl class="zh_rightsum5_l">
+                    <dt>资金小计</dt>
+                    {article module="borrow" function="GetUserLog" user_id=0 var="acc"}
+                    <dd>资产总额<span class="dd_r">￥{$acc.total|default:0}</span></dd>
+                    <dd>可用余额<span class="dd_r">￥{$acc.use_money|default:0}</span></dd>
+                    <dd>冻结总额<span class="dd_r">￥{$acc.no_use_money|default:0}</span></dd>
+                    <dd>待收总额<span class="dd_r">￥{$acc.collection|default:0}</span></dd>
+                    {/article}
+                </dl>
+                <div class="zh_rightsum5_r">
+                    {article module="borrow" function="GetUserLog" user_id=0 var="acc"}
+                    <div class="text1 bor_1 bg11">{$acc.collection_interest1+$acc.award_add|default:0}元
+                        <div class="img"><img src="/images/n_img1.png" /></div>
+                        <div class="text1_r">
+                            <p>利息：{$acc.collection_interest1|default:0}元</p>
+                            <p>奖励：{$acc.award_add|default:0}元</p>
+                        </div>
+                    </div>
+                    <div class="text1 bor_2 bg11">{$acc.success_account|round:"0"|default:0}元
+                        <div class="img"><img src="/images/n_img2.png" /></div>
+                        <div class="text1_r2"><a href="/index.php?user&q=code/borrow/succes&type=yes">回款记录</a></div>
+                    </div>
+                    <div class="text1 bor_3 bg11">{$_U.account_log.recharge_success|default:0}元
+                        <div class="img"><img src="/images/n_img3.png" /></div>
+                        <div class="text1_r2"><a href="/index.php?user&q=code/account/recharge">充值记录</a></div>
+                    </div>
+                    <div class="text1 bor_4 bg11">{$_U.cash_log.cash_success.money|default:0}元
+                        <div class="img"><img src="/images/n_img4.png" /></div>
+                        <div class="text1_r2"><a href="/index.php?user&q=code/account/cash">提现记录</a></div>
+                    </div>
+                    <div class="height"></div>
+                    <div class="text1 bor_5 bg22">{$acc.borrow_num|default:0}元
+                        <div class="img"><img src="/images/n_img5.png" /></div>
+                        <div class="text1_r2"><a href="/index.php?user&q=code/borrow/publish">借款记录</a></div>
+                    </div>
+                    <div class="text1 bor_6 bg22">{$var.borrow_num1|default:0}元
+                        <div class="img"><img src="/images/n_img6.png" /></div>
+                        <div class="text1_r2"><a href="/index.php?user&q=code/borrow/repaymentyes">还款记录</a></div>
+                    </div>
+                    <div class="text1 bor_7 bg22">0元
+                        <div class="img"><img src="/images/n_img7.png" /></div>
+                        <div class="text1_r3">可用：0元</div>
+                    </div>
+                    <div class="text1 bor_8 bg22">
+                        <div class="img"><img src="/images/n_img8.png" /></div>
+                        <div class="text1_r4">
+                            <p>借款：{$acc.borrow_vouch|default:0}元</p>
+                            <p>投资：{$acc.tender_vouch|default:0}元</p>
+                        </div>
+                        <div class="text1_r">
+                            <p>可用：{$acc.borrow_vouch_use|default:0}元</p>
+                            <p>可用：{$acc.tender_vouch_use|default:0}元</p>
+                        </div>
+                    </div>
+                    {/article}
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <!--右栏 end-->
+        <div class="clear"></div>
+    </div>
+    <div id="zh_bot"></div>
+</div>
+<!--主体 end-->
+
+{include file="user_footer.html"}

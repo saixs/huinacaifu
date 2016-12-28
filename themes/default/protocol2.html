@@ -1,0 +1,125 @@
+ {include file="header.html"}
+{if $_G.user_id==""}
+	<script>alert("你还没有登录，请先登录再查看");location.href='/index.php?user';</script>
+{/if}
+{article module="borrow" function="GetOne" id="$magic.request.borrow_id"}
+{if $var.status!=3&&$var.is_liuzhuan!=1}
+<script>alert("您的操作有误");location.href='/index.php?user';</script>
+{/if}
+<div class="wrap950 mar10">
+    
+    
+    <div style="margin:0px auto;width:900px;">
+<p style="text-align:center; font-size:20px;font-weight:bold;">
+	债权转让及回购协议
+</p>
+<p>
+	甲方(流转人)：{$var.realname|truncate:1}**
+</p>
+<p>
+	乙方(第三人)：{$_G.user_result.realname}
+</p>
+<p>
+	丙方(保证人)：{$_G.system.con_webname}
+</p>
+<br />
+<p>
+	1.借款条款
+</p>
+<p>
+&nbsp;&nbsp;（1）{$var.old_date|date_format:"Y-m-d"}，甲方和原债务人{$var.old_loanee|truncate:1}**签订借款协议，甲方出借给{$var.old_loanee|truncate:1}**人民币￥{$var.account}元。该债务年化利率{$var.apr}%，贷款期限{$var.time_limit}个月，还款方式为按月付息，到期一次性返本。
+</p>
+<p>
+&nbsp;&nbsp;（2）现甲方将以上债权中的部分计人民币￥{loop module="borrow" function="HDGetTender" var="vrt" borrow_id="request" id="request"}{$vrt.tender_account}{/loop}（“出让债权”）转让给乙方，并承诺并保证其转让的债权系合法、有效的债权。乙方表示同意受让上述部分债权。
+</p>
+<p>
+&nbsp;&nbsp;（3）在本协签订之日，甲方应按照附件一的格式给{$var.old_loanee|truncate:1}**发出债权转让通知书，并确认债务人收到本债权转让通知书。
+</p>
+<p>
+&nbsp;&nbsp;（4）上述转让自本协议签订之日起立即生效。借款利息拆分将按天计算进行结算，本协议签订之前的利息归甲方所有，本协议签订之后的利息将归乙方所有。
+</p>
+<p>
+	2.回购条款
+</p>
+<p>
+	&nbsp;&nbsp;自本协议签订{$var.time_limit|linkage:"borrow_time_limit"}后，甲方承诺将无条件从乙方回购出让债权。在回购前，出让债权的利息归乙方所有。在回购后，出让债权的利息归甲方所有，甲方将继续享有出让债权的一切权利。
+</p>
+<p>
+&nbsp;&nbsp;丙方为甲方向乙方回购债权做不可撤销的连带责任保证，如甲方逾期未回购债权，则丙方无条件从乙方处回购债权。
+</p>
+<p>
+	3.陈述与承诺
+</p>
+<p>
+	&nbsp;&nbsp;甲方明确声明本协议项下的债权无任何第三人主张权利，且权利不受限制，即不存在被法院保全、查封或强制执行的情况或已设担保。在签订本协议之前，甲方没有与第三方签订过本协议项下债权让与合同，也并未约定相应的违约责任。
+</p>
+<p>
+	4.违约责任
+</p>
+<p>
+	&nbsp;&nbsp;各方同意，如果一方违反其在本协议中所作的承诺或任何其他义务，致使其他方遭受或发生损害、损失、索赔、处罚、诉讼仲裁、费用、义务和/或责任，违约方须向另一方作出全面赔偿。
+</p>
+<p>
+	5.其他规定
+</p>
+<p>
+&nbsp;&nbsp;（1）在本协议履行过程中发生的纠纷，各方应友好协商解决;协商不成的，任何一方均有权向瑞金市仲裁委员会申请仲裁。
+</p>
+<p>
+&nbsp;&nbsp;（2）本协议自协议由系统生成时生效，本协议打印件可一式多份，具有同等法律效力。
+</p>
+<br />
+<!--<img src="/images/dianzizhang.gif" title="中亿电子章" style="position:absolute;left:240px"/>-->
+<p>
+	甲方　　　{$var.realname|truncate:1}**
+</p>
+<p>
+	乙方　　　{$_G.user_result.realname}
+</p>
+<p>
+	保证人　　{$_G.system.con_webname}
+<p>
+	<br />
+</p>
+<p>
+	签订地点：{$_G.system.con_address}
+</p>
+<p>
+	签订日期：{$var.repayment_time|date_format:"Y-m-d"}
+</p>
+
+
+<br /><br />
+<hr />
+<br /><br />
+<p style="text-align:center; font-size:20px;font-weight:bold;">
+	附件一：债权转让通知书
+</p>
+<p>
+	{$var.old_loanee|truncate:1}**
+</p>
+<p>
+&nbsp;&nbsp;根据我方与贵方在{$var.old_date|date_format:"Y-m-d"}签订的《借款协议》，我方于{$var.old_date|date_format:"Y-m-d"}向贵方出借了人民币￥{$var.account}元借款，目前还在借款过程中。我方决定将上述债权中部分合计人民币￥{loop module="borrow" function="HDGetTender" var="vrt" borrow_id="request" id="request"}{$vrt.tender_account}{/loop}元的债权转让给第三方自然人{$_G.user_result.realname}，上述转让立即生效。借款利息拆分将按天计算进行结算，今天之前的利息归我方所有，今天之后的利息将归新债权人{$_G.user_result.realname}所有。
+
+</p>
+<p>
+	特此告知！
+</p>
+<br />
+<p>
+	{$var.realname|truncate:1}**
+</p>
+<p>
+	{$var.repayment_time|date_format:"Y-m-d"}
+</p>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:window.print();" style="color:#CCC">打印协议</a>
+
+
+    </div>
+    
+    
+    
+	</div>
+</div>
+{/article}
+{include file="footer.html"}

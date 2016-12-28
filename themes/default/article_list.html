@@ -1,0 +1,45 @@
+{include file="header.html"}
+<link type="text/css" rel="stylesheet" href="/images/css.css" />
+<!--主体-->
+<div id="about_wrap">&nbsp;
+  <div id="about">
+    <div class="about_left">
+      <ul class="about_leftsum">
+          <li {if $_G.site_presult.nid=="gonggao"  || $_G.site_result.nid=="gonggao"} class="li2"  {else}   {/if}><a href="/gonggao/main.html">网站公告 </a></li>
+    <li {if $_G.site_presult.nid=="projecttell"  || $_G.site_result.nid=="projecttell"} class="li2"  {else}   {/if}><a href="/projecttell/main.html">行业资讯 </a></li>
+    <li {if $_G.site_presult.nid=="newscenter"  || $_G.site_result.nid=="newscenter"} class="li2"  {else}   {/if}><a href="/newscenter/main.html">汇纳动态 </a></li>
+    <!--<li {if $_G.site_presult.nid=="cjwt"  || $_G.site_result.nid=="cjwt"} class="li2"  {else}   {/if}><a href="/cjwt/main.html">常见问题 </a></li>-->
+        <li {if $_G.site_presult.nid=="fbyg"  || $_G.site_result.nid=="fbyg"} class="li2"  {else}   {/if}><a href="/fbyg/main.html">发标预告 </a></li>
+      </ul>
+    </div>
+    <div class="about_right">
+      <div style="height:46px; line-height:46px; font-size:15px; text-align:right; padding-right:10px; border-bottom:#e8e8e8 1px solid;"><span class="sp1"><span class="sp2"></span>当前位置： >>{$_G.site_result.name}</span></div>
+      <div class="about_right_sum">
+          {if $_G.site_presult.nid!=="cjwt"  && $_G.site_result.nid!=="cjwt"}
+             {list module="article" function="GetList" var="loop" epage="10"  site_id="0"  keywords="request" status=1 }
+             {foreach from="$loop.list" item="var"}
+             
+      
+             
+ <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-bottom:1px dashed #DAD7D7; font-size:14px;">
+  <tr>
+    <td height="40"><div style=" float:left; width:10px; height:10px; border:1px solid #0697DA;border-radius:50%; margin-right:16px;"></div></td>
+    <td height="40"><a href="a{$var.id}.html" style="width:630px;float:left; font-size:14px;padding-left:0px;line-height:50px;">{$var.name}</a></td>
+    <td height="40">{$var.publish|truncate:10}</td>
+  </tr>
+</table>
+
+
+             {/foreach}
+             {/list}
+             <center><div class="clear" > </div><div style="margin-top:20px;">{$loop.showpage}</div></center>
+          {else}
+            {$_G.site_result.content}
+          {/if}
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<!--底部-->
+{include file="new_footer.html"}

@@ -1,0 +1,167 @@
+{include file="../default/header.html"}
+<!--用户中心的主栏目 开始-->
+<div class="wrap950 mar10">
+	<!--左边的导航 开始-->
+	<div class="user_left">
+		{include file="user_menu.html"}
+	</div>
+	<!--左边的导航 结束-->
+	
+	<!--右边的内容 开始-->
+    {if $_U.query_type == 'list'}
+	<div class="user_right">
+		<div class="user_right_menu">
+			<ul>
+				<li class="title" ><a href="{$_U.query_url}">提醒设置 </a></li>
+			</ul>
+		</div>
+		
+		<div class="user_right_main">
+        {literal}
+        <script type="text/javascript">
+            function GetAjaxObject(){
+                var ajaxObj = null;
+                try {
+                    ajaxObj=new XMLHttpRequest();	// Firefox, Opera 8.0+, Safari
+                }catch (e){							// Internet Explorer
+                    try	{
+                        ajaxObj=new ActiveXObject("Msxml2.XMLHTTP");		//msxml3.dll或以上版本
+                    }catch (e){
+                        ajaxObj=new ActiveXObject("Microsoft.XMLHTTP");		//msxml2.6或以下版本
+                    }
+                }
+                return ajaxObj;
+            }
+
+            var XMLHttp = null;
+            function sendSMS(){
+                XMLHttp = GetAjaxObject();
+                XMLHttp.open('post','/core/phone_ajax.php',true);
+                XMLHttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                XMLHttp.onreadystatechange = get_response;
+                var item_name = document.getElementById('item_name').value;
+                XMLHttp.send('item_name='+item_name);
+            }
+
+            function get_response()
+            {
+                if (XMLHttp.readyState == 4)
+                {
+                    document.getElementById('VerifySendResult').innerHTML = XMLHttp.responseText;
+                }
+            }
+        </script>
+        {/literal}
+		<!--提醒设置 开始-->
+		<div class="user_help">
+            请勾选设置来定制您所需要的消息提醒。<a style="color: blue;" href="/index.php?user&q=code/remind/send_type">修改接收方式</a><br />
+            <strong>[验证码/提醒]功能相关介绍:</strong><br />
+            1:单次验证码请求间隔时间为1分钟<br />
+            2:短信验证码有效存活周期为5分钟,5分钟以后必须请求重发短信进行验证<br />
+            3:以下设置,选中(打钩)为开启,取消选中(不打钩)为关闭<br />
+            4:建议使用ie,谷歌,火狐浏览器!<br />
+            5:与借款相关的提醒功能仅针对投资人,仅向参与目标借款的投资人发送<br />
+        </div>
+            <form action="" method="post">
+                <div style="margin-bottom: 10px;"><input type="checkbox" name="is_on" value="1" {if $list.setting_info.is_on.value == 1}checked{/if} />{$list.setting_info.is_on.name}</div>
+                {foreach from="$list.setting_info" item="var" key=key}
+                    {if $key!='is_on'}
+                        <div style="width: 200px;height:40px;float: left;text-align: left;margin-left: 15px; ">
+                            <input id="{$i++}" type="checkbox" name="{$key}" {if $var.value == 1}checked{/if} value="1" />
+                            {$var.name}
+                        </div>
+                        {if $i != 1 && ($i - 1) % 3 == 0}<br />{/if}
+                    {/if}
+                {/foreach}
+                <br /><br />
+                <div style="clear: both"></div>
+		        <div class="user_submit" align="center" style="display: block;">
+                    请输入验证码:<input type="text" name="verifyCode" value="" />
+                    <input type="hidden" id="item_name" name="item_name" value="item_switch_verify" />
+                    <input type="submit" name="sub"  value="提交设置" size="30" />
+                    <br />
+                    <input type="button" name="getVerifyCode" value="获取验证码" onclick="sendSMS()" />
+                    <b>验证码发送状态:</b><span id="VerifySendResult">尚未申请发送验证码</span>
+		        </div>
+		</form>
+		
+		<div class="user_right_foot">
+		* 温馨提示：如果您无法接收短信或邮件,可以尝试更换接收方式
+		</div>
+		<!--提醒设置 结束-->
+	</div>
+    {elseif $_U.query_type == send_type}
+    <div class="user_right">
+        <div class="user_right_menu">
+            <ul>
+                <li class="title" ><a href="{$_U.query_url}">提醒设置 </a></li>
+            </ul>
+        </div>
+
+        <div class="user_right_main">
+            {literal}
+            <script type="text/javascript">
+                function GetAjaxObject(){
+                    var ajaxObj = null;
+                    try {
+                        ajaxObj=new XMLHttpRequest();	// Firefox, Opera 8.0+, Safari
+                    }catch (e){							// Internet Explorer
+                        try	{
+                            ajaxObj=new ActiveXObject("Msxml2.XMLHTTP");		//msxml3.dll或以上版本
+                        }catch (e){
+                            ajaxObj=new ActiveXObject("Microsoft.XMLHTTP");		//msxml2.6或以下版本
+                        }
+                    }
+                    return ajaxObj;
+                }
+
+                var XMLHttp = null;
+                function sendSMS(){
+                    XMLHttp = GetAjaxObject();
+                    XMLHttp.open('post','/core/phone_ajax.php',true);
+                    XMLHttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                    XMLHttp.onreadystatechange = get_response;
+                    var item_name = document.getElementById('item_name').value;
+                    XMLHttp.send('item_name='+item_name);
+                }
+
+                function get_response()
+                {
+                    if (XMLHttp.readyState == 4)
+                    {
+                        document.getElementById('VerifySendResult').innerHTML = XMLHttp.responseText;
+                    }
+                }
+            </script>
+            {/literal}
+            <!--提醒设置 开始-->
+            <div class="user_help">
+                为保证账户安全,建议您尽量使用手机接收相关信息,提醒您注意定期修改网站登录密码与邮箱登录密码。
+                <a style="color: blue;" href="/index.php?user&q=code/remind">消息定制</a><br />
+                <strong>注意:</strong><br />
+                1:被申请变更接收方式后,该次变更需要等待30分钟才能生效,期间[验证码/提醒]仍然采用原设置接收方式发送<br />
+                2:两次请求变更接收方式必须间隔30分钟<br />
+                3:验证码存活周期为5分钟,申请获取验证码后5分钟内无需重复申请<br />
+            </div>
+            <form action="" method="post">
+                <div style="margin-bottom: 10px">
+                    <input type="radio" name="send_type" value="1" {if $list.user_info.send_type == 1}checked{/if} />手机接收
+                    <input type="radio" name="send_type" value="0" {if $list.user_info.send_type == 0}checked{/if} />邮箱接收
+                </div>
+                <div class="user_submit" align="center" style="display: block;">
+
+
+                    请输入验证码:<input type="text" name="verifyCode" value="" />
+                    <input type="hidden" id="item_name" name="item_name" value="change_send_type_verify" />
+                    <input type="submit" name="sub"  value="提交设置" size="30" />
+                    <br />
+                    <input type="button" name="getVerifyCode" value="获取验证码" onclick="sendSMS()" />
+                    <b>验证码发送状态:</b><span id="VerifySendResult">尚未申请发送验证码</span>
+                </div>
+            </form>
+            </div>
+        </div>
+    {/if}
+</div>
+<!--用户中心的主栏目 结束-->
+{include file="user_footer.html"}

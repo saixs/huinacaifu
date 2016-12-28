@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+.list-main li{
+	height: 78px;
+	padding:10px;
+	border: 1px solid #d5d5d5;
+	background: #f5f5f5 url(../bg/bg-list.jpg);
+	border-top:none;
+}
+
+a.btn-action{
+	display: inline-block;
+	width:80px;
+	height:30px;
+	text-align: center;
+	line-height:30px;
+	background: #cc0000 url(/images/btn-red.jpg) 0 0;
+	color: #fff;
+}
+a.btn-action:hover{
+	background: #cc0000 url(/images/btn-red.jpg) 0 -30px;
+	text-decoration:none;
+}
+.list-main li .pic{
+	width:70px;
+	height:70px;
+	padding:4px;
+	border: 1px solid #d5d5d5;
+	background-color: #fff;
+	float: left;
+}
+.list-main li .list-main-info{
+	width:500px;
+	padding-left:10px;
+	height:80px;
+	float: left;
+}
+.list-main li .list-main-info h3{
+	height: 30px;
+	font-size:14px;
+	line-height: 30px;
+	width:450px;
+}
+.list-main li .list-main-info ul li{
+	height:25px;
+	line-height:25px;
+	width:160px;
+	background: none;
+	border: none;
+	float: left;
+	padding:0;
+}

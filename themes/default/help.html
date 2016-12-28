@@ -1,0 +1,86 @@
+{include file="header.html"}
+ 
+ 
+ <DIV>
+ 
+ 
+<DIV class=cor_divtop>
+<DIV id=left class=left>
+ 
+<DIV class=NavLinkHeader><SPAN>网站栏目</SPAN></DIV>
+<DIV class=NavLinkContent>
+<DIV id=item1 class=page onClick="showsubmenu( 1, 7)"><SPAN class=txtspan>
+<a href="/new/main.html" title="新手上路">新手上路</a></SPAN></DIV>
+<DIV id=item1 class=page onClick="showsubmenu( 1, 7)"><SPAN class=txtspan>
+<a href="/gonggao/main.html" title="网站公告">网站公告</a></SPAN></DIV>
+<DIV id=item1 class=page onClick="showsubmenu( 1, 7)"><SPAN class=txtspan>
+<!--<a href="/newsdongtai/main.html" title="工具箱">新闻动态</a></SPAN></DIV>-->
+<DIV id=item1 class=page onClick="showsubmenu( 1, 7)"><SPAN class=txtspan>
+<a href="/about/main.html" title="关于我们">关于我们</a></SPAN></DIV>
+<DIV id=item1 class=page onClick="showsubmenu( 1, 7)"><SPAN class=txtspan>
+<a href="/feiyong/main.html" title="网站规则">网站规则</a></SPAN></DIV>
+<DIV id=item1 class=page onClick="showsubmenu( 1, 7)"><SPAN class=txtspan>
+<a href="/help/main.html" title="在线客服">在线客服</a></SPAN></DIV>
+<DIV id=item1 class=page onClick="showsubmenu( 1, 7)"><SPAN class=txtspan>
+<a href="/tools/main.html" title="工具箱">工具箱</a></SPAN></DIV>
+</DIV>
+<DIV class=navlinkline></DIV>
+<DIV style="MARGIN-TOP: 20px !important" class=displayimg><A 
+href="#" target=_blank><IMG border=0 
+src="{$tempdir}/imagesnew/cs_info.gif" width=184 height=85></A></DIV>
+ 
+ 
+<SCRIPT defer>onInit();</SCRIPT>
+</DIV>
+<DIV id=right class=right>
+<DIV 
+style="BORDER-BOTTOM: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; LINE-HEIGHT: 28px; BACKGROUND-COLOR: #f1f1f1; WIDTH: 752px; HEIGHT: 28px; COLOR: #696969; BORDER-TOP: #cccccc 1px solid; BORDER-RIGHT: #cccccc 1px solid" 
+id=NavigationLinkDiv>&nbsp; &nbsp;当前位置：&nbsp; <A 
+id=ctl00_content_NavigationLink1_main href="/">{$_G.system.con_webname|truncate:14}</A> 
+&gt; 新闻公告&gt; {$_G.site_result.name} </DIV>
+<DIV style="MARGIN-TOP: 5px">
+<DIV id=MainBanner>
+<DIV style="WIDTH: 752px; HEIGHT: 130px" id=SlidePlayer>
+<img src="{$tempdir}/imagesnew/banner001.jpg">
+</DIV>
+ 
+</DIV>
+<DIV style="CLEAR: both"></DIV>
+<DIV style="MARGIN-TOP: 5px">
+<DIV class=header><SPAN>在线客服</SPAN></DIV>
+<DIV class=content>
+<DIV class=info>
+ 
+		
+				<div style="padding-left:10px; overflow:hidden; height:auto; width:98%">
+				{loop module="user" function="GetList" limit="20" type_id=3}
+					<div style="width:260px; float:left; margin:0 10px 0 10px ">
+						<div class="floatl" style="width:120px">
+							<img src="{$var.user_id|avatar}" width="100" />
+							
+						</div>
+						<div>
+							<ul class="kefu_li">
+								<li>{$var.username}</li>
+								<li>姓名：{$var.realname}</li>
+								<li>电话:{$var.phone}</li>
+								<li>
+ 
+                                                                    
+                                                   <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={$var.qq}&site=qq&menu=yes">
+                                                    <img border="0" src="{$tpldir}/images/pa.gif" alt="点击这里给我发消息" title="点击这里给我发消息"></a>
+                   </li>
+								<!--<li>{$var.content}</li>-->
+							</ul>
+						</div>
+					</div>
+				{/loop}
+				</div>
+		
+</DIV></DIV></DIV></DIV></DIV></DIV>
+ 
+ 
+ 
+ 
+ 
+{include file="footer.html"}

@@ -1,0 +1,29 @@
+{include file="header.html"}
+<link type="text/css" rel="stylesheet" href="/images/css.css" />
+<!--主体-->
+<div id="about_main">
+	<div id="about">
+		<ul class="about_left">
+			<!--<li {if $_G.site_presult.nid=="bzzx"  || $_G.site_result.nid=="bzzx"} class="li2"  {else}   {/if}><a href="/bzzx/main.html">帮助中心</a></li>-->
+			<li {if $_G.site_presult.nid=="cjwt"  || $_G.site_result.nid=="cjwt"} class="li2"  {else}   {/if}><a href="/cjwt/main.html">常见问题</a></li>
+			<li {if $_G.site_presult.nid=="ptyl"  || $_G.site_result.nid=="ptyl"} class="li2"  {else}   {/if}><a href="/ptyl/main.html">平台原理</a></li>
+			<!--<li {if $_G.site_presult.nid=="lendhelp"  || $_G.site_result.nid=="lendhelp"} class="li2"  {else}   {/if}><a href="/lendhelp/main.html">如何借款</a></li>
+			<li {if $_G.site_presult.nid=="bowrrowhelp"  || $_G.site_result.nid=="bowrrowhelp"} class="li2"  {else}   {/if}><a href="/bowrrowhelp/main.html">如何理财</a></li>-->
+			<!--<li {if $_G.site_presult.nid=="ljgengduo"  || $_G.site_result.nid=="ljgengduo"} class="li2"  {else}   {/if}><a href="/ljgengduo/main.html">了解更多</a></li>-->
+			<!--<li {if $_G.site_presult.nid=="fwgz"  || $_G.site_result.nid=="fwgz"} class="li2"  {else}   {/if}><a href="/fwgz/main.html">服务规则</a></li>-->
+			<li {if $_G.site_presult.nid=="lixi"  || $_G.site_result.nid=="lixi"} class="li2"  {else}   {/if}><a href="/lixi/main.html">利息计算器 </a></li>
+		</ul>
+		<div class="about_right">
+			<div class="about_right_tit">{$_G.site_result.name}<span class="sp1"><span class="sp2"></span>当前位置： >> {$_G.site_result.name}</span></div>
+			<div class="about_right_sum">
+				{$_G.site_result.content}
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!--主体 end-->
+
+<!-- 底部 -->
+{include file="new_footer.html"}
+<!-- 底部 end -->

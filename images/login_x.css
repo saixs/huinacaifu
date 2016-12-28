@@ -1,0 +1,153 @@
+@charset "utf-8";
+/* CSS Document */
+#login_tit{
+	width:926px;
+	border:1px solid #fcf8f7;
+	border-bottom:none;
+	height:21px;
+	line-height:21px;
+	padding:49px 0 0 62px;
+	margin:64px auto 0 auto;
+	background:#ded0b5;
+}
+#login_tit h1{
+	height:20px;
+	border-bottom:1px solid #b81f00;
+	font-size:14px;
+	color:#b81f00;
+}
+#login_form{
+	width:928px;
+	height:307px;
+	background:url(bz_bg3.jpg) no-repeat;
+	margin:0 auto;
+	padding:30px 0 0 62px;
+	position:relative;
+}
+#login_form p{
+	height:48px;
+	line-height:28px;
+	padding-left:74px;
+	position:relative;
+}
+#login_form strong{
+	position:absolute;
+	top:0;
+	left:0;
+	color:#000;
+}
+#login_form .ico1{
+	position:absolute;
+	top:122px;
+	left:138px;
+	background:url(x_ico1.jpg) no-repeat;
+	width:216px;
+	height:37px;
+	line-height:37px;
+	text-align:center;
+	font-weight:bold;
+}
+#login_form .ico2{
+	position:absolute;
+	top:174px;
+	left:138px;
+	background:url(x_ico2.jpg) no-repeat;
+	width:216px;
+	height:37px;
+	line-height:37px;
+	text-align:center;
+	font-weight:bold;
+}
+#login_form .ico1 a,#login_form .ico2 a{
+	color:#fff;
+	font-size:14px;
+}
+#login_form .text1{
+	position:absolute;
+	top:212px;
+	left:154px;
+	line-height:42px;
+}
+#login_form .text2{
+	position:absolute;
+	top:212px;
+	left:280px;
+	line-height:42px;
+}
+#login_form .input{
+	width:212px;
+	height:26px;
+	line-height:26px;
+	border:1px solid #d5d5d5;
+	border-top:1px solid #918b7f;
+}
+/* 注册.*/
+
+#login_form2 .l_bg{
+	position:absolute;
+	right:-1px;
+	bottom:-68px;
+	background:url(l_bg1.jpg) no-repeat;
+	width:407px;
+	height:340px;
+}
+
+#login_form2 p strong{
+	position:absolute;
+	top:0;
+	left:0;
+	width:78px;
+	text-align:right;
+}
+#login_form2 .input{
+	width:212px;
+	height:26px;
+	line-height:26px;
+	border:1px solid #d5d5d5;
+	border-top:1px solid #918b7f;
+}
+#login_form2 .input2{
+	width:118px;
+	height:26px;
+	line-height:26px;
+	border:1px solid #d5d5d5;
+	border-top:1px solid #918b7f;
+}
+#login_form2 p .p_text{
+	position:absolute;
+	top:0;
+	left:295px;
+	width:355px;
+	line-height:14px;
+}
+#login_form2 p .p_ico{
+	position:absolute;
+	top:0;
+	left:209px;
+	width:82px;
+	height:28px;
+	line-height:28px;
+	text-align:center;
+	background:url(l_ico3_x.jpg) no-repeat;
+}
+#login_form2 p .p_ico a{
+	font-size:14px;
+	font-weight:bold;
+	color:#fff;
+}
+#login_form2 .l_ico{
+	position:absolute;
+	top:356px;
+	left:135px;
+	background:url(l_ico1_r.jpg) no-repeat;
+	width:216px;
+	height:37px;
+	line-height:37px;
+	text-align:center;
+	font-weight:bold;
+}
+#login_form2 .l_ico a{
+	font-size:14px;
+	font-weight:bold;
+	color:#fff;
+}

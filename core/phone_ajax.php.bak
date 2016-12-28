@@ -1,0 +1,19 @@
+<?php
+
+include ("phone.class.php");
+ $mobile = $_POST['nub'];
+ $msg = rand(10000,99999);
+ $smsg="你的手机验证码为：".$msg;
+ $ver = new phone();
+ $ret = $ver->sendMsg($mobile,$smsg);
+ if($ret > 0){
+	 $status = 1;
+	 session_register("phone_valicode");
+	 $_SESSION["phone_valicode"] = $msg;
+ }else{
+	$status = 0;
+ }
+ 
+ $arr = array('mobile'=>$mobile,'status'=>$status);
+ echo json_encode($arr);
+?>

@@ -1,0 +1,80 @@
+{include file="header.html"}
+<link href="/images/integral.css" rel="stylesheet" type="text/css" />
+<link href="/images/integral1.css" rel="stylesheet" type="text/css" />
+<link href="/images/integral2.css" rel="stylesheet" type="text/css" />
+<!--头部 end-->
+<!--主体-->
+<div id="about" style="width:988px;background:#f9f9eb;margin:0 auto;">
+	<div class="about_rightit" style="padding:10px 20px;">当前位置：首页 >> <a href="/integral/main.html">积分商城</a> >> {$_A.integral_result.name}</div>
+	<!--左侧 start--> 
+	{include file="mall_left.html"}
+    <!--左侧 end--> 
+    <!--右侧-->
+    <div id="about_right integral_right">
+	    <div class="nrrt1">
+                    <div class="zdzb2">
+                        <div class="zbdh1">
+                            <h3 class="zbdh2" style="width: 95px;">积分商城</h3>
+                        </div>
+                        <div class="probaseInfo">
+                            <div class="warpImg"><img id="ctl00_c1_imgPro" src="/{$_A.integral_result.litpic}" style="height:310px;width:310px;border-width:0px;" /></div>
+                            <dl class="warptxt">
+                            	<input type="hidden" name="product_id" value="{$_A.integral_result.name}" />
+                                <dt>
+                                    {$_A.integral_result.name}</dt>
+                                <dd>所属类别：数码家电</dd>
+                                <dd>所需积分：<strong>{$_A.integral_result.need}</strong></dd>
+                                <dd>剩余数量：{$_A.integral_result.number}个</dd>
+                                <dd>上架时间：{$_A.integral_result.addtime|date_format:"Y-m-d H:i:s"}</dd>
+                                <!--  
+                                <dd style="height:30px;display:none;"><div style="float:left;margin-right:5px;">数量：</div>
+                                    <div class="f_l add_chose">
+			                            <a class="reduce" id="reduce" href="javascript:void(0)">
+			                            -</a>
+			                            <input type="text" name="qty_item_1" value="1" id="qty_item_1" class="text" />
+			                            <a class="add" id="add" href="javascript:void(0)">
+			                            +</a>
+                                    </div>
+                                </dd>
+                                -->
+                                <dd>
+                                	{if empty($_G.user_id)}
+                                    <div id="tooltip" class="tooltip"><a href="/index.php?user&q=action/login">请先登录</a></div>
+                                    {elseif $_G.user_result.integral < $_A.integral_result.need}
+                                    <div id="tooltip" class="tooltip">积分不足</div>
+                                    {/if}
+                                    <input class="bt{if empty($_G.user_id)} disabled{elseif $_G.user_result.integral < $_A.integral_result.need} disabled{/if}" type="button" id="bt" onclick="javascript:location.href='/integral/product/main.html?id={$_A.integral_result.id}&act=c';" {if empty($_G.user_id)}disabled="disabled"{elseif $_G.user_result.integral < $_A.integral_result.need}disabled="disabled"{/if} name="name" value="立即兑换" />
+                                </dd>
+                                <!-- Baidu Button BEGIN
+                                    <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+                                    <span class="bds_more">分享到：</span>
+                                    <a class="bds_qzone"></a>
+                                    <a class="bds_tsina"></a>
+                                    <a class="bds_tqq"></a>
+                                    <a class="bds_renren"></a>
+                                    <a class="bds_t163"></a>
+                                    <a class="shareCount"></a>
+                                    </div>
+                                    <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=6812395" ></script>
+                                    <script type="text/javascript" id="bdshell_js"></script>
+                                    <script type="text/javascript">
+                                        document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date() / 3600000)
+                                    </script>
+                                     Baidu Button END -->
+                            </dl>
+                        </div>
+                        <div class="separate"><h2>商品详情</h2></div>
+                        <div class="proDetailInfo">
+                            <p style="text-align: center;">
+                            	{$_A.integral_result.content}
+                            </p>
+                        </div>
+			</div>
+		</div>
+	</div>
+    <!--右侧 end-->
+    <div class="clear"></div>
+ </div>
+<!--主体 end-->
+<!--底部-->
+{include file="footer.html"}

@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{if $_G.article.name!=""}{$_G.article.name} - {/if}{if $_G.site_result.name} {$_G.site_result.name} -  {/if}{$_G.system.con_webname}</title>
+<meta name="description" content="{$_G.system.con_description}" />
+<meta name="keywords" content="{$_G.system.con_keywords}" />
+<script type="text/javascript" src="{$tpldir}/js/jquery.js"></script>
+<link href="/images/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/images/jquery.pack.js"></script>
+<script type="text/javascript" src="/images/jQuery.blockUI.js"></script>
+<script type="text/javascript" src="/images/jquery.SuperSlide.js"></script>
+
+</head>
+
+<body>
+<!--头部-->
+<div id="sj_header">
+<div id="sj_head">
+   <div id="sj_logo"><a href="/"><img src="/images/sj_logo.gif" /></a></div>
+    <div class="top_ico"><a href="#">手机版客户端</a></div>
+    <div class="toptel">全国咨询服务热线<span>{$_G.system.con_fuwutel}</span></div>
+    <ul class="sj_topul">
+      <li><a href="/">返回首页</a></li>
+      <li><a href="/helpcenter/main.html">帮助中心</a></li>
+    </ul>
+</div>
+</div>
+<!--头部 end-->
+<!--主体-->
+<div id="sj_main">
+<div id="sj_sum">
+  <div class="sj_leftblock">
+    <div class="effect">
+        <div id="slideBox" class="slideBox2">
+          <div class="hd">
+            <ul>
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+            </ul>
+          </div>
+          <div class="bd">
+            <ul>
+              <li><img src="/images/sj_pic.jpg" /></li>
+              <li><img src="/images/sj_pic.jpg" /></li>
+              <li><img src="/images/sj_pic.jpg" /></li>
+              <li><img src="/images/sj_pic.jpg" /></li>
+              <li><img src="/images/sj_pic.jpg" /></li>
+            </ul>
+          </div>
+        </div>
+        {literal}<script type="text/javascript">jQuery(".slideBox2").slide( { mainCell:".bd ul",effect:"left",autoPlay:true} );</script> {/literal}
+      </div>
+  </div>
+  <div class="sj_rightblock">
+    <div class="sj_text1">日升财富手机客户端助您</div>
+    <div class="sj_text2">随时随地理财、投标</div>
+    <p>1、iPhone，iPad用户，由于应用还未在appstore审核，未越狱的用户请直接用Safari访问rishengcaifu.com，并添加到主屏幕，然后从ios桌面访问。
+      已越狱用户请点击下面的按扭，根据提示进行下载或安装。 </p>
+    <p>2、Android手机用户可直接下载安装！ </p>
+    <span class="sj_ico1"><a href="#">iPhone</a></span><span class="sj_ico2"><a href="#">Android</a></span><span class="sj_ico3"><a href="#">Winphone</a></span>
+  </div>
+  <div class="clear"></div>
+</div>
+</div>
+<!--主体 end-->
+<!--底部 -->
+<div id="sj_footbox">
+<div id="sj_foot">
+    <p>&copy; 2014-2018 rishengcaifu.com All Rights Reserved.<a href="#">{$_G.system.con_beian} </a> </p>
+    <ul class="footimg2">
+      <li><a href="#"><img src="/images/f_img1.jpg" /></a></li>
+      <li><a href="#"><img src="/images/f_img2.jpg" /></a></li>
+      <li><a href="#"><img src="/images/f_img3.jpg" /></a></li>
+      <li><a href="#"><img src="/images/f_img4.jpg" /></a></li>
+    </ul>
+</div>
+</div>
+<!--底部 end-->
+</body>
+</html>

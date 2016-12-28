@@ -1,0 +1,492 @@
+<?php
+if (!defined('ROOT_PATH'))  die('不能访问');//防止直接访问
+include_once("account.class.php");
+include_once(ROOT_PATH.'modules/credit/credit.inc.php');
+//获取收益
+
+if (isset($_POST['valicode']) && strtolower($_POST['valicode'])!=$_SESSION['valicode']){
+//if (1!=1){
+		$msg = array("验证码错误","",$_U['query_url']."/".$_U['query_type']);
+}else{
+	$_SESSION['valicode'] = "";
+	if ($_U['query_type'] == "list"){	
+		
+	}
+	
+	elseif ($_U['query_type'] == "log"){	
+		$data['user_id'] = $_G['user_id'];
+		$data['page'] = $_U['page'];
+		$data['epage'] = 20;
+		$data['dotime1'] = isset($_REQUEST['dotime1'])?$_REQUEST['dotime1']:"";
+		$data['dotime2'] = isset($_REQUEST['dotime2'])?$_REQUEST['dotime2']:"";
+		$data['type'] = isset($_REQUEST['type'])?$_REQUEST['type']:"";
+		$result = accountClass::GetLogList($data);
+		if (is_array($result)){
+			$pages->set_data($result);
+			$_U['account_log_list'] = $result['list'];
+			$_U['show_page'] = $pages->show(3);
+			$_U['account_num'] = $result['account'];
+		}else{
+			$msg = array($result);
+		}
+	}
+	elseif ($_U['query_type'] == "fund"){
+        die('非法访问');
+	
+    //获取余额宝资金变动列表
+	$_U["fundlist"]=accountClass::GetfundList(array("user_id"=>$_G["user_id"]));
+		
+		
+	if($_REQUEST["fund"]){
+		if ( $_POST['valicode'] ==""&& $_POST['valicode'] !==$_SESSION["valicode"]){
+		
+			$msg = array("验证码错误","",$_U['query_url']."/".$_U['query_type']);
+		}else{
+		$data["user_id"]=$_G["user_id"];
+		$data["fund"]=$_REQUEST["fund"];
+		$account_result =  accountClass::GetOne(array("user_id"=>$_G['user_id']));
+		if($data["fund"]> $account_result['use_money']){
+			$msg = array("帐号可用余额不足","",$_U['query_url']."/".$_U['query_type']);
+		}else{
+			$log['user_id'] = $_G['user_id'];
+			$log['type'] = "fund_add";
+			$log['money'] = $data['fund'];
+			$log['total'] = $account_result['total'];
+			$log['use_money'] =  $account_result['use_money']- $data['fund'];
+			$log['no_use_money'] =  $account_result['no_use_money'];
+			$log['collection'] =  $account_result['collection'];
+			$log['fund'] =  $account_result['fund']+$data['fund'];
+			$log['to_user'] = "0";
+			$log['remark'] = "余额宝存入";
+			accountClass::AddLog($log);
+			 
+			$msg = array("余额宝充值成功","",$_U['query_url']."/".$_U['query_type']);
+		}
+	
+	}
+								 
+	}
+	}
+	elseif ($_U['query_type'] == "backfund"){
+        die('非法访问');
+		if($_REQUEST["backfund"]){
+			if ( $_POST['valicode'] ==""&& $_POST['valicode'] !==$_SESSION["valicode"]){
+					
+				$msg = array("验证码错误","",$_U['query_url']."/".$_U['query_type']);
+			}else{
+			$data["user_id"]=$_G["user_id"];
+			$data["fund"]=$_REQUEST["backfund"];
+			$account_result =  accountClass::GetOne(array("user_id"=>$_G['user_id']));
+			if($data["fund"]> $account_result['fund']){
+				$msg = array("可赎回金额不足","",$_U['query_url']."/".$_U['query_type']);
+			}else{
+				$log['user_id'] = $_G['user_id'];
+				$log['type'] = "fund_back";
+				$log['money'] = $data['fund'];
+				$log['total'] = $account_result['total'];
+				$log['use_money'] =  $account_result['use_money']+ $data['fund'];
+				$log['no_use_money'] =  $account_result['no_use_money'];
+				$log['collection'] =  $account_result['collection'];
+				$log['fund'] =  $account_result['fund']-$data['fund'];
+				$log['to_user'] = "0";
+				$log['remark'] = "余额宝赎回";
+				accountClass::AddLog($log);
+				$msg = array("余额宝资金赎回成功","",$_U['query_url']."/".$_U['query_type']);
+			}
+			
+		}
+	}
+	}
+	elseif ($_U['query_type'] == "cash"){	
+		$data['user_id'] = $_G['user_id'];
+		$result = accountClass::GetUserLog($data);
+		$_U['cash_log'] = $result;
+		$data['page'] = $_U['page'];
+		$data['epage'] = $_U['epage'];
+		$result = accountClass::GetCashList($data);
+		if (is_array($result)){
+			$pages->set_data($result);
+			$_U['account_cash_list'] = $result['list'];
+			$_U['show_page'] = $pages->show(3);;
+		}else{
+			$msg = array($result);
+		}
+	}
+	
+	elseif ($_U['query_type'] == "recharge"){	
+		$result = accountClass::GetUserLog(array("user_id"=>$_G['user_id']));
+		$_U['account_log'] = $result;
+	}
+	
+	elseif ($_U['query_type'] == "recharge_new"){
+		include_once(ROOT_PATH."modules/payment/payment.class.php");
+		if (isset($_POST['money'])){
+			$data['user_id'] = $_G['user_id'];
+			$data['status'] = 0;
+			$data['money'] = $_POST['money'];
+			if(!is_numeric($_POST['payment1'])){
+				$bco = $_POST['payment1'];
+				$_POST['payment1']=32;
+			}
+			if (is_numeric($data['money'])){
+				$data['remark'] = $_POST['remark'];
+				$data['type'] = $_POST['type'];
+				$url = "";
+				if ($data['type']==1){
+					$data['payment'] = $_POST['payment1'];
+					$data['remark'] = $_POST['payname'.$_POST['payment1']]."在线充值";
+					if ($data['money'] >= 5000){
+						$data['fee'] = 50;
+						$data['fee'] =0;
+					}else{
+						$data['fee'] = $data['money']*0.002;
+						$data['fee']=0;
+					}
+				}else{
+					$data['payment'] = $_POST['payment2'];
+					$data['fee'] = 0;
+				}
+				
+				
+				$data['trade_no'] = time().$_G['user_id'].rand(1,9);
+				$result = accountClass::AddRecharge($data);
+				
+				if ($data['type']==1){
+					if(isset($bco)) $data['bankCode'] = $bco;
+					$data['subject'] = "账号充值";
+					//$data['subject'] = $_G['system']['con_webname']."账号充值";
+					$data['body'] = "账号充值";
+					$url = paymentClass::ToSubmit($data);
+				}
+				
+				if ($result!==true){
+					$msg = array($result,"",$_U['query_url']."/".$_U['query_type']);
+				}else{
+					if ($url!=""){
+						header("Location: {$url}");
+						exit;
+					$msg = array("网站正在转向支付网站<br>如果没反应，请点击下面的支付网站接口","支付网站",$url);
+					}else{
+					$msg = array("你已经成功提交了充值，请等待管理员的审核。","",$_U['query_url']."/".$_U['query_type']);
+					}
+				}
+			}else{
+				$msg = array("金额填写有误","",$_U['query_url']."/".$_U['query_type']);
+			
+			}
+		}else{
+			$_U['account_payment_list'] = paymentClass::GetList(array("status"=>1));
+			
+		}
+	}
+	elseif ($_U['query_type'] == "bank"){
+        include_once $_SERVER['DOCUMENT_ROOT'].'/api/sendMessage.php';
+        $verify_status = sendMessage::checkVerifyTypeStatus('add_bank_account_verify', $_G['user_id']);
+        $magic->assign('verify_status',$verify_status);
+
+        $data['user_id'] = $_G["user_id"];
+		$result = accountClass::getBankInfo($data['user_id']);
+        $num    = count($result);
+        if (isset($_POST['account'])){ // 添加银行账户
+            if ($verify_status === true) {
+                $sendObj = new sendMessage(0,$_G["user_id"],'add_bank_account_verify');
+                //$sendObj->getReceiveTeam();
+                if ($sendObj->errorInfo === '') {
+                    $status = $sendObj->verifyCodeCheck($_POST['verifyCode'], $_SESSION['user_id']);
+                    if ($status === 1) {
+                        $doJob = true;
+                    } else {
+                        $msg=array($sendObj->verifyResultName($status),"","/index.php?user&q=code/account/bank");
+                    }
+                } else {
+                    $msg=array($sendObj->errorInfo,"","/index.php?user&q=code/account/bank");
+                }
+            } else {
+                $doJob = true;
+            }
+
+            if (isset($doJob) && $doJob === true) {
+                if ($num < 3) {
+                    $var = array("account","bank","branch");
+                    $data = post_var($var);
+                    $data['user_id'] = $_G['user_id'];
+                    if ($num == 0) {
+                        $data['status'] = 1;
+                    }
+                    $result = accountClass::addBank($data);
+                    if ($result!==true){
+                        $msg = array($result);
+                    }else{
+                        $msg = array("恭喜,操作成功,请联系客服为您审核");
+                    }
+                } else {
+                    $msg = array("抱歉,最多只允许添加三个银行账户");
+                }
+            }
+        } else {
+            // 显示银行账户信息页面
+            $time = time();
+            $magic->assign('num', $num);
+            $_U['account_bank_result'] = $result;
+        }
+	}
+
+    elseif ($_U['query_type'] == 'changeBank') {
+        include_once $_SERVER['DOCUMENT_ROOT'].'/api/sendMessage.php';
+        $verify_status = sendMessage::checkVerifyTypeStatus('reset_bank_account_verify', $_G['user_id']);
+        $magic->assign('verify_status',$verify_status);
+        if (isset($_POST['update'])) {
+            if ($verify_status === true) {
+                $sendObj = new sendMessage(0,$_G["user_id"],'reset_bank_account_verify');
+                //$sendObj->getReceiveTeam();
+                $status = $sendObj->verifyCodeCheck($_POST['verifyCode'], $_SESSION['user_id']);
+                if ($status === 1) {
+                    $doJob = true;
+                } else {
+                    $msg=array($sendObj->verifyResultName($status),"","/index.php?user&q=code/account/bank");
+                }
+            } else {
+                $doJob = true;
+            }
+
+            if (isset($doJob) && $doJob === true) {
+                // 更新银行信息
+                $var = array("account","bank","branch");
+                $data = post_var($var);
+                $data['status']  = 0;
+                $data['is_update'] = 1;
+
+                $result = accountClass::updateBank($data,$_G['user_id'],intval($_GET['id']));
+                if ($result) {
+                    $msg = array('恭喜,修改成功,请联系客服为您审核',"","/index.php?user&q=code/account/bank");
+                } else {
+                    $msg = array('抱歉,修改失败,请联系客服为您审核',"","/index.php?user&q=code/account/bank");
+                }
+            }
+        } elseif (isset($_POST['delete'])) {
+            if ($verify_status === true) {
+                $sendObj = new sendMessage(0,$_G["user_id"],'reset_bank_account_verify');
+                //$sendObj->getReceiveTeam();
+                $status = $sendObj->verifyCodeCheck($_POST['verifyCode'], $_SESSION['user_id']);
+                if ($status === 1) {
+                    $doJob = true;
+                } else {
+                    $msg=array($sendObj->verifyResultName($status),"","/index.php?user&q=code/account/bank");
+                }
+            } else {
+                $doJob = true;
+            }
+
+            if (isset($doJob) && $doJob === true) {
+                // 删除银行信息
+                $result = accountClass::deleteBank($_G['user_id'],intval($_GET['id']));
+                if ($result) {
+                    $msg = array('恭喜,删除成功',"","/index.php?user&q=code/account/bank");
+                } else {
+                    $msg = array('抱歉,删除失败',"","/index.php?user&q=code/account/bank");
+                }
+            }
+        } else {
+            // 查该行信息
+            $result = accountClass::getOneBankInfo($_SESSION['user_id'],intval($_GET['id']));
+            if (isset($result['bank'])) {
+                $res = accountClass::checkAllowChange($_SESSION['user_id'], intval($_GET['id']));
+                if ($res === true) {
+                    $magic->assign('bank_info', $result);
+                } else {
+                    $msg = array('抱歉,必须保留一个已经生效的银行帐号信息');
+                }
+            } else {
+                $msg = array('抱歉,没有找到相关的银行信息');
+            }
+        }
+    }
+	
+	/*elseif ($_U['query_type'] == "bank"){
+		if (isset($_POST['account'])){
+			$var = array("user_id","account","bank","branch");
+			$data = post_var($var);
+			$result = accountClass::ActionBank($data);
+			if ($result!==true){
+				$msg = array($result);
+			}else{
+				$msg = array("操作成功");
+			}
+		}else{
+			$data['user_id'] = $_G["user_id"];
+			$result = accountClass::GetBankOne($data);
+			$_U['account_bank_result'] = $result;
+		}
+	}*/
+	
+	
+	elseif ($_U['query_type'] == "cash_new"){
+        include_once $_SERVER['DOCUMENT_ROOT'].'/api/sendMessage.php';
+        // 查用户是否开启提现验证
+        $verify_status = sendMessage::checkVerifyTypeStatus('withdraw_verify', $_G['user_id']);
+        $magic->assign('verify_status',$verify_status);
+        $data['user_id'] = $_G["user_id"];
+		$result = accountClass::getUserBankInfo($_G['user_id']);
+		$_U['account_bank_result'] = $result;
+		if (count($result) < 1){
+			$msg = array("您还没有已经生效的银行帐号，请先填写","","{$_U['query_url']}/bank");
+		}else{
+			if(isset($_POST['money'])){
+				if ($result[0]['paypassword']==md5($_POST['paypassword'])){
+                    if ($verify_status === true) {
+                        $sendObj = new sendMessage(0,$_G["user_id"],'withdraw_verify');
+                        //$sendObj->getReceiveTeam();
+                        if ($sendObj->errorInfo === '') {
+                            $status = $sendObj->verifyCodeCheck($_POST['verifyCode'], $_SESSION['user_id']);
+                            if ($status === 1) {
+                                $doJob = true;
+                            } else {
+                                $msg=array($sendObj->verifyResultName($status),"","/index.php?user&q=code/account/cash_new");
+                            }
+                        } else {
+                            $msg=array($sendObj->errorInfo,"","/index.php?user&q=code/account/cash_new");
+                        }
+                    } else {
+                        $doJob = true;
+                    }
+
+                    if (isset($doJob) && $doJob === true) {
+                        $data['status'] = 0;
+                        $data['total'] = $_POST['money'];
+                        if (is_numeric($data['total'])){
+                            $sub_bank_result = accountClass::getOneBankInfo($_G['user_id'], intval($_POST['bank']));
+                            $flag = false;
+                            if (!isset($sub_bank_result['bank'])) {
+                                $msg = array('抱歉!没有找到匹配的银行账户信息',"","/index.php?user&q=code/account/cash_new");
+                            } else {
+                                if ($sub_bank_result['status'] != 1) {
+                                    $msg = array('抱歉!你选择账户信息还未生效',"","/index.php?user&q=code/account/cash_new");
+                                } else {
+                                    $flag = true;
+                                }
+                            }
+
+                            if ($flag === true) {
+                                $data['account'] = $sub_bank_result['account'];
+                                $data['bank']    = $sub_bank_result['bank'];
+                                $data['branch']  = $sub_bank_result['branch'];
+
+                                if (isset($_U["account_cash_status"]) && $_U["account_cash_status"]==1&&1==2){
+                                    $data["fee"] = GetCashFee($data['total']);
+                                }else{
+                                    $arr_t=array('user_id'=>$data['user_id'],'type'=>'recharge_success');
+                                    $arr_r=array('user_id'=>$data['user_id'],'type'=>'recharge');
+                                    $arr_i=array('user_id'=>$data['user_id'],'type'=>'invest');
+                                    $tixian = accountClass::GetFreeCash($arr_t);
+                                    $chongzhi = accountClass::GetFreeCash($arr_r);
+                                    $investnum = accountClass::GetFreeCash($arr_i);
+                                    if($investnum==NULL)
+                                    {
+                                        $investnum=0  ;
+                                    }
+                                    //免费提现余额＝可用余额+15天以内的提现额度+15天投标的额度－15内的充值
+                                    $freeCash = $result[0]['use_money'] + $tixian+$investnum - $chongzhi;
+
+                                    /*if ($data['total'] <= 10000){
+                                        $data['fee'] = 6;
+                                    }elseif ($data['total'] > 10000 && $data['total']<=20000){
+                                        $data['fee'] = 8;
+                                    }else{
+                                        $data['fee'] = 10;
+                                    }*/
+                                    if($data['total'] <= $freeCash){
+
+                                        $data['fee'] = 0;
+
+                                    }else{
+                                        if($freeCash<=0){
+                                            $data['fee'] = $data['total']*0.003;
+
+                                        }else{
+                                            $data['fee'] = ($data['total']-$freeCash) * 0.003;
+                                        }
+                                    }
+                                }
+                                //$data['fee'] = 0;
+                                /*
+                                if ($data['total'] >= 5000){
+                                    $data['fee'] = 50;
+                                }else{
+                                    $data['fee'] = $data['total']*0.01;
+                                }
+                                */
+                                $data['credited']=$data['total']-$data['fee'];
+                                if ($data['total'] <= $result[0]['use_money']&&$data['total']>0){
+                                    $_result = accountClass::AddCash($data);
+                                    if ($_result!==true){
+                                        $msg = array($_result);
+                                    }else{
+                                        $account_result =  accountClass::GetOne(array("user_id"=>$_G['user_id']));
+                                        $log['user_id'] = $_G['user_id'];
+                                        $log['type'] = "cash_frost";
+                                        $log['money'] = $data['total'];
+                                        $log['total'] = $account_result['total'];
+                                        $log['use_money'] =  $account_result['use_money']-$log['money'];
+                                        $log['no_use_money'] =  $account_result['no_use_money']+$log['money'];
+                                        $log['collection'] =  $account_result['collection'];
+                                        $log['to_user'] = "0";
+                                        $log['remark'] = "用户提现申请";
+                                        if($account_result['xutou']>$log['money']){
+                                            $log['xutou'] = $account_result['xutou']-$log['money'];
+                                        }
+                                        else{
+                                            $log['xutou'] = 0;
+                                        }
+                                        accountClass::AddLog($log);
+                                        $msg = array("您的提现已经提交，我们将在两个工作日内为你审核",'','/index.php?user&q=code/account/cash_new');
+                                    }
+                                }else{
+                                    $msg = array("您的提现金额大于你所有的可用余额",'','/index.php?user&q=code/account/cash_new');
+                                }
+                            }
+                        }else{
+                            $msg = array("金额填写有误",'','/index.php?user&q=code/account/cash_new');
+
+                        }
+                    }
+				}else{
+					$msg = array("交易密码填写有误",'','/index.php?user&q=code/account/cash_new');
+				}
+			}
+		}
+	}
+	
+	//取消提现申请
+	elseif ($_U['query_type'] == "cash_cancel"){
+		$data['user_id'] =  $_G['user_id'];
+		$data['id'] =  $_REQUEST['id'];
+		$cash_result = accountClass::GetCashOne($data);
+		
+		if($cash_result!=false && $cash_result['status']==0){
+			$data['status'] = 3;
+			$_result = accountClass::UpdateCash($data);
+			if ($_result!==true){
+				$msg = array($_result);
+			}else{
+				$account_result = accountClass::GetOne($data);
+				$log['user_id'] = $data['user_id'];
+				$log['type'] = "cash_cancel";
+				$log['money'] = $cash_result['total'];
+				$log['total'] = $account_result['total'];
+				$log['use_money'] = $account_result['use_money']+$cash_result['total'];
+				$log['no_use_money'] = $account_result['no_use_money']-$cash_result['total'];
+				$log['collection'] =  $account_result['collection'];
+				$log['to_user'] = "0";
+				$log['remark'] = "取消提现解冻";
+				accountClass::AddLog($log);
+				$msg = array("成功取消提现");
+			}
+		}else{
+			$msg = array("请不要乱操作");
+		}
+	
+	}
+}
+	
+$template = "user_account.html";
+?>

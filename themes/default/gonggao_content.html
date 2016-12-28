@@ -1,0 +1,31 @@
+{include file="header.html"}
+
+<!--主体-->
+<div id="about_main">
+<div id="about">
+  <ul class="about_left">
+    <!--<li {if $_G.site_presult.nid=="gonggao"  || $_G.site_result.nid=="gonggao"} class="li2"  {else}   {/if}><a href="/gonggao/main.html">网站公告 </a></li>-->
+    <!--<li {if $_G.site_presult.nid=="xwdongtai"  || $_G.site_result.nid=="xwdongtai"} class="li2"  {else}   {/if}><a href="/xwdongtai/main.html">新闻动态</a></li>-->
+    <li {if $_G.site_presult.nid=="about_us"  || $_G.site_result.nid=="about_us"} class="li2"  {else}   {/if}><a href="/about_us/main.html">关于我们 </a></li>
+    <li {if $_G.site_presult.nid=="feerole"  || $_G.site_result.nid=="feerole"} class="li2"  {else}   {/if}><a href="/feerole/main.html">资费标准</a></li>
+    <li {if $_G.site_presult.nid=="companydispaly"  || $_G.site_result.nid=="companydispaly"} class="li2"  {else}   {/if}><a href="/companydispaly/main.html">公司展示</a></li>
+    <li {if $_G.site_presult.nid=="lianxi"  || $_G.site_result.nid=="lianxi"} class="li2"  {else}   {/if}><a href="/lianxi/main.html">联系我们 </a></li>
+    <li {if $_G.site_presult.nid=="zhengjian"  || $_G.site_result.nid=="zhengjian"} class="li2"  {else}   {/if}><a href="/zhengjian/main.html">证照资质</a></li>
+    <li {if $_G.site_presult.nid=="flzc"  || $_G.site_result.nid=="flzc"} class="li2"  {else}   {/if}><a href="/lawrole/main.html">法律政策</a></li>
+    <li {if $_G.site_presult.nid=="rczp"  || $_G.site_result.nid=="rczp"} class="li2"  {else}   {/if}><a href="/rczp/main.html">招贤纳士</a></li>
+    <li {if $_G.site_presult.nid=="tools"  || $_G.site_result.nid=="tools"} class="li2"  {else}   {/if}><a href="/tools/main.html">工具箱</a></li>
+  </ul>
+  <div class="about_right">
+    <div class="about_right_tit">{$_G.site_result.name}<span class="sp1"><span class="sp2"></span>当前位置：<a href="/aqbz/main.html">安全保障</a> >> {$_G.site_result.name}</span></div>
+    <div class="about_right_sum">
+        <div style="text-align: center"><h2 style="font-size: 16px; color: #000000; font-weight: bold;">{$_G.article.name}</h2></div><br />
+        {$_G.article.content}
+        <div style="position: relative; left: 550px;color: #666">发布时间:{$_G.article.addtime|date_format:"Y-m-d H:i"}</div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+</div>
+<!--主体 end-->
+
+{include file="footer.html"}

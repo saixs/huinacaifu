@@ -1,0 +1,812 @@
+@charset "utf-8";
+/* CSS Document */
+.user_center {
+	border-top: 3px solid #ccc;
+	background-color: #f3f3f3;
+	padding: 30px 0;
+}
+.user_c_main {
+	width: 1000px;
+	margin: 0 auto;
+}
+.user_c_m_l {
+	float: left;
+	width: 200px;
+}
+.user_c_m_l h1 {
+	line-height: 60px;
+	font-size: 18px;
+	text-align: center;
+	padding-top: 20px;
+	color: #fff;
+	text-shadow: 1px 1px 1px #000;
+	background: url(../img/myaccount/myaccount.png) no-repeat;
+}
+.user_l_ul {
+	background-color: #fff;
+	border: 1px solid #ccc;
+}
+.user_l_ul li a {
+	display: block;
+	line-height: 44px;
+	border-bottom: 1px dashed #ccc;
+	font-size: 14px;
+	padding-left: 70px;
+	
+}
+
+.user_l_ul li a.ico1 {
+	background: #FFF url(../img/myaccount/myac_02.png) no-repeat 34px center;
+}
+.user_l_ul li a.ico2 {
+	background: #FFF url(../img/myaccount/myac_03.png) no-repeat 34px center;
+}
+.user_l_ul li a.ico3 {
+	background: #FFF url(../img/myaccount/money.png) no-repeat 34px center;
+}
+.user_l_ul li a.ico4 {
+	background:#FFF url(../img/myaccount/money.png) no-repeat 34px center;
+}
+.user_l_ul li a.ico5 {
+	background:#FFF url(../img/myaccount/money.png) no-repeat 34px center;
+}
+.user_l_ul li a.ico6 {
+	background:#FFF url(../img/myaccount/renzheng.png) no-repeat 34px center;
+}
+.user_l_ul li a.ico7 {
+	background:#FFF url(../img/myaccount/anquan.png) no-repeat 34px center;
+}
+.user_l_ul li a.ico8 {
+	background:#FFF url(../img/myaccount/email.png) no-repeat 34px center;
+}
+.user_l_ul li a.ico9 {
+	background:#FFF url(../img/myaccount/zidong.png) no-repeat 34px center;
+}
+.user_l_ul li a.ico10 {
+	background:#FFF url(../img/myaccount/lianjie.png) no-repeat 34px center;
+}
+.user_l_ul li a.ico11 {
+	background:#FFF url(../img/myaccount/vip.png) no-repeat 34px center;
+}
+.user_l_ul li a.ico12 {
+	background:#FFF url(../img/myaccount/award.png) no-repeat 34px center;
+}
+.user_l_ul li a.ico13 {
+	background:#FFF url(../img/myaccount/inform.png) no-repeat 34px center;
+}
+.user_l_ul li a.active {
+	background:#c01920 url(../img/myaccount/myac_01.png) no-repeat 34px center;
+	color:#fff;
+}
+
+.user_l_ul li a.ico1:hover{
+	background:#c01920 url(../img/myaccount/myac_01.png) no-repeat 34px center;
+	color:#fff;
+	}
+.user_l_ul li a.ico2:hover{
+	background:#c01920 url(../img/myaccount/myac_01.png) no-repeat 34px center;
+	color:#fff;
+	}
+.user_l_ul li a.ico3:hover{
+	background:#c01920 url(../img/myaccount/money1.png) no-repeat 34px center;
+	color:#fff;
+	}
+.user_l_ul li a.ico4:hover{
+	background:#c01920 url(../img/myaccount/money1.png) no-repeat 34px center;
+	color:#fff;
+	}
+.user_l_ul li a.ico5:hover{
+	background:#c01920 url(../img/myaccount/money1.png) no-repeat 34px center;
+	color:#fff;
+	}
+.user_l_ul li a.ico6:hover{
+	background:#c01920 url(../img/myaccount/renzheng1.png) no-repeat 34px center;
+	color:#fff;
+	}
+.user_l_ul li a.ico7:hover{
+	background:#c01920 url(../img/myaccount/anquan1.png) no-repeat 34px center;
+	color:#fff;
+	}
+.user_l_ul li a.ico8:hover{
+	background:#c01920 url(../img/myaccount/email1.png) no-repeat 34px center;
+	color:#fff;
+	}
+.user_l_ul li a.ico9:hover{
+	background:#c01920 url(../img/myaccount/zidong1.png) no-repeat 34px center;
+	color:#fff;
+	}
+.user_l_ul li a.ico10:hover{
+	background:#c01920 url(../img/myaccount/lianjie1.png) no-repeat 34px center;
+	color:#fff;
+	}
+.user_l_ul li a.ico11:hover{
+	background:#c01920 url(../img/myaccount/vip1.png) no-repeat 34px center;
+	color:#fff;
+	}
+.user_l_ul li a.ico12:hover{
+	background:#c01920 url(../img/myaccount/award1.png) no-repeat 34px center;
+	color:#fff;
+	}
+.user_l_ul li a.ico13:hover{
+	background:#c01920 url(../img/myaccount/inform1.png) no-repeat 34px center;
+	color:#fff;
+	}
+	
+.user_c_m_r {
+	float: right;
+	width: 780px;
+	background:url(../img/myaccount/bg.png) top no-repeat;
+}
+.account_1f_top{
+	width:780px;
+	height:260px;
+	border: 1px solid #ccc;
+	}
+.account_1f {
+	width:780px;
+	height:160px;
+}
+.account_1f_l {
+	width:500px;
+	/*height:160px;*/
+	float: left;
+}
+.account_1f_l dl {
+	height: 130px;
+	margin-top: 15px;
+}
+.account_1f_l dl dt{
+	width: 126px;
+	height: 126px;
+	border-radius:50%;
+	padding-left:10px;
+	}
+.account_1f_l dl dt img {
+	width: 126px;
+	height: 126px;
+	border:1px #FFFFFF solid;
+	border-radius:50%;
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	-o-border-radius:50%;
+}
+.account_1f_l dl dt, .account_1f_l dl dd {
+	float: left;
+}
+.account_1f_l dl dd {
+	padding-left: 16px;
+	padding-top:16px;
+}
+.account_1f_l dl dd h1 {
+	color: #fff;
+	font-size: 14px;
+	margin-top: 6px;
+}
+
+.account_1f_l dl dd h1 span {
+	font-size: 18px;
+	color: #c01920;
+}
+
+.account_1f_l_b_r {
+	float: left;
+	margin-top:20px;
+}
+.account_1f_l_b_r a {
+	float: left;
+	margin-left: 10px;
+	cursor: pointer;
+	width: 80px;
+	height: 30px;
+	color: #fff;
+	font-size:18px;
+	text-align: center;
+	line-height: 30px;
+	background-color: #c01920;
+	border-radius: 5px;
+}
+.account_1f_l_b_r a.tixian {
+	background-color: #00a0e9;
+}
+.account_1f_r {
+	width:280px;
+	float: right;
+}
+
+.account_1f_r ul {
+	margin-top: 45px;
+}
+.account_1f_r ul li {
+	float: left;
+	width: 70px;
+	text-align: center;
+}
+.account_1f_r ul li p {
+	margin-top: 6px;
+	color:#fff;
+}
+
+.logintime{
+	float:right;
+	color:#fff;
+	margin-top:-15px;
+	margin-right:10px;
+	}
+	
+.account_1f_l_b {
+	width: 780px;
+	height: 100px;
+	background-color: #fff;
+}
+.account_1f_l_b_l {
+	width:150px;
+	float: left;
+	text-align: center;
+	margin-left: 24px;
+	font-size: 14px;
+	margin-top: 20px;
+	border-right:1px #ccc solid;
+	padding-right:20px;
+}
+.account_1f_l_b_l span {
+	color: #c01920;
+	font-size: 18px;
+	font-family:"微软雅黑";
+}
+.moneynum{
+	margin-top:10px;
+	}
+
+.account_2f {
+	width:780px;
+	height:160px;
+	margin-top: 20px;
+	background:#fff;
+	border: 1px solid #ccc;
+}
+.account_2f_t {
+	height: 40px;
+	border-bottom: 1px solid #ccc;
+	background:#f3f3f3;
+}
+.account_2f_t li {
+	float: left;
+	width: 110px;
+	height: 40px;
+	line-height: 40px;
+	border-left: 1px solid #ccc;
+	text-align: center;
+	cursor: pointer;
+}
+.account_2f_t li.active {
+	background:#fff;
+	border-bottom: 2px solid #c01920;
+}
+.account_2f_m {
+	padding: 20px 0;
+}
+.account_2f_m li {
+	float: left;
+	width: 240px;
+	text-align: center;
+}
+.account_2f_m li p {
+	font-size: 14px;
+	line-height: 28px;
+}
+.account_2f_m li p span {
+	font-size: 18px;
+	color: #c01920;
+}
+.account_2f_m li p a {
+	display: inline-block;
+	width: 50px;
+	height: 24px;
+	background-color: #f5a71f;
+	line-height: 24px;
+	color: #fff;
+	text-align: center;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.account_3f {
+	margin-top:20px;
+	width:780px;
+	height:160px;	
+}
+.account_3f img{
+	width:780px;
+	height:160px;
+	}
+
+/*我的专属客服开始*/
+.myservice{
+	float: right;
+	width: 780px;
+	}
+.myservice_1f {
+	width:780px;
+	height:160px;
+	margin-top: 20px;
+}
+.myservice_1f_t {
+	height: 40px;
+	border-bottom: 1px solid #ccc;
+	background:#f3f3f3;
+}
+.myservice_1f_t li {
+	float: left;
+	width: 110px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	cursor: pointer;
+}
+.myservice_1f_t li.active {
+	border-bottom: 2px solid #c01920;
+}
+
+#service_box {
+	padding:5px;
+}
+#service_box ul {
+	min-height: 150px;
+}
+#service_box ul:before, #service_box ul:after, ul.my_service:before, ul.my_service:after {
+	clear: both;
+	content: ' ';
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	font-size: 0;
+	line-height: 0;
+	width: 0;
+	height: 0;
+}
+#service_box ul li {
+	float: left;
+	width: 239px;
+	height: 150px;
+	margin-right:8px;
+	margin-top: 10px;
+	padding:5px;
+	border: 1px solid #eaeaea;
+	border-radius:5px;
+}
+#service_box ul li .photo {
+	float: left;
+	width: 120px;
+	height: 150px;
+}
+#service_box ul li .info {
+	float: left;
+	padding-left: 8px;
+}
+#service_box ul li .info dl {
+	margin: 0px;
+	height: 23px;
+	line-height: 23px;
+}
+#service_box ul li .info dl dt {
+	float: left;
+	width: 60px;
+}
+#service_box ul li .info dl dd {
+	float: left;
+	margin-left:1px;
+}
+#service_but {
+	padding: 10px;
+	text-align: center;
+}
+.get_service {
+	background: #f1f1f1;
+	color: #2ea7e0;
+	text-shadow: 1px 1px #ccc;
+}
+a.btn-disable, a.btn-disable:hover {
+	background: #CCC;
+	color: #777;
+	text-shadow: 1px 1px #aaa;
+}
+.tixing {
+	font-size: 12px;
+}
+ul.my_service {
+	padding: 10px;
+	width:760px;
+	border:1px #ccc solid;
+	border-radius:5px;
+	background:#fff;
+	margin-top:10px;
+}
+ul.my_service li {
+	float: left;
+}
+ul.my_service li dl {
+	height: 20px;
+	line-height: 20px;
+	margin: 0 0 0 10px;
+	clear: both;
+}
+ul.my_service li dt {
+	width: 60px;
+}
+ul.my_service li dt, ul.my_service li dd {
+	float: left;
+	margin: 3px 5px;
+}
+a.btn.btn-blank {
+	padding: 4px;
+	color: #c01920;
+	background: #fff;
+	text-shadow: none;
+	cursor: pointer;
+}
+.tooltipsy {
+	padding: 10px;
+	max-width: 200px;
+	color: #303030;
+	background-color: #f5f5b5;
+	border: 1px solid #deca7e;
+}
+.red{
+	color:#c01920;
+	font-size:14px;
+	}
+.service_list_box{
+	width:780px;
+	border:1px #ccc solid;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-ms-border-radius:5px;
+	-o-border-radius:5px;
+	background:#fff;
+	margin-top:20px;
+	}
+.btn {
+    background-color: #F5F5F5;
+    background-image: linear-gradient(to bottom, #FFFFFF, #E6E6E6);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #B3B3B3;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 0;
+    padding: 4px 12px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+}
+.btn-mini,a.btn-mini:hover {
+    border-radius: 3px;
+    font-size: 10.5px !important;
+    padding: 0 6px;
+}
+.btn-primary {
+    background-color: #29A9DF;
+    background-image: none;
+    background-repeat: repeat-x;
+    border: 0 none;
+    box-shadow: none;
+    color: #FFFFFF !important;
+    filter: initial;
+    overflow: hidden;
+    text-shadow: 1px 1px #119DCA;
+}
+.btn_change{
+	float:right; 
+	background:#c01920; 
+	color:#fff;
+	margin-left:380px;
+	}
+	
+/*客服评价开始*/
+.form_style{
+	width:760px;
+	background:#fff;
+	border:1px #ccc solid;
+	border-radius:5px;
+	padding:10px;
+	}
+.starnum{
+	margin-left:50px;
+	color:#F30; 
+	font-size:18px;
+	}
+.submit_btn{
+	padding:10px 0; 
+	float:right;
+	margin-right:45px;
+	}
+	
+.evaluations{
+	width:760px;
+	background:#fff;
+	border:1px #ccc solid;
+	border-radius:5px;
+	padding:10px;
+	margin-top:20px;
+	}
+.evaluations dl{
+	padding-bottom:10px;
+	border-bottom:1px #ccc dashed;
+	margin-top:10px;
+	}
+.evaluations dl dt{
+	width:80px;
+	height:80px;
+	border:1px #ccc solid;
+	border-radius:50%;
+	float:left;
+	margin-right:10px;
+	}
+.evaluations dl dt img{
+	width:80px;
+	height:80px;
+	border:1px #ccc solid;
+	border-radius:50%;
+	}
+.evaluations dl dd .name{
+	margin-right:40px;
+	}
+	
+/*我的奖励开始*/
+.myaeards{
+	float: right;
+	width: 780px;
+	}
+.myaeards_1f {
+	width:780px;
+	height:160px;
+	margin-top: 20px;
+}
+.myaeards_1f_t {
+	height: 40px;
+	border-bottom: 1px solid #ccc;
+	background:#f3f3f3;
+}
+.myaeards_1f_t li {
+	float: left;
+	width: 110px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	cursor: pointer;
+	border-top-right-radius:5px;
+	border-top-left-radius:5px;
+	background:#a0a0a0;
+	margin-right:20px;
+	color:#fff;
+}
+.myaeards_1f_t li.active {
+	background:#c01920;
+}
+
+.all_awards{
+	width:760px;
+	padding:10px;
+	background:#fff;
+	border:1px #ccc solid;
+	}
+.awards1,.awards2,.awards3{
+	width:760px;
+	padding:10px;
+	background:#fff;
+	border:1px #ccc solid;
+	}
+.all_awards ul{
+	padding-bottom:20px;
+	}
+.all_awards ul li{
+	float:left;
+	width:350px;
+	height:140px;
+	background:url(../img/myaccount/awardbg.png) no-repeat;
+	margin-top:10px;
+	margin-right:60px;
+	}
+.info_l{
+	float:left;
+	margin-top:25px;
+	margin-left:40px;
+	}
+.info_r{
+	float:right;
+	margin-top:35px;
+	margin-right:30px;
+	}
+.info_l h2{
+	text-align:center;
+	font-size:18px;
+	color:#c01920;
+	font-weight:200;
+	}
+.info_l p{
+	text-align:center;
+	margin-top:10px;
+	}
+.info_r p span{
+	font-size:18px;
+	color:#c01920;
+	color:#c01920;
+	font-weight:200;
+	}
+.awards1 ul{
+	padding-bottom:20px;
+	}
+.awards1 ul li{
+	float:left;
+	width:350px;
+	height:140px;
+	background:url(../img/myaccount/awardbg.png) no-repeat;
+	margin-top:10px;
+	margin-right:60px;
+	}
+.awards2 ul{
+	padding-bottom:20px;
+	}
+.awards2 ul li{
+	float:left;
+	width:350px;
+	height:140px;
+	background:url(../img/myaccount/awardbg.png) no-repeat;
+	margin-top:10px;
+	margin-right:60px;
+	}
+.awards3 ul{
+	padding-bottom:20px;
+	}
+.awards3 ul li{
+	float:left;
+	width:350px;
+	height:140px;
+	background:url(../img/myaccount/awardbg.png) no-repeat;
+	margin-top:10px;
+	margin-right:60px;
+	}
+	
+/*登录界面开始*/
+.main_login{
+	width:1000px;
+	margin:0 auto;
+	margin-top:50px;
+	}
+.main_login_l{
+	width:600px;
+	float:left;
+	text-align:center;
+	}
+.main_login_r{
+	width:400px;
+	float:left;
+	text-align:left;
+	}
+
+.main_login_r .login_tab {
+	float: right;
+	width: 360px;
+	height: 400px;
+	margin-right:20px;
+	background: #FFF;
+	margin-top: 0px;
+	border:1px #ccc solid;
+	border-radius: 5px;
+}
+.login_tab h1 {
+	width:360px;
+	height:60px;
+	font-size:18px;
+	line-height: 60px;
+	background:#c01920;
+	color: #fff;
+	text-align: center;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+}
+.main_login_r .login_tab table {
+	width: 280px;
+	margin: 0 auto;
+}
+.main_login_r .login_tab table td {
+	padding-top: 15px;
+}
+.main_login_r .login_tab table input.text {
+	width: 250px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 5px;
+	border: 1px #CCCCCC solid;
+}
+.main_login_r .login_tab table input.code {
+	width: 110px;
+	float: left;
+}
+.checkimg {
+	width: 65px;
+	height: 25px;
+	float: left;
+	position: relative;
+	top: 10px;
+	margin-left: 10px;
+}
+.checkimg_noti {
+	float: left;
+	color: #505050;
+	line-height: 40px;
+	margin-left: 10px;
+}
+.rem_pass label {
+	float: left;
+	color: #505050;
+}
+.rem_pass label span {
+	position: relative;
+	bottom: 2px;
+}
+.rem_pass a {
+	float: right;
+	color: #505050;
+	position: relative;
+	bottom: 2px;
+}
+.submit {
+	margin-top: 10px;
+}
+.main_login_r .login_tab table .submit input {
+	float: left;
+	width: 300px;
+	height: 40px;
+	background-color: #c01920;
+	color: #fff;
+	text-align: center;
+	border: none;
+	border-radius: 4px;
+	font-size:18px;
+	cursor: pointer;
+}
+.main_login_r .login_tab table .submit a {
+	float: right;
+	width: 120px;
+	height: 38px;
+	text-align: center;
+	color: #fff;
+	line-height: 38px;
+	background-color: #30beff;
+	border-radius: 4px;
+}
+dl.success{
+	margin-top:50px;
+	text-align:left;
+	margin-right:100px;
+	}
+dl.success dt{
+	text-align:center;
+	}
+dl.success dd{
+	margin-top:20px;
+	text-align:center;
+	}
+dl.success dd a{
+	color:#c01920;
+	}
+.btn_yzm{
+	height:32px;
+	line-height:32px;
+	margin-left:10px;
+	}
+.text_tjr{
+	width: 203px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 5px;
+	border: 1px #CCCCCC solid;
+	}

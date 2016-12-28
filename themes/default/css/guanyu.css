@@ -1,0 +1,91 @@
+
+.bnr,
+#mid {
+	margin: 10px 0 0;
+	width: 950px;
+}
+#mid .sidebar {
+	float: left;
+	width: 150px;
+}
+#mid .main {
+	float: right;
+	width: 790px;
+	overflow: hidden;
+}
+/*==========标题背景==========*/
+#mid h1 {
+	margin: 0 ;
+	padding: 8px 10px 0 10px;
+	height: 22px;
+	font: bold 14px ;
+	color: #FFFFFF;
+	border: 1px solid #CCC;
+	background: url(bg.gif);
+}
+#mid h1 strong {
+	display:block;
+	padding-left: 15px;
+	background: url(../images/bgTitle.png) no-repeat 0 -8px;
+}
+
+.sidebar ul {
+	padding: 0 9px 9px;
+	font: 14px ;
+	border: 1px solid #DADADA;
+	border-top: 0;
+}
+.sidebar ul li {
+	padding: 9px 0 9px 18px;
+	height: 14px;
+	border-bottom: 1px dashed #CCC;
+	background: url(../images/bgMain.png) no-repeat -940px -78px;
+	overflow: hidden;
+}
+.sidebar li a {
+	color: #000;
+}
+/*==========左侧菜单背景==========*/
+#chn48 li#menu1 a,
+#chn49 li#menu2 a ,
+#chn44 li#menu3 a ,
+#chn45 li#menu4 a ,
+#chn76 li#menu5 a ,
+#chn14 li#menu6 a ,
+#chn73 li#menu7 a ,
+#chn74 li#menu10 a,
+#chn69 li#menu12 a,
+#chn79 li#menu11 a{
+	font-weight: bold;
+	color: #F60;
+}
+/*==========右侧内容==========*/
+#content {
+	padding: 9px 15px;
+	border: 1px solid #DADADA;
+	border-top: 0;
+	_height: 320px;
+	min-height: 320px;
+	font: 12px/180% "宋体";
+}
+#content p {
+	margin: 10px 0;
+	text-indent: 2em;
+}
+#content a {
+	color:blue;
+	text-decoration:underline;
+}
+
+/*==========右侧文章内容==========*/
+#content h2 {
+	padding: 8px 0;
+	font: 18px "黑体";
+	text-align: center;
+}
+#content .info {
+	padding: 0 0 8px;
+	text-align: center;
+	color: #666;
+	border-bottom: 1px dashed #CCC;
+}

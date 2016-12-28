@@ -1,0 +1,397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{if $_G.article.name!=""}{$_G.article.name} - {/if}{if $_G.site_result.name} {$_G.site_result.name} -  {/if}{$_G.system.con_webname}</title>
+<meta name="description" content="{$_G.system.con_description}" />
+<meta name="keywords" content="{$_G.system.con_keywords}" />
+<link type="text/css" rel="stylesheet" href="/public/css/css.css" />
+<script type="text/javascript" src="/public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="/public/js/jquery.jslides.js"></script>
+</head>
+{include file="new_header.html"}
+<div class="ad">
+	<div id="full-screen-slider">
+		<ul id="slides">
+			<li style="background:url('/public/images/05.jpg') no-repeat center top"></li>
+			<li style="background:url('/public/images/02.jpg') no-repeat center top"></li>
+			<li style="background:url('/public/images/03.jpg') no-repeat center top"></li>
+            <li style="background:url('/public/images/04.jpg') no-repeat center top"></li>
+            <li style="background:url('/public/images/01.jpg') no-repeat center top"></li>
+            <li style="background:url('/public/images/06.jpg') no-repeat center top"></li>
+		</ul>
+	</div>
+
+	<div class="zc">
+		<div class="deng">
+			{if $_G.user_id==""}
+				<form action="/index.php?user&q=action/login" method="post" class="index_login">
+				<input type="hidden" name="indexinfo" value="indexo"/>
+					<span>
+						<h1>帐号登录</h1>
+						<h2>还没有帐号？<a href="/user/getpwd.html">找回密码！</a></h2>
+					</span>
+					<b>帐号</b>
+					<input name="keywords" class="kuang" type="text" />
+					<b>密码</b>
+					<input class="kuang" name="password" type="password" />
+					<input type="button" class="lc" style="cursor:pointer" onclick="javascript:form.submit();"/>
+					<input name="" class="cc" type="button" style="cursor:pointer" onclick="window.open('/user/reg.html')"/>
+					<h3>财富热线：{$_G.system.con_tel}</h3>
+				</form>
+			{else}
+				<form action="/index.php?user&q=action/login" method="post" style="width:265px;height:120px; ">
+				<ul class="index_log_ul1" style="margin-top:15px; margin-left:20px;">
+                    <li style="text-align:center; padding-top:5px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb">
+                            <tbody><tr>
+                                <td width="80"><img src="/data/images/avatar/noavatar_middle.gif" width="90" height="80"></td>
+                                <td align="left" style="padding-left:10px;line-height:30px; float:left;"><font style="color:#fff;">欢迎您：&nbsp;
+                                   	{article module="borrow" function="GetUserLog" user_id=0 var="acc"}
+                                   	{$_G.user_result.username} <br>
+                                   	可用余额：{$acc.use_money|default:0}
+                                   	{/article}
+                                   	<br>
+                                    <a href="/index.php?user" id="hyaiai">
+                                   可用积分：</a>&nbsp;&nbsp;{$_G.user_result.integral}</font>
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </li>
+                    <br>
+                    <div style="border-bottom:1px dashed rgb(175, 167, 167);width:90%;height:15px;"></div>
+                    <li style="margin-top:5px;" class="lli"><br><br>
+                        <a href="/index.php?user"id="hyaiai">我的账户</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="/index.php?user&q=code/account/log"id="hyaiai">资金记录</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="/index.php?user&q=action/logout"id="hyaiai">[&nbsp;退出&nbsp;]</a>
+                        <br><br>
+                        <br>
+                        <a href="/index.php?user&q=code/account/recharge_new"id="hyaiai">我要充值</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="/index.php?user&q=code/account/cash_new"id="hyaiai">我要提现</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="/index.php?user&q=code/borrow/succes" id="hyaiai">我的投资</a>
+                    </li>
+                </ul>
+                </form>
+			{/if}
+		</div>
+	</div>
+</div>
+
+<div class="main">
+	<div class="main2">
+		<div class="topsum1_text">
+	        <dl>
+	            <dt><img src="/public/images/img1.jpg"></dt>
+	            <dd><strong>发标预告</strong>{site site_id="191" }
+	{loop module="article" function="GetList" key=key limit="5" site_var="var" var="item" status=1}
+		<li style="list-style:none;"><a href="{$item.site_nid}/a{$item.id}.html">{$item.name|truncate:50}... </a></li>
+	{/loop}
+{/site}</dd>
+	        </dl>
+	
+	        <div class="topsum1_text_r1">
+	            <p><span class="fc2">￥{if $_G.collected}{$_G.collected}{else}0{/if}</span></p>
+	            <p>累计为投资人赚取收益</p>
+	        </div>
+	
+	        <div class="topsum1_text_r2">
+	            <p><span class="fc2">￥{if $_G.rental}{$_G.rental}{else}0{/if}</span></p>
+	            <p>投资已在汇纳财富完成</p>
+	        </div>
+	    </div>
+	</div>
+</div>
+<div class="main1">
+<div class="main3">
+<div class="fw">
+	<a href="/cjwt/main.html">
+	<dl>
+	<dt><img src="/public/images/y1.jpg" /></dt>
+	<dd>
+	<h1>新手<b>指南</b></h1>
+	<p>你身边触手可及的理财好平台，帮助他人，获得可靠高收益，安全交易，便捷有保障！</p>
+	</dd>
+	</dl>
+	</a>
+
+
+	<a href="/aqbz/main.html">
+	<dl>
+	<dt><img src="/public/images/y2.jpg" /></dt>
+	<dd>
+	<h1><b style="color:#5fbd45;">安全</b>保障</h1>
+	<p>全质押，全抵押模式，100%人工审核，100%本息保障，让您的资金得到全方位保障！</p>
+	</dd>
+	</dl>
+	</a>
+
+
+	<a href="/feerole/main.html">
+	<dl>
+	<dt><img src="/public/images/y3.jpg" /></dt>
+	<dd>
+	<h1><b style="#e08c06;">全免</b>体检</h1>
+	<p>开户免费，充值免费，认证免费，首年VIP免费，本金保障免费等带给您最贴心最超值的免费体验！</p>
+	</dd>
+	</dl>
+	</a>
+
+	<a href="/index.php?user&q=code/borrow/auto">
+	<dl>
+	<dt><img src="/public/images/y1.jpg" /></dt>
+	<dd>
+	<h1><b style=" color:#bf0908;">自动</b>投标</h1>
+	<p>全自动的投标体验,随账户资金总额增加,可新增更多的自动投标规则,不用担心没时间投标而造成资金闲置！</p>
+	</dd>
+	</dl>
+	</a>
+</div>
+
+<div class="main4">
+<div class="main_kuang">
+		 
+<div class="pro_list_tt">   
+	<span class="yahao" style="width:160px;padding-left:60px;text-align:left;">理财项目</span><span>
+		<span class="f15"><br>
+			<span>
+				<span class="dingfont">
+					<span style=" float:right; margin-right:30px;">
+						<a href="/invest/main.html">更多投资理财项目</a>
+					</span>
+				</span>
+				<span style="font-size:14px; height:32px; line-height:32px;">项目发布时间：工作日10：30 、16：30、20：30 ; 非工作日随机发布。  </span> 
+			</span> 
+		</span>
+		<table width="956" border="0" height="35" align="center" style="padding-left:30px;float: left;">
+		  <tbody><tr align="left">
+		    <td width="135" align="center"><span class="f12 fya1" style="color:#616267">借款用途</span></td>
+		    <td width="90" align="center"><span class="f12 fya1" style="color:#616267">年化利率</span></td>
+		    <td width="80" align="center"><span class="f12 fya1" style="color:#616267">金额</span></td>
+		    <td width="90" align="center"><span class="f12 fya1" style="color:#616267">期限</span></td>
+		    <td width="100" align="center"><span class="f12 fya1" style="color:#616267">还款方式 <a id="tip" href="javascript:void(0)"><img src="/public/images/wenhao1.jpg" width="12" height="12" border="0"></a></span></td>
+		    <td width="110" align="center"><span class="f12 fya1" style="color:#616267">进度</span></td>
+		    <td width="100" align="center"><span class="f12 fya1" style="color:#616267">状态</span></td>
+		  </tr>
+		</tbody>
+		</table>
+		<table width="950" border="0" cellspacing="0" cellpadding="0" style="float: left;">
+			<tbody>
+			<tr>
+			    <td width="298"></td>
+			    <td height="27"><img border="0" src="/public/images/wenhao1.jpg" id="tip"></td>
+			</tr>
+			</tbody>
+		</table>
+	</span>
+</div>
+
+
+{list module="borrow" function="GetList" var="loop" site_id="0" keywords="request" type="index" use="request"
+account1="request" account2 = "request" limittime="request" award="request" province="request" city="request" epage="2"
+order="request" gostatus="request" style="request"}
+
+{foreach from="$loop.list" item="var" key=key}
+{if $var.is_liuzhuan==1}
+<div class="yahao_div">
+	<ul>
+		<li>
+		   <!--<a href="javascript:void(0);" onclick="forwards(&#39;financeDetailFormId15238&#39;)" title="{$var.name}">-->
+		   <div class="ts-1 st">
+					<div class="ts-1-1">
+						<span class="list_1 list_2i">	
+						{$var.name|truncate:10}<b class="bao">
+						{if $var.isday==1}<span>天</span>{/if}
+			            {if $var.award==2}
+			            	<div>奖</div>
+			            {/if}
+            			</b>
+						</span>
+		            </div>
+					
+					<div align="center" class="ts-1-2"><span class="f18 fya1">{$var.apr}</span></div>
+					<div align="center" class="ts-1-3"><span class="f18 fya1">{$var.account}</span> 元 </div>
+					<div align="center" class="ts-1-4"><span class="f18 fya1">
+					{if $var.isday==1 }
+		                {$var.time_limit_day}</span>天</div>
+		            {elseif $var.is_mb==1}
+		               	</span>额满即还</div>
+		            {else}
+		                {$var.time_limit}</span>个月</div>
+	                {/if}
+					<div class="ts-1-5">
+						<span class="list_2 gen-2">等额本息</span> 
+					</div>
+					<div align="left" class="ts-1-6">
+	    			<div class="ratio-per"> 
+						<div class="perIndex" data-rel="100.0"><div style="width:{$var.scale}%;"></div></div>
+	                         <strong class="ratio">{$var.scale}%</strong>
+						</div>
+					</div>
+					
+					<div align="center" class="ts-1-7">
+	      				{if $var.scale!=100}
+				        	<div class="pasfei">立即认购</div>
+				        {else}
+				        	<div class="pasfei">认购完成</div>
+				        {/if}
+				 	</div> 
+				</div>
+			<!--</a>-->
+		</li>
+	</ul>
+</div>
+{else}
+<div class="yahao_div">
+	<ul>
+		<li>
+		   <a href="javascript:void(0);" onclick="forwards(&#39;financeDetailFormId15238&#39;)" title="{$var.name}" style="display:block; width:89px; height:1px;">
+ 			<div class="ts-1 st">
+				<div class="ts-1-1">
+					<span class="list_1 list_2i">	
+					{$var.name|truncate:10}<b class="bao">
+					{if $var.is_vouch != 1 && $var.is_mb!=1 && $var.is_fast!=1 && $var.is_jin!=1 &&$var.is_liuzhuan!==1}信{/if}
+           			{if $var.is_jin==1}净{/if}
+           			{if $var.is_mb==1}秒{/if}
+           			{if $var.is_vouch==1}担{/if}
+           			{if $var.is_fast==1}押{/if}
+           			{if $var.award==2}奖{/if}
+           			</b>
+					</span>
+	            </div>
+				
+				<div align="center" class="ts-1-2"><span class="f18 fya1">{$var.apr}</span></div>
+				<div align="center" class="ts-1-3"><span class="f18 fya1">{$var.account}</span> 元 </div>
+				<div align="center" class="ts-1-4"><span class="f18 fya1">
+				{if $var.isday==1 }
+	                {$var.time_limit_day}</span>天</div>
+	            {elseif $var.is_mb==1}
+	               	</span>额满即还</div>
+	            {else}
+	                {$var.time_limit}</span>个月</div>
+                {/if}
+				<div class="ts-1-5">
+					<span class="list_2 gen-2">等额本息</span> 
+				</div>
+				<div align="left" class="ts-1-6">
+    			<div class="ratio-per"> 
+					<div class="perIndex" data-rel="100.0"><div style="width:{$var.scale}%;"></div></div>
+                         <strong class="ratio">{$var.scale}%</strong>
+					</div>
+				</div>
+				
+				<div align="center" class="ts-1-7">
+      				{if $var.status == 0}
+      					<div class="pasfei"><a href="/invest/a{$var.id}.html?detail=true">查看</a></div>
+      				{elseif $var.status==3}
+	      				{if $var.repayment_account == $var.repayment_yesaccount }
+		                	<div class="pasfei">已还完</div>
+		            	{else}
+		                	<div class="pasfei">还款中</div>
+            			{/if}
+      				{elseif $var.status==5}
+			            <div class="pasfei">已撤销</div>
+			        {elseif $var.account>$var.account_yes}
+			            {if $var.is_vouch==1}<!--如果是担保标-->
+			                {if $var.vouch_scale >=100}
+			                    <a href="/invest/a{$var.id}.html?detail=true" style="display:block; width:89px; height:0px;"><div class="pasfei">立即投标</div> </a>
+			                {elseif $var.vouch_scale < 100}
+			                   <a href="/invest/a{$var.id}.html?detail=vouch" style="display:block; width:89px; height:0px;"> <div class="pasfei">立即担保</div> </a>
+			                {else}
+			                	<!--<img src="{$tempdir}/images/tender.gif" />-->
+			                {/if}
+			            {else}
+			            	<a href="/invest/a{$var.id}.html?detail=true" style="display:block; width:89px; height:0px;"><div class="pasfei">立即投标</div></a>
+			            {/if}
+			        {else}
+			            <div class="pasfei">等待复审</div>
+			        {/if}
+			 	</div> 
+			</div>
+			</a>
+		</li>
+	</ul>
+</div>
+{/if}
+{/foreach}
+{/list}
+
+</div>
+</div>
+
+<div class="main5">
+<div class="new">
+<span>
+<b>网站公告</b>
+<p><a href="/gonggao/main.html">更多></a></p>
+</span>
+<ul>
+{site site_id="83" }
+	{loop module="article" function="GetList" key=key limit="5" site_var="var" var="item" status=1}
+		<li><a href="{$item.site_nid}/a{$item.id}.html">{$item.name|truncate:16}...</a></li>
+	{/loop}
+{/site}
+</ul>
+</div>
+
+<div class="new">
+<span>
+<b>发标预告</b>
+<p><a href="/fbyg/main.html">更多></a></p>
+</span>
+<ul>
+{site site_id="191" }
+	{loop module="article" function="GetList" key=key limit="5" site_var="var" var="item" status=1}
+		<li><a href="{$item.site_nid}/a{$item.id}.html">{$item.name|truncate:16}... </a></li>
+	{/loop}
+{/site}
+</ul>
+</div>
+
+<div class="new">
+<span>
+<b>行业资讯</b>
+<p><a href="/projecttell/main.html">更多></a></p>
+</span>
+<ul>
+{site site_id="143" }
+	{loop module="article" function="GetList" key=key limit="5" site_var="var" var="item" status=1}
+		<li><a href="{$item.site_nid}/a{$item.id}.html">{$item.name|truncate:16}... </a></li>
+	{/loop}
+{/site}
+</ul>
+</div>
+</div>
+
+<div class="main6">
+<dl>
+<dt><img src="/public/images/ico6.png" /></dt>
+<dd>30倍活期存款收益</dd>
+</dl>
+
+
+<dl>
+<dt><img src="/public/images/ico7.png" /></dt>
+<dd>50元即可加入</dd>
+</dl>
+
+
+<dl>
+<dt><img src="/public/images/ico8.png" /></dt>
+<dd>100%本息担保</dd>
+</dl>
+
+
+<dl>
+<dt><img src="/public/images/ico9.png" /></dt>
+<dd>随时赎回投资</dd>
+</dl>
+
+<dl>
+<dt><img src="/public/images/ico10.png" /></dt>
+<dd>服务完全免费</dd>
+</dl>
+</div>
+</div>
+</div>
+{include file="new_footer.html"}

@@ -1,0 +1,56 @@
+
+<!--积分商城左边菜单-->
+<div id="ableft" class="topLoop">                 
+	<div class="mall_bar">我的商城</div>
+	<div class="my_mall">
+	    <ul>
+	    	{if !empty($_G.user_id)}
+	    	<li>
+	            <a href="javascript:;">当前积分：<font style="color:orange">{if empty($_G.user_result.integral)}0{else}{$_G.user_result.integral}{/if}</font>分</a>
+	        </li>
+	        <li>
+	            <a href="/index.php?user&q=code/user/credit_invest">所得总积分：<font style="color:orange">{if empty($_G.user_result.get_all_integral)}0{else}{$_G.user_result.get_all_integral}{/if}</font>分</a>
+	        </li>
+	        {/if}
+	        <li>
+	            <a href="/integral/convert_log/main.html">我的兑换记录</a>
+	        </li>
+	    </ul>
+	</div>
+	
+	<div class="mall_bar">商城动态</div>
+	<div class="convert_log" id="dhjl" >
+	    <ul class="scrollNews" id="scrollNews"> 
+	    {foreach  from=$_A.convert_list key=key item=item}
+               <li>
+                   <a title="{$item.goods_name}" class="pro_img" target="_blank" href="/integral/product/main.html?id={$item.integral_id}"><img src="/{$item.goods_litpic}"></a>
+                   <span class="user_info"><span>{$item.username|truncate:-2}...</span>兑换了
+					<a title="{$item.goods_name} " target="_blank" href="/integral/product/main.html?id={$item.integral_id}">{$item.goods_name} </a></span>
+               </li> 
+           {/foreach}
+	    </ul>
+	</div>
+</div>
+{literal}
+<script>
+$(function(){
+  var $this=$(".scrollNews");
+  $this.hover(function(){	  
+       clearInterval(scrollTimer);
+   },function(){	   
+      scrollTimer=setInterval(function(){
+           scrollNews($this);
+      },3000);
+   });
+  var scrollTimer=setInterval(function(){
+       scrollNews($this);
+  },3000);
+})
+function scrollNews(obj){
+  var $self=obj;
+  var height=$self.find("li").height();
+  $self.animate({"marginTop":"-96px"},1000,function(){
+      $self.css("marginTop",0).find("li:first").appendTo($self);
+})}
+</script>
+{/literal}

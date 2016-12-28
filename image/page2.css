@@ -1,0 +1,117 @@
+#content2 {
+	MARGIN: 0px auto; WIDTH: 960px
+}
+.sidebar {
+	MARGIN: 0px auto; WIDTH: 182px; FLOAT: left;margin-top:10px;
+}
+.sidebar H2 {
+	color: #fff;background-color:#1bb8e3;LINE-HEIGHT: 50px; text-align: center; WIDTH: 182px;  HEIGHT: 50px; FONT-SIZE: 16px; border:1px #fff solid;border-top: 0px;
+}
+.sidebar .sum1 {
+	WIDTH: 180px; PADDING-TOP: 7px
+}
+.sidebar .sum1 LI {
+	TEXT-ALIGN: left; padding-left:50px; LINE-HEIGHT: 31px; MARGIN: 0px auto; WIDTH: 180px; BACKGROUND: url(/image/vdd1.jpg) no-repeat; HEIGHT: 31px;
+}
+.sidebar .sum1 LI A {
+	color:#535353;
+}
+.midside {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; WIDTH: 574px; PADDING-RIGHT: 10px; FLOAT: left; PADDING-TOP: 0px
+}
+.midside H3 {
+	POSITION: relative; LINE-HEIGHT: 35px; MARGIN-TOP: 10px; TEXT-INDENT: 30px; WIDTH: 587px; BACKGROUND: url(tit5.jpg) no-repeat; HEIGHT: 35px; FONT-SIZE: 16px
+}
+.midside H3 SPAN {
+	POSITION: absolute; FONT-SIZE: 12px; TOP: 5px; RIGHT: 10px; FONT-WEIGHT: normal
+}
+.midside .midsum1 {
+	BORDER-BOTTOM: #dbdbdd 1px solid; BORDER-LEFT: #dbdbdd 1px solid; PADDING-BOTTOM: 0px; PADDING-LEFT: 15px; WIDTH: 570px; PADDING-RIGHT: 0px; BACKGROUND: #f7f7f7; BORDER-TOP: #dbdbdd 1px solid; BORDER-RIGHT: #dbdbdd 1px solid; PADDING-TOP: 10px
+}
+.midside .midsum1 DT {
+	WIDTH: 102px; FLOAT: left
+}
+.midside .midsum1 DT IMG {
+	BORDER-BOTTOM: #dbdad8 1px solid; BORDER-LEFT: #dbdad8 1px solid; PADDING-BOTTOM: 2px; PADDING-LEFT: 2px; WIDTH: 96px; PADDING-RIGHT: 2px; HEIGHT: 96px; OVERFLOW: hidden; BORDER-TOP: #dbdad8 1px solid; BORDER-RIGHT: #dbdad8 1px solid; PADDING-TOP: 2px
+}
+.midside .midsum1 DT SPAN {
+	TEXT-ALIGN: center; LINE-HEIGHT: 28px; WIDTH: 102px; DISPLAY: block; HEIGHT: 28px; OVERFLOW: hidden
+}
+.midside .midsum1 DD {
+	LINE-HEIGHT: 30px; PADDING-LEFT: 18px; WIDTH: 390px; FLOAT: left; HEIGHT: 30px
+}
+.midside .midsum1 DD SPAN {
+	TEXT-ALIGN: right; WIDTH: 65px; DISPLAY: inline-block
+}
+.midside .midsum2 {
+	PADDING-BOTTOM: 12px; PADDING-LEFT: 0px; WIDTH: 587px; PADDING-RIGHT: 0px; BACKGROUND: #f2f2f2; PADDING-TOP: 12px
+}
+.midside .midsum2 P {
+	LINE-HEIGHT: 22px; TEXT-INDENT: 20px
+}
+.midside .midsum3 {
+	WIDTH: 587px; BACKGROUND: url(bg7.jpg) no-repeat left 25px; HEIGHT: 52px; PADDING-TOP: 22px
+}
+.midside .midsum3 LI {
+	TEXT-ALIGN: center; LINE-HEIGHT: 37px; WIDTH: 94px; PADDING-RIGHT: 30px; FLOAT: left; HEIGHT: 37px; FONT-WEIGHT: bold;
+}
+.midside .midsum3 LI.li2 {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; WIDTH: 91px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.sidebar .sum2 {
+	BORDER-BOTTOM: #ccdadb 1px solid; BORDER-LEFT: #ccdadb 1px solid; PADDING-BOTTOM: 10px; WIDTH: 182px; BACKGROUND: #eff4f7; BORDER-TOP: #ccdadb 1px solid; BORDER-RIGHT: #ccdadb 1px solid
+}
+.sidebar .sum2 H4 {
+	BORDER-BOTTOM: #dce1e5 1px solid; LINE-HEIGHT: 32px; MARGIN: 0px auto; WIDTH: 178px; HEIGHT: 32px; COLOR: #346494; FONT-SIZE: 12px
+}
+.sidebar .sum2 LI {
+	BORDER-BOTTOM: #d7dcdf 1px dashed; POSITION: relative; LINE-HEIGHT: 27px; MARGIN: 0px auto; WIDTH: 178px; HEIGHT: 27px
+}
+.sidebar .sum2 LI SPAN {
+	POSITION: absolute; TOP: 0px; RIGHT: 0px
+}
+.sidebar .sum3 {
+	PADDING-BOTTOM: 11px; PADDING-LEFT: 0px; WIDTH: 179px; PADDING-RIGHT: 0px; BACKGROUND: url(bg3.jpg) repeat-x; PADDING-TOP: 11px
+}
+.sidebar .sum3 LI {
+	LINE-HEIGHT: 23px; TEXT-INDENT: 12px; WIDTH: 160px; HEIGHT: 23px; OVERFLOW: hidden
+}
+.sidebar .sum4 {
+	PADDING-BOTTOM: 20px; PADDING-LEFT: 0px; WIDTH: 194px; PADDING-RIGHT: 0px; PADDING-TOP: 2px
+}
+.sidebar .sum4 LI {
+	TEXT-ALIGN: center; LINE-HEIGHT: 25px; MARGIN-TOP: 8px; WIDTH: 194px; BACKGROUND: url(ico13.gif) no-repeat; HEIGHT: 25px; OVERFLOW: hidden
+}
+.sidebar .sum4 LI A {
+	COLOR: #403f3d
+}
+.sidebar .pic {
+	WIDTH: 194px; BACKGROUND: url(pic3.jpg) no-repeat left bottom; HEIGHT: 290px
+}
+.rightside {
+	WIDTH: 784px; FLOAT: right
+}
+.rightit {
+	LINE-HEIGHT: 35px; TEXT-INDENT: 32px; WIDTH: 784px; BACKGROUND: url(tit8.jpg) no-repeat; HEIGHT: 35px; FONT-SIZE: 16px
+}
+.rightit A {
+	FONT-SIZE: 16px
+}
+.rightpic {
+	BORDER-BOTTOM: #d8d9db 1px solid; BORDER-LEFT: #d8d9db 1px solid; MARGIN: 10px auto; WIDTH: 782px; BORDER-TOP: #d8d9db 1px solid; BORDER-RIGHT: #d8d9db 1px solid
+}
+.right_b {
+	BORDER-BOTTOM: #d8d9db 1px solid; BORDER-LEFT: #d8d9db 1px solid; PADDING-BOTTOM: 30px; PADDING-LEFT: 30px; WIDTH: 752px; PADDING-RIGHT: 0px; BORDER-TOP: medium none; BORDER-RIGHT: #d8d9db 1px solid; PADDING-TOP: 30px
+}
+.right_b DL {
+	WIDTH: 376px; FLOAT: left
+}
+.right_b DT {
+	WIDTH: 122px; FLOAT: left; HEIGHT: 112px
+}
+.right_b DD {
+	POSITION: relative; LINE-HEIGHT: 28px; TEXT-INDENT: 18px; WIDTH: 248px; BACKGROUND: url(ico11.gif) no-repeat left 10px; FLOAT: right; HEIGHT: 28px
+}
+.right_b DD .qq {
+	POSITION: absolute; TOP: 0px; LEFT: 0px
+}

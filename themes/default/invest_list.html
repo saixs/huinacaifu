@@ -1,0 +1,66 @@
+{list module="borrow" function="GetList" var="loop" site_id="0" keywords="request" type="index" use="request"
+account1="request" account2 = "request" limittime="request" award="request" province="request" city="request" epage="9"
+order="request" gostatus="request" style="request"}
+
+{foreach from="$loop.list" item="var" key=key}
+<li>
+	<h1><a href="/invest/a{$var.id}.html">{$var.name|truncate:10}</a></h1>
+	<h2>
+		<p>募集金额：<span>￥{$var.account}</span>　　 起投金额：<span>￥{$var.lowest_account}</span></p>
+		<p>截止时间：{$var.end_time|date_format:"Y-m-d H:i:s"}</p>
+	</h2>
+	<dl class="clearfix">
+		<dt>
+		<p><strong>{$var.apr}%</strong></p>
+		<p>年化利率</p>
+		</dt>
+		<dd>
+			<p>
+				{if $var.isday==1 }
+				<strong>{$var.time_limit_day}</strong>天
+				{else}
+				<strong>{$var.time_limit}</strong>个月
+				{/if}
+			</p>
+			<p>项目期限</p>
+		</dd>
+	</dl>
+	<h3>
+		<p>按月付息　到期还本</p>
+		<div>
+			<i percent="{$var.scale}%"></i>
+		</div>
+		<p><span>{$var.account_yes} /</span> {$var.account}</p>
+	</h3>
+	<h4>
+		<a>
+			{if $var.status == 0}
+			<div class="pasfei"><a href="/invest/a{$var.id}.html?detail=true">查看</a></div>
+			{elseif $var.status==3}
+			{if $var.repayment_account == $var.repayment_yesaccount }
+			<div class="pasfei">已还完</div>
+			{else}
+			<div class="pasfei">还款中</div>
+			{/if}
+			{elseif $var.status==5}
+			<div class="pasfei">已撤销</div>
+			{elseif $var.account>$var.account_yes}
+			{if $var.is_vouch==1}<!--如果是担保标-->
+			{if $var.vouch_scale >=100}
+			<a href="/invest/a{$var.id}.html?detail=true" style="display:block; width:89px; height:0px;"><div class="pasfei">立即投标</div> </a>
+			{elseif $var.vouch_scale < 100}
+			<a href="/invest/a{$var.id}.html?detail=vouch" style="display:block; width:89px; height:0px;"> <div class="pasfei">立即担保</div> </a>
+			{else}
+			<!--<img src="{$tempdir}/images/tender.gif" />-->
+			{/if}
+			{else}
+			<a href="/invest/a{$var.id}.html?detail=true" style="display:block; width:89px; height:0px;"><div class="pasfei">立即投标</div></a>
+			{/if}
+			{else}
+			<div class="pasfei">等待复审</div>
+			{/if}
+		</a>
+	</h4>
+</li>
+{/foreach}
+{/list}

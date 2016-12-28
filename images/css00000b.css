@@ -1,0 +1,171 @@
+/*---------- index ---------*/
+
+.index-banner                        { width: 950px; height: 346px; margin: 0px auto;}
+
+
+.index-main-01                       { position: relative; width: 950px; height: 160px; margin: 10px auto; overflow: hidden; }
+.index-main-01 div                   { position: absolute; }
+
+.in-bg01,.in-bg02,.in-bg03           { width: 233px; height: 160px; top: 0px; }
+.in-bg01                             { left:0px; background: url(qmd_24.jpg); }
+.in-bg02                             { left:244px; background: url(qmd_25.jpg); }
+.in-bg03                             { left:487px; background: url(qmd_27.jpg) no-repeat top; }
+.in-bg09							 { width: 476px; height: 160px; top: 0px; left:0px; background: url(qmd_99.png);}
+.in-bgg09                            { left: 12px; top: 40px; width: 460px; }
+.in-01,.in-04,.in-07                 { top: 9px; color: #FFF;  font-size: 14px; font-weight: bold; }
+.in-01                               { left: 105px; }
+.in-04                               { left: 350px; }
+.in-07                               { left: 580px; }
+.in-02,.in-05                        { width: 130px; top: 65px; font-size: 13px; font-weight: bold; }
+.in-02                               { left: 108px; color: #921414; }
+.in-05                               { left: 350px; color: #CC5D0C; }
+.in-03,.in-06                        { width: 87px; height: 25px; top: 113px; }
+.in-03                               { left: 108px; background: url(ReadRed0.jpg); }
+.in-06                               { left: 350px; background: url(ReadGold.jpg); }
+.in-03 a,.in-06 a                    { display: block; width: 87px; height: 25px; }
+.in-08                               { left: 512px; top: 47px; width: 200px; border-bottom:1px dashed #ABA8A7; }
+.in-08                               { color: #272727; line-height: 150%; padding: 0px 0px 8px;}
+.in-08-s                             { left: 512px; top: 200px; }
+.in-09                               { left: 512px; top: 105px; width: 180px; }
+.in-09 li                            { display: block; width: 90px; height: 22px; float: left; }
+.in-09 a                             { color: #007AC7; margin: 0px 0px 0px 10px;}
+.in-09 a:hover                       { text-decoration: underline;}
+.in-10                               { right: 0px; top: 0px; width: 221px; height: 161px;background:url(qmd_29.jpg) left top no-repeat; float:right;}
+.in-10 ul                            { width: 200px; height: auto; border-bottom:1px dashed #ABA8A7; margin: 5px auto 5px; padding: 0px 0px 5px;}
+
+.in-10 ul li{line-height:35px;}
+.in-10 span						{color: #C62100;font-family: Georgia;}
+.in-10 .font-1, .font-2, .font-3 {font-size:12px;width:58px;}
+.in-10  .font-1-1,.font-2-1, .font-3-1{ font-size: 30px; padding:0 5px;}
+.in-10 .font-1-2,.font-2-2, .font-3-2 { font-size: 20px; }
+
+.in-bg99                               { right: 0px; top: 0px; width: 221px; height: 161px;background:url(lz00.gif) left top no-repeat; float:right;}
+.in-99                                { left: 745px; top: 47px; width: 200px; border-bottom:1px dashed #ABA8A7;color: #272727; line-height: 150%; padding: 0px 0px 8px; }
+.in-99-s                               { left: 745px; top: 105px; width: 180px; }
+.in-99-s li                            { display: block; width: 90px; height: 22px; float: left; }
+.in-99-s a                             { color: #007AC7; margin: 0px 0px 0px 10px;}
+.in-99-s a:hover                       { text-decoration: underline;}
+
+.in-11                               { right: 260px; top: 8px; width: 31px; height: 15px; background: url(more0000.jpg); }
+.in-11 a                             { display: block; width: 31px; height: 15px;}
+
+.index-main-02                       { width: 950px; height: auto; margin: 0px auto 10px; }
+.index-main-02,.index-main-02 div    { overflow: hidden; }
+
+.inm02-left                          { float: left; }
+
+#SortDiv                             { width: 718px; height: 30px; border: 1px solid #B7B7B7; background: #FAFAFA;}
+#SortUl                              { height: 22px; margin: 3px 0px;}
+#SortUl li                           { float: left; margin: 0px 0px 0px 5px; }
+.li-sa                               { height: 22px; line-height: 22px; vertical-align:middle; padding: 0px 0px 0px 30px; font-weight: bold; }
+.li-sb                               { padding: 0px 5px; }
+
+
+.li-sb,.li-sc                        { height: 22px; line-height: 22px; vertical-align:middle; border:1px solid #C3C3C3; color: #777; cursor: pointer; }
+.li-sb:hover,.li-sc:hover            { color: #333; border:1px solid #92C3B6; }
+.li-sc                               { padding: 0px 20px 0px 5px; background: url(bg000001.jpg) no-repeat 56px top; }
+.li-sc:hover                         { background: url(/images/bg01.jpg) no-repeat 56px top; }
+.bg1,.bg2                            { padding: 0px 20px 0px 5px; color: #333; }
+.bg1,.bg1:hover                      { background: url(/images/bg01.jpg) no-repeat 56px top; border:1px solid #92C3B6; }
+.bg2,.bg2:hover                      { background: url(/images/bg02.jpg) no-repeat 56px top; border:1px solid #92C3B6; }
+.selectedSort                        { color: #333; border:1px solid #92C3B6; }
+
+.in-page-ch                          { width: 720px; height: 35px; background: url(in-p-ch-.jpg); }
+.in-page-ch                          { position: relative; }
+
+
+.ipc-vv                              { position: absolute;  }
+
+.ipc-01,.ipc-02,.ipc-03              { float: left; margin: 4px 0px 4px 6px;}
+.ipc-01                              { margin: 4px 0px 4px 16px; }
+
+.ipc-vv                              { right: 10px; top: 9px; }
+
+.ipc-01 a,
+.ipc-02 a,
+.ipc-03 a                            { display: block; width: 113px; height: 27px; line-height: 27px; *line-height: 29px; vertical-align: middle; text-align: center; font-weight: bold; }
+.ipc-01 a:hover,
+.ipc-02 a:hover,
+.ipc-03 a:hover                      { color: #9d2222; background: url(in-p-ch0.jpg) }
+
+.jiekuaning                          { color: #FFF; } 
+.jiekuaning2                         { color: #9d2222; background: url(in-p-ch0.jpg) }     
+
+.lanmu                               { width: 720px; height: 93px; background: #F2F2F2 url(lanmu-bg.jpg) repeat-x bottom; }
+.lanmu-bgs                           { background: url(lanmu-bh.jpg) repeat-x bottom; }
+.lanmu                               { position: relative; }
+.lm-01,.lm-02,.lm-03,.lm-04,
+.lm-05,.lm-05s,.lm-06,.lm-07,
+.lm-07s,.lm-08,.lm-09,.lm-10,
+.lm-11,.lm-12,.lm-99,.lm-98                               {
+	position: absolute;
+	width: 375px;
+}
+.lm-01                               { left: 13px; top: 9px; }
+.lm-02                               { left: 95px; top: 12px; }
+.lm-03                               { left: 470px; top: 12px; }
+.lm-04                               { left: 95px; top: 38px; }
+.lm-05                               { left: 278px; top: 38px; }
+.lm-05s                              { left: 338px; top: 40px; *top: 38px; }
+.lm-06                               { left: 470px; top: 38px; }
+.lm-07                               { left: 95px; top: 65px; }
+.lm-07s                              { left: 160px; top: 65px; *top: 63px; }
+.lm-08                               { left: 95px; top: 65px; }
+.lm-09                               { left: 470px; top: 65px; }
+.lm-10                               { left: 610px; top: 46px; }
+.lm-98								 { left: 278px; top: 65px; }
+.lm-11                               { left: 664px; bottom: 6px; }
+.lm-12								 { left:620px;top:20px;}
+.lm-99                               { left: 610px; top: 6px; }
+.lm-01                               { padding: 4px; border: 1px solid #CDCDCD; background: #FFF; width: 370px; }
+.lm-01,.lm-01 img                    { width: 64px; height: 64px; }
+.lm-02 a,.lm-04 span                 { font-weight: bold; font-size: 14px;width:60%;}
+.lm-05s                              { width: 100px; height: 10px; border: 1px solid #BCBCBC;}
+.lm-05s ul                           { height: 10px; background: url(jindu000.jpg) repeat-x; }
+.lm-02 span,.lm-03 span,.lm-04 span,.lm-06 span,.lm-09 span                          { color: #FF2900;}
+.lm-10 img                           { width: 85px; height: 20px;}
+.lm-11 img                           { cursor:pointer }
+.lm-12								 {width:100px;height:20px;}
+.lm-12 div ,.lm-12 img				 {float:left;}
+.lm-12 div							 {height:18px;padding:0 8px;border:1px #f04747 solid;margin:0 3px;}
+
+.inm02-right                         { float: right; } 
+.inm02-right div                     { width: 224px;background:url(qmd_500.jpg) left top repeat-y;}
+.inm02-right ul                      { margin-left:10px; margin-right:10px; }
+.inm02-right li                      { border-bottom:1px dashed #ABA8A7; padding: 5px 0px;}
+.inm02-right li a                    { color:#666666;}
+.inm02-right h2,.inm02-right span    { margin: 0px 0px 10px;}
+.inm02-right div p					 {height:12px;width:224px;background:url(qmd_55.jpg) left top no-repeat;}
+/*---------- change links ---------*/
+
+.change-links                        { width: 950px; height: 93px; margin: 0px auto; background: url(qmd_64.jpg) left top no-repeat; }
+.change-links                        { position: relative; }
+.change-links div                    { position: absolute; }
+
+#List                                { left: 0px; top:0px;  }
+#List div                            { width: 950px; height: 93px; } 
+
+#List ul                             { margin-left:150px;}
+#List ul  li                         { float:left; width:100px; margin-top:4px; }
+/*#List ul li img                      { border:1px #ddd solid;padding:1px;}*/
+#List ul li img                      { border:1px #ddd solid; width:93px;  height:30px; margin:0px; padding:0px; float:left;}
+
+.list1-ul-01,
+.list2-ul-01                         { width: 110px; height: 93px; }
+.list1-ul-01 h2,
+.list2-ul-01 h2                      { margin: 40px 0px 0px 30px; }
+
+.list1-ul-02                         { margin: 29px 0px 0px; }
+.list1-ul-02 a                       { margin: 0px 5px; }
+.list1-ul-02 img                     { border: 1px solid #ADADAD; }
+
+.list2-ul-02                         { margin: 29px 0px 0px; }
+.list2-ul-02 li                      { line-height: 150%; }
+.list2-ul-02 a                       { margin: 0px 10px 0px 0px; color: #666; }
+.list2-ul-02 a:hover                 { color: #333; }
+
+#Title                               { left: 20px; top: 55px; }
+#Title li                            { display: block; width: 20px; text-align: center; height: 22px; line-height: 22px;  vertical-align:middle; float: left; cursor:pointer; }
+#Title li:hover,.cu                  { color: red; }
+
+/*---------- end ---------*/

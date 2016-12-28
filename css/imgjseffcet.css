@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	margin:0;
+	padding:0;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+/* 或者给父容器height:1% 因为1%并不会改变实际高度 这样也可以通过W3C */
+.clearfix {
+    height:1%;
+}
+#bor_pic_box {}
+.bor_pic {}

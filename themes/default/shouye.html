@@ -1,0 +1,31 @@
+{include file="header.html"}
+<link type="text/css" rel="stylesheet" href="/images/css.css" />
+
+<!--主体-->
+<div id="about_main"> 
+<div id="about">
+  <ul class="about_left">
+    <li {if $_G.site_presult.nid=="about_us"  || $_G.site_result.nid=="about_us"} class="li2"  {else}   {/if}><a href="/about_us/main.html">关于我们 </a></li>
+    <li {if $_G.site_presult.nid=="lianxi"  || $_G.site_result.nid=="lianxi"} class="li2"  {else}   {/if}><a href="/lianxi/main.html">联系我们 </a></li>
+    <li {if $_G.site_presult.nid=="companypro"  || $_G.site_result.nid=="companypro"} class="li2"  {else}   {/if}><a href="/companypro/main.html">公司证件</a></li>
+	  <li {if $_G.site_presult.nid=="office"  || $_G.site_result.nid=="office"} class="li2"  {else}   {/if}><a href="/office/main.html">公司展示</a></li>
+	  <li {if $_G.site_presult.nid=="team"  || $_G.site_result.nid=="team"} class="li2"  {else}   {/if}><a href="/team/main.html">团队成员</a></li>
+	  <li {if $_G.site_presult.nid=="innovation"  || $_G.site_result.nid=="innovation"} class="li2"  {else}   {/if}><a href="/innovation/main.html">创新风控体系</a></li>
+	<li {if $_G.site_presult.nid=="consultant"  || $_G.site_result.nid=="consultant"} class="li2"  {else}   {/if}><a href="/consultant/main.html">顾问团队</a></li>
+    <li {if $_G.site_presult.nid=="flzc"  || $_G.site_result.nid=="flzc"} class="li2"  {else}   {/if}><a href="/flzc/main.html">法律政策</a></li>
+	<li {if $_G.site_presult.nid=="qualifications"  || $_G.site_result.nid=="qualifications"} class="li2"  {else}   {/if}><a href="/qualifications/main.html">资质与荣誉</a></li>
+  </ul>
+  <div class="about_right">
+    <div class="about_right_tit">{$_G.site_result.name}<span class="sp1"><span class="sp2"></span>当前位置： >> {$_G.site_result.name}</span></div>
+    <div class="about_right_sum">
+    	{$_G.site_result.content}
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+</div>
+<!--主体 end--> 
+
+<!-- 底部 -->
+{include file="new_footer.html"}
+<!-- 底部 end -->

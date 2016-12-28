@@ -1,0 +1,50 @@
+{include file="header.html"}
+<link href="/images/integral.css" rel="stylesheet" type="text/css" />
+<link href="/images/integral1.css" rel="stylesheet" type="text/css" />
+<link href="/images/integral2.css" rel="stylesheet" type="text/css" />
+<!--头部 end-->
+<!--主体-->
+<div id="about" style="width:988px;background:#f9f9eb;margin:0 auto;">
+	<div class="about_rightit" style="padding:10px 20px;">当前位置：首页 >> <a href="/integral/main.html">积分商城</a> >> 收货地址</div>
+    <div class="bg">
+        <div class="ztdh">
+    		<form name="aspnetForm" method="post" action="" id="aspnetForm">
+				<input name="ctl00$c1$hprovince" type="hidden" id="ctl00_c1_hprovince" />
+				<input name="ctl00$c1$hcity" type="hidden" id="ctl00_c1_hcity" />
+				<input name="ctl00$c1$harea" type="hidden" id="ctl00_c1_harea" />
+		        <div class="zdzb3">
+		            <div class="warp">
+		                <h3>确认收货地址</h3>
+		                <dl>
+		                <dt>收货地址：<strong>*</strong></dt>
+		                    <dd>
+		                        <input name="address" type="text" value="" id="address" required="" style="width:550px;" /></dd>
+		                <dt>收货人姓名：<strong>*</strong></dt>
+		                    <dd>
+		                        <input name="receiver" type="text" value="" id="receiver" required="" /></dd>
+		                <dt>手机号码：<strong>*</strong></dt>
+		                    <dd>
+		                        <input name="phone" type="text" value="" id="phone" required="" /></dd>
+		                <dt>备注：<strong></strong></dt>
+		                    <dd>
+		                        <input name="remark" type="text" value="" id="remark" /></dd>
+		                </dl>
+		                <h3>确认兑换物品</h3>
+		                <div class="warp2">
+		                    <a target="_blank" href="/integral/product/main.html?id={$_A.integral_result.id}"><img src="/{$_A.integral_result.litpic}" alt="" /></a><h4><a target="_blank" href="/integral/product/main.html?id={$_A.integral_result.id}">{$_A.integral_result.name} </a></h4>
+		                    <strong>{$_A.integral_result.need}积分</strong>
+		                    <div class="bt">
+		                        <input type="submit" name="submit" value="提交" onclick="return check_info();" id="ctl00_c1_Button1" />
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </form>
+        </div>
+    </div>
+	
+    <div class="clear"></div>
+</div>
+<!--主体 end-->
+<!--底部-->
+{include file="footer.html"}

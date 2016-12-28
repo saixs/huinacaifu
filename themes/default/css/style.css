@@ -1,0 +1,51 @@
+.zblb_top {
+	TEXT-ALIGN: left; WIDTH: 736px; BACKGROUND: url(../default/qiepian_36_2.gif) no-repeat; HEIGHT: 21px
+}
+.zblb_top SPAN {
+	LINE-HEIGHT: 21px; COLOR: #fff; MARGIN-LEFT: 50px; FONT-SIZE: 12px
+}
+.zblb_row {
+	WIDTH: 736px; BACKGROUND: url(../default/zblb.gif) no-repeat; HEIGHT: 535px
+}
+.zblb_row_left {
+	TEXT-ALIGN: left; MARGIN-TOP: 10px; WIDTH: 362px; FLOAT: left
+}
+.zblb_row_left_1 {
+	WIDTH: 352px; MARGIN-BOTTOM: 1px; HEIGHT: 80px
+}
+.zblb_row_left UL {
+	MARGIN-LEFT: 15px
+}
+.zblb_row_left UL LI {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; LIST-STYLE-TYPE: none; MARGIN-TOP: 0px; MARGIN-LEFT: 0px; BORDER-TOP: medium none; LIST-STYLE-IMAGE: none; BORDER-RIGHT: medium none
+}
+.zblb_row_left UL LI A {
+	LIST-STYLE-TYPE: none; COLOR: #09f; FONT-SIZE: 16px; LIST-STYLE-IMAGE: none; TEXT-DECORATION: none
+}
+.zblb_row_left UL LI IMG {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BORDER-TOP: medium none; BORDER-RIGHT: medium none
+}
+.zblb_row_left UL LI SPAN {
+	MARGIN-TOP: 0px; FONT-SIZE: 14px
+}
+.zblb_row_right {
+	TEXT-ALIGN: left; MARGIN-TOP: 10px; WIDTH: 362px; FLOAT: left
+}
+.zblb_row_right_1 {
+	WIDTH: 352px; MARGIN-BOTTOM: 1px; HEIGHT: 80px
+}
+.zblb_row_rihgt UL {
+	MARGIN-LEFT: 0px
+}
+.zblb_row_right UL LI {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; LIST-STYLE-TYPE: none; MARGIN-TOP: 0px; MARGIN-LEFT: 0px; BORDER-TOP: medium none; LIST-STYLE-IMAGE: none; BORDER-RIGHT: medium none
+}
+.zblb_row_right UL LI IMG {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BORDER-TOP: medium none; BORDER-RIGHT: medium none
+}
+.zblb_row_right UL LI SPAN {
+	MARGIN-TOP: 0px; FONT-SIZE: 14px
+}
+.zblb_row_right UL LI A {
+	LIST-STYLE-TYPE: none; COLOR: #09f; FONT-SIZE: 16px; LIST-STYLE-IMAGE: none; TEXT-DECORATION: none
+}
